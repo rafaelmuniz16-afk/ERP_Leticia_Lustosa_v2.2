@@ -12,7 +12,7 @@
     natal: {photo: 'Natal.png', audio: 'Natal.mp3'},
     pascoa: {photo: 'Pascoa.png', audio: 'Pascoa.mp3'},
     'festa-junina': {photo: 'SaoJoao.png', audio: 'SaoJoao.mp3'},
-    'glassy-crm': {photo: 'foto.jpg', audio: 'Cyberpunk.mp3'}
+    'glassy-crm': {photo: 'foto.jpg', audio: 'musica.mp3'}
   };
   const folders = {
     photo: ['./', 'assets/', 'assets/images/', 'assets/img/'],
