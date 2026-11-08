@@ -1,0 +1,94 @@
+/* ERP Letícia Lustosa v2.2 — identificação da barra superior
+   Ajuste visual autorizado pela direção em 07/11/2026.
+   Aplica-se aos 11 temas Cinematic, sem alterar navegação ou regras de negócio.
+   A barra de pesquisa permanece acessível; a Auditoria continua no menu lateral/superior.
+*/
+html[data-erp-theme] #cr-chrome {
+  column-gap: clamp(9px, 1.2vw, 18px);
+}
+html[data-erp-theme] #cr-chrome .cr-logo {
+  flex: 0 0 auto;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none;
+  font-size: 18px !important;
+  letter-spacing: -.035em;
+  white-space: nowrap;
+  gap: 10px;
+}
+html[data-erp-theme] #cr-chrome .cr-logo-mark {
+  flex: 0 0 auto;
+}
+html[data-erp-theme] #cr-chrome .cr-logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .38em;
+  min-width: 0;
+}
+html[data-erp-theme] #cr-chrome .cr-logo-version {
+  font-size: .75em;
+  font-weight: 700;
+  letter-spacing: 0;
+  opacity: .86;
+}
+html[data-erp-theme] #cr-chrome .cr-top-search {
+  flex: 1 1 260px;
+  width: auto;
+  max-width: 440px;
+  min-width: 92px;
+  margin-left: clamp(4px, 1vw, 16px);
+}
+html[data-erp-theme] #cr-chrome .cr-top-search span {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html[data-erp-theme] #cr-chrome .cr-chrome-spacer {
+  flex: 1 1 0;
+  min-width: 0;
+}
+html[data-erp-theme] #cr-chrome .cr-nav-actions {
+  flex: 0 0 auto;
+}
+
+/* Notebooks: reduzir o tamanho sem encurtar nem ocultar o nome da versão. */
+@media (max-width: 1100px) {
+  html[data-erp-theme] #cr-chrome .cr-logo { font-size: 15px !important; gap: 7px; }
+  html[data-erp-theme] #cr-chrome .cr-logo-version { font-size: .76em; }
+  html[data-erp-theme] #cr-chrome .cr-top-search { min-width: 64px; margin-left: 4px; }
+}
+
+/* Telas estreitas: preservar as duas partes do título em linhas próprias. */
+@media (max-width: 740px) {
+  html[data-erp-theme] #cr-chrome { column-gap: 6px !important; padding-left: 7px !important; padding-right: 7px !important; }
+  html[data-erp-theme] #cr-chrome .cr-logo {
+    flex: 0 1 auto;
+    font-size: clamp(11px, 2.5vw, 14px) !important;
+    gap: 5px;
+    min-width: 0 !important;
+  }
+  html[data-erp-theme] #cr-chrome .cr-logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    line-height: 1.2;
+  }
+  html[data-erp-theme] #cr-chrome .cr-logo-main { white-space: nowrap; }
+  html[data-erp-theme] #cr-chrome .cr-logo-version { font-size: clamp(9px, 1.8vw, 11px); white-space: nowrap; }
+  html[data-erp-theme] #cr-chrome .cr-top-search {
+    flex: 1 1 32px;
+    width: auto;
+    min-width: 31px;
+    max-width: 130px;
+    height: 34px;
+    padding: 0 7px;
+    margin-left: 0;
+    justify-content: center;
+  }
+  html[data-erp-theme] #cr-chrome .cr-top-search span { display: none !important; }
+  html[data-erp-theme] #cr-chrome .cr-chrome-spacer { display: none; }
+  html[data-erp-theme] #cr-chrome .cr-nav-actions { gap: 1px !important; }
+  html[data-erp-theme] #cr-chrome .cr-tool { flex: 0 0 27px; width: 27px !important; height: 31px !important; }
+}

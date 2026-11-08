@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 185" role="img" aria-label="Abóbora de Halloween">
+<defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffa84c"/><stop offset=".52" stop-color="#fa7625"/><stop offset="1" stop-color="#9f3b12"/></linearGradient><filter id="g"><feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#ff6e1b" flood-opacity=".25"/></filter></defs>
+<g filter="url(#g)">
+<path d="M99 49q-6-27 11-39 11-4 16 2-10 6-10 37Z" fill="#427c43" stroke="#31592f" stroke-width="5"/>
+<path d="M101 51q-42-19-66 10-34 17-19 68 15 45 87 47 68 4 92-42 19-41-15-72-33-27-79-11Z" fill="url(#a)" stroke="#7a391a" stroke-width="6"/>
+<path d="M93 58q-26 17-26 53 0 35 33 58m30-111q26 21 25 58-1 31-29 51" stroke="#dc571a" stroke-width="7" fill="none" opacity=".55"/>
+<path d="m46 97 45 7-30 23Zm115-1-44 8 32 22Zm-77 43q26 18 52-1l-5 18q-21 12-39-2Z" fill="#281124" stroke="#411521" stroke-width="2" stroke-linejoin="round"/>
+</g>
+</svg>

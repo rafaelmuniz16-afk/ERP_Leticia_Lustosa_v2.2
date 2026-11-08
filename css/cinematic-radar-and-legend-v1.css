@@ -1,0 +1,74 @@
+/* ===============================================================
+   ERP | MOTION v2.1.3 — Fase 07 · Refinamento Radar + Legenda
+   Exclusivo de apresentação, sem impacto nos indicadores.
+   =============================================================== */
+
+/* Universo Cinematic: mantém fontes temáticas (sem mexer na navegação). */
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],
+[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],
+[data-erp-theme="pascoa"],[data-erp-theme="halloween"],
+[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+#sideAuroraCard .side-aurora-msg {
+  display:flex!important;
+  gap:10px!important;
+  align-items:flex-start!important;
+  font-family:var(--motion-type-body,'DM Sans',sans-serif)!important;
+  font-size:clamp(11.1px,.79vw,12.7px)!important;
+  font-weight:var(--motion-weight-ui,550)!important;
+  letter-spacing:-.01em!important;
+  line-height:1.65!important;
+  overflow-wrap:break-word!important;
+  color:var(--cr-ink,var(--text))!important;
+  min-width:0;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],
+[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],
+[data-erp-theme="pascoa"],[data-erp-theme="halloween"],
+[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+#sideAuroraCard .motion-radar-icon {
+  box-sizing:border-box;
+  display:grid;
+  flex:0 0 25px;
+  place-items:center;
+  width:25px;height:25px;
+  margin-top:1px;
+  border-radius:9px;
+  color:var(--cr-accent,var(--live-accent))!important;
+  background:color-mix(in srgb,var(--cr-accent,var(--live-accent)) 9%,var(--cr-panel,#fff))!important;
+  border:1px solid color-mix(in srgb,var(--cr-accent,var(--live-accent)) 17%,transparent)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+#sideAuroraCard .motion-radar-icon svg {width:15px;height:15px;display:block;overflow:visible}
+#sideAuroraCard .motion-radar-content {flex:1;min-width:0;overflow-wrap:anywhere}
+#sideAuroraCard .motion-radar-original {display:none!important}
+#sideAuroraCard .motion-radar-keyword {font-weight:750;letter-spacing:-.015em}
+
+/* Legenda de Produção: pontos mínimos sem o anel grosseiro. */
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],
+[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],
+[data-erp-theme="pascoa"],[data-erp-theme="halloween"],
+[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+#cadastro > .panel:first-child .erp-type-label {
+  column-gap:7px!important;
+  align-items:center!important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],
+[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],
+[data-erp-theme="pascoa"],[data-erp-theme="halloween"],
+[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+#cadastro > .panel:first-child .erp-type-dot {
+  display:inline-block!important;
+  flex:0 0 6px!important;
+  width:6px!important;height:6px!important;
+  min-width:6px!important;min-height:6px!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:var(--type-accent)!important;
+  box-shadow:none!important;
+  transform:none!important;
+  outline:none!important;
+  vertical-align:middle!important;
+}
+@media(prefers-reduced-motion:reduce){
+  #sideAuroraCard .motion-radar-icon,#cadastro .erp-type-dot{transition:none!important}
+}

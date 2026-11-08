@@ -1,0 +1,33 @@
+/* Desenvolvimento Geral — QA-20261105-001 (Glassy CRM mobile width).
+ * Scoped correction: avoid content-box 100% widths + internal paddings
+ * escaping the mobile main column. Do NOT mask the document overflow.
+ * Motion QA-CW-031-001 audit fixes are intentionally untouched.
+ */
+@media (max-width:930px) {
+  html[data-erp-theme="glassy-crm"] .main > .status {
+    box-sizing:border-box !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+  html[data-erp-theme="glassy-crm"] .main > .status .status-left {
+    min-width:0;
+  }
+  html[data-erp-theme="glassy-crm"] .main > .status .progress {
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+}
+
+/* On 320px/very narrow screens, stack summary cells instead of
+ * squeezing the values into cropped two-column content boxes. */
+@media (max-width:359px) {
+  html[data-erp-theme="glassy-crm"] .analytics-section > .panel:last-child .summary-list {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html[data-erp-theme="glassy-crm"] .analytics-section > .panel:last-child .summary-row {
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    overflow-wrap:anywhere;
+  }
+}

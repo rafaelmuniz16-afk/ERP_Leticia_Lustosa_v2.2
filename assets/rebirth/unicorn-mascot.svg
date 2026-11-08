@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 350" role="img" aria-label="Unicórnio Aurora">
+<defs>
+ <linearGradient id="fur" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#eee5ff"/></linearGradient>
+ <linearGradient id="hair" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f69ac6"/><stop offset=".42" stop-color="#b093ff"/><stop offset=".77" stop-color="#82d5e5"/><stop offset="1" stop-color="#7bd5a6"/></linearGradient>
+ <linearGradient id="horn" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff4af"/><stop offset="1" stop-color="#f8aa53"/></linearGradient>
+ <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#8f73ba" flood-opacity=".26"/></filter>
+</defs>
+<g opacity=".8" fill="#d8befa"><path d="M42 73l5 11 12 2-12 5-4 11-5-11-11-4 11-3Z"/><path d="M276 88l4 7 9 1-9 4-3 9-4-8-8-4 8-3Z"/><circle cx="281" cy="172" r="4" fill="#f3a5cc"/><circle cx="38" cy="195" r="3" fill="#e7c6ff"/></g>
+<g filter="url(#shadow)">
+ <!-- tail --> <path d="M222 223q48-28 45 15-5 34-47 33 28-21 10-33Z" fill="url(#hair)" stroke="#8371b0" stroke-width="6" stroke-linejoin="round"/>
+ <!-- body --> <ellipse cx="158" cy="250" rx="73" ry="68" fill="url(#fur)" stroke="#8d7aac" stroke-width="7"/>
+ <path d="M110 285q-9 43 17 45 22 3 25-18l-3-18M188 284q-9 38 14 45 22 4 24-18l-10-34" fill="#fff5ff" stroke="#8d7aac" stroke-width="7" stroke-linecap="round"/>
+ <ellipse cx="127" cy="318" rx="21" ry="13" fill="#f7a7c6" stroke="#8d7aac" stroke-width="5"/><ellipse cx="205" cy="316" rx="21" ry="13" fill="#f7a7c6" stroke="#8d7aac" stroke-width="5"/>
+ <!-- ears --> <path d="M86 113Q47 47 76 28q32-7 52 81Z" fill="#fffaff" stroke="#8974af" stroke-width="7"/><path d="M96 99q-30-54-21-55 17 5 25 64Z" fill="#f7abc9"/><path d="M217 113q37-67 20-85-32-17-51 81Z" fill="#fffaff" stroke="#8974af" stroke-width="7"/><path d="M211 97q25-54 20-51-18 4-23 57Z" fill="#f6add3"/>
+ <!-- horn --> <path d="M146 107 171 7l26 100Z" fill="url(#horn)" stroke="#9a77b7" stroke-width="6" stroke-linejoin="round"/><path d="m160 67 26 5m-19-30 18 5" stroke="#e0a76c" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+ <!-- mane behind --> <path d="M103 110q-23-36 5-58 21-14 41 11 20-37 46-18 15 12 15 31 28-5 38 24 7 27-12 45 23 42-12 70-9-12-20-25l-94-12Z" fill="url(#hair)" stroke="#8371b0" stroke-width="7" stroke-linejoin="round"/>
+ <!-- head --> <path d="M78 130q4-64 77-72 82-5 93 67 11 91-74 118-77 9-100-45-7-23 4-68Z" fill="url(#fur)" stroke="#8977a9" stroke-width="7"/>
+ <!-- fringe --> <path d="M76 137Q68 84 106 66q13-15 28 1 10-25 34-17 14 5 15 24 24-13 41 3 10 17-1 43-17-14-31-10-18 22-50 15-27 19-66 12Z" fill="url(#hair)" stroke="#8371b0" stroke-width="7" stroke-linejoin="round"/>
+ <!-- muzzle --> <ellipse cx="162" cy="192" rx="68" ry="40" fill="#fff9ff" opacity=".72"/>
+ <!-- eyes --> <path d="M104 157q15-19 31 0m56 0q16-19 31 0" fill="none" stroke="#393454" stroke-width="8" stroke-linecap="round"/>
+ <path d="m113 145-5-9m104 9 6-10" stroke="#393454" stroke-width="4" stroke-linecap="round"/>
+ <!-- cheeks --> <ellipse cx="99" cy="187" rx="19" ry="12" fill="#ff9abc" opacity=".73"/><ellipse cx="226" cy="187" rx="19" ry="12" fill="#ff9abc" opacity=".73"/>
+ <!-- nose --> <path d="M151 191q10 5 20 0" stroke="#b57fa6" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M149 208q13 12 25 0" stroke="#b57fa6" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <!-- star necklace --> <path d="M157 246l5 8 9 2-8 5-2 10-6-8-9-2 9-6Z" fill="#f2bf71" stroke="#d5a263" stroke-width="2"/>
+</g>
+</svg>

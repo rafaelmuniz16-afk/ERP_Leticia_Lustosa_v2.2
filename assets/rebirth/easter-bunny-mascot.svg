@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 320" fill="none" role="img" aria-labelledby="title desc">
+<title id="title">Coelhinha de Páscoa Cinematic</title>
+<desc id="desc">Mascote vetorial de Páscoa com coelhinha sorridente segurando um ovo decorado e cestinha floral.</desc>
+<defs>
+  <linearGradient id="fur" x1="86" y1="39" x2="186" y2="253" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#fffdf6"/>
+    <stop offset="1" stop-color="#f0e5dc"/>
+  </linearGradient>
+  <linearGradient id="pink" x1="82" y1="111" x2="186" y2="230" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#ffb0c9"/>
+    <stop offset="1" stop-color="#ef6ea6"/>
+  </linearGradient>
+  <linearGradient id="blue" x1="137" y1="132" x2="183" y2="210" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#9be0ff"/>
+    <stop offset="1" stop-color="#63b7ff"/>
+  </linearGradient>
+  <linearGradient id="yellow" x1="110" y1="136" x2="160" y2="226" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#fff1ab"/>
+    <stop offset="1" stop-color="#f7c854"/>
+  </linearGradient>
+  <linearGradient id="basket" x1="39" y1="191" x2="114" y2="255" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#d39f67"/>
+    <stop offset="1" stop-color="#9f6b39"/>
+  </linearGradient>
+  <filter id="shadow" x="0" y="0" width="270" height="320" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feDropShadow dx="0" dy="11" stdDeviation="8" flood-color="#8b5c74" flood-opacity=".21"/>
+  </filter>
+</defs>
+<circle cx="47" cy="88" r="5" fill="#ffe696"/>
+<circle cx="217" cy="60" r="4" fill="#ffd2e2"/>
+<path d="M216 89l4 8 8 4-8 4-4 8-4-8-8-4 8-4 4-8z" fill="#ffe38d"/>
+<g filter="url(#shadow)">
+  <ellipse cx="134" cy="283" rx="60" ry="12" fill="#eaccc3" opacity=".4"/>
+  <!-- basket -->
+  <path d="M44 208c0-20 16-36 36-36s36 16 36 36v28H44v-28z" fill="url(#basket)"/>
+  <path d="M62 180c9-15 29-15 38 0" stroke="#a16d3e" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="67" cy="205" rx="11" ry="14" fill="#ffbdd0"/>
+  <ellipse cx="84" cy="199" rx="11" ry="14" fill="#b2e7ff"/>
+  <ellipse cx="97" cy="208" rx="10" ry="13" fill="#fff0a9"/>
+  <path d="M57 217h45" stroke="#f0c89c" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+
+  <!-- ears -->
+  <path d="M101 42c-1-25 10-38 23-38 13 0 24 12 24 34 0 20-10 51-22 51-12 0-24-27-25-47z" fill="url(#fur)"/>
+  <path d="M122 16c0-11 4-17 10-17 7 0 11 8 11 20 0 16-4 38-10 38s-11-18-11-41z" fill="#ffc4d6"/>
+  <path d="M142 39c0-23 11-35 25-35 14 0 24 11 24 33 0 21-12 52-24 52s-25-29-25-50z" fill="url(#fur)"/>
+  <path d="M162 16c0-11 4-17 11-17 7 0 11 8 11 20 0 17-5 39-11 39-6 0-11-19-11-42z" fill="#ffc4d6"/>
+
+  <!-- body -->
+  <ellipse cx="136" cy="212" rx="56" ry="61" fill="url(#fur)"/>
+  <ellipse cx="136" cy="215" rx="27" ry="31" fill="#fff7ef"/>
+  <ellipse cx="136" cy="126" rx="47" ry="44" fill="url(#fur)"/>
+  <ellipse cx="103" cy="130" rx="13" ry="11" fill="#f7c5d2" opacity=".65"/>
+  <ellipse cx="169" cy="130" rx="13" ry="11" fill="#f7c5d2" opacity=".65"/>
+  <circle cx="119" cy="120" r="5.2" fill="#4b3943"/>
+  <circle cx="153" cy="120" r="5.2" fill="#4b3943"/>
+  <circle cx="120.6" cy="118.2" r="1.3" fill="#fff"/>
+  <circle cx="154.6" cy="118.2" r="1.3" fill="#fff"/>
+  <ellipse cx="136" cy="133" rx="8.8" ry="7.2" fill="#f2a3b7"/>
+  <path d="M131 135l5 4 5-4" stroke="#9d6272" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 144c7 7 24 7 31 0" stroke="#94616e" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="97" cy="165" rx="12" ry="18" fill="url(#fur)" transform="rotate(-20 97 165)"/>
+  <ellipse cx="176" cy="165" rx="12" ry="18" fill="url(#fur)" transform="rotate(20 176 165)"/>
+  <ellipse cx="118" cy="260" rx="13" ry="18" fill="url(#fur)"/>
+  <ellipse cx="155" cy="260" rx="13" ry="18" fill="url(#fur)"/>
+
+  <!-- dress -->
+  <path d="M95 188c9-14 25-21 41-21 17 0 32 8 41 21l10 39c2 10-5 19-16 19h-70c-11 0-18-10-16-20l10-38z" fill="url(#pink)"/>
+  <path d="M108 188c7-7 18-10 28-10s20 4 27 10" stroke="#fff0f5" stroke-width="5" stroke-linecap="round"/>
+  <path d="M108 214h55" stroke="#ffd7e6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="136" cy="203" r="6" fill="#fff8fd"/>
+  <circle cx="136" cy="222" r="6" fill="#fff8fd"/>
+
+  <!-- egg in hand -->
+  <g transform="translate(167 176) rotate(16)">
+    <ellipse cx="0" cy="0" rx="20" ry="26" fill="url(#blue)"/>
+    <path d="M-18 -2h36" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+    <path d="M-10 -12c5 7 12 7 17 0M-10 12c5-7 12-7 17 0" stroke="#fff6c6" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="-8" cy="-2" r="3" fill="#ffe389"/>
+    <circle cx="7" cy="-2" r="3" fill="#ffe389"/>
+    <circle cx="0" cy="9" r="3" fill="#ffe389"/>
+  </g>
+  <path d="M177 178c10 2 18 11 19 23" stroke="#f2ebe4" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- bow and flowers -->
+  <path d="M126 166c-7-7-17-7-22-1-4 5-3 11 2 15 6 4 14 1 20-6z" fill="#f9a8d4"/>
+  <path d="M146 166c7-7 17-7 22-1 4 5 3 11-2 15-6 4-14 1-20-6z" fill="#f9a8d4"/>
+  <circle cx="136" cy="170" r="6.2" fill="#ffe08a"/>
+  <path d="M96 92l4 8 8 4-8 4-4 8-4-8-8-4 8-4 4-8z" fill="#ffe89a" opacity=".8"/>
+</g>
+</svg>

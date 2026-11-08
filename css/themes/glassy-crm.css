@@ -1,0 +1,38 @@
+/* Glass · Liquid Glass Edition — base ERP components + preserved easter egg styles. */
+@import url('./escuro.css');
+html[data-erp-theme="glassy-crm"] .glassy-click-spark {
+  position: fixed; z-index: 11000; pointer-events: none; font: 17px monospace; color: #a4f3ff;
+  text-shadow: 0 0 8px #8bcdff; animation: glassy-click-burst .8s ease-out forwards;
+}
+html[data-erp-theme="glassy-crm"] .glassy-click-spark:nth-of-type(2n) { color: #c19bff; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-popup {
+  width: min(520px,calc(100vw - 24px)); padding: 20px 12px; color: #f0eafc;
+  border: 1px solid #c3acff66; border-radius: 24px; background: linear-gradient(145deg,#282139f5,#07141bf5);
+  box-shadow: inset 0 1px 1px #fff4,0 0 70px #8260c544;
+}
+html[data-erp-theme="glassy-crm"] .glassy-matrix-popup .swal2-title { font-size: clamp(17px,4vw,24px); padding: 8px; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-popup .swal2-html-container { margin: 12px 8px 0; padding: 0; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-frame {
+  position: relative; width: min(100%,calc(56dvh * .5628)); margin: 0 auto; overflow: hidden;
+  border: 1px solid #96cfff40; border-radius: 16px; background: #03080e;
+}
+html[data-erp-theme="glassy-crm"] .glassy-matrix-photo { display: block; width: 100%; height: auto; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-canvas { display: none; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-frame.is-ready .glassy-matrix-photo { position: absolute; opacity: 0; pointer-events: none; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-frame.is-ready .glassy-matrix-canvas { display: block; width: 100%; height: auto; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-message { margin: 14px 0 0; font-size: 12px; line-height: 1.7; color: #cbc9de; }
+html[data-erp-theme="glassy-crm"] .glassy-matrix-message strong { color: #a7e8f4; font-weight: 600; }
+html[data-erp-theme="glassy-crm"][data-erp-paused="true"] .glassy-click-spark { animation-play-state: paused; }
+html[data-erp-theme="glassy-crm"][data-erp-effects="false"] .glassy-click-spark { display: none; }
+ }
+@keyframes glassy-click-burst { from { opacity: 1; transform: translate(-50%,-50%) scale(.5); } to { opacity: 0; transform: translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(var(--spin)) scale(1.2); } }
+@media(max-width:600px) {
+  
+  
+}
+@media(prefers-reduced-motion:reduce) {
+  
+  html[data-erp-theme="glassy-crm"] .glassy-click-spark { display: none; }
+}
+
+

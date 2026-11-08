@@ -1,0 +1,49 @@
+/* ERP Motion | Fase 03 — dimensionamento estável do gráfico Evolução diária.
+ * Evita feedback entre o redimensionamento responsivo do canvas (Chart.js)
+ * e a altura do próprio contêiner, que poderia crescer a cada repaint.
+ * Aplica apenas tamanhos já usados nas respectivas famílias de temas.
+ * Não modifica valores, dados, datasets, fórmulas nem lógica dos gráficos.
+ */
+html:is(
+  [data-erp-theme="original"],
+  [data-erp-theme="claro"],
+  [data-erp-theme="escuro"],
+  [data-erp-theme="natal"],
+  [data-erp-theme="ano-novo"],
+  [data-erp-theme="halloween"],
+  [data-erp-theme="festa-junina"],
+  [data-erp-theme="terror"],
+  [data-erp-theme="pascoa"],
+  [data-erp-theme="cyberpunk"],
+  [data-erp-theme="glassy-crm"]
+) .analytics-section > .panel:first-child .chart-wrap {
+  height:290px!important;
+  min-height:290px!important;
+  max-height:290px!important;
+  flex-shrink:0!important;
+}
+@media (max-width:930px) {
+  html:is(
+    [data-erp-theme="original"],
+    [data-erp-theme="claro"],
+    [data-erp-theme="escuro"],
+    [data-erp-theme="natal"],
+    [data-erp-theme="ano-novo"],
+    [data-erp-theme="halloween"],
+    [data-erp-theme="festa-junina"],
+    [data-erp-theme="terror"],
+    [data-erp-theme="pascoa"],
+    [data-erp-theme="cyberpunk"],
+    [data-erp-theme="glassy-crm"]
+  ) .analytics-section > .panel:first-child .chart-wrap {
+    height:269px!important;
+    min-height:269px!important;
+    max-height:269px!important;
+  }
+}
+
+/* Limite visual do elemento gráfico, sem interferir no motor Chart.js. */
+html[data-erp-theme] .analytics-section > .panel:first-child .chart-wrap > canvas {
+  max-height:100%!important;
+  max-width:100%!important;
+}

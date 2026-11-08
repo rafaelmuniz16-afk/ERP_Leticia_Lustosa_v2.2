@@ -1,0 +1,268 @@
+/* ================================================================
+ * ERP | Motion & Animações — ARRAIÁ CINEMATIC, fase 01
+ * Exclusivo para data-erp-theme="festa-junina". Visual only.
+ * A camada base CSS v17 e todos os patches estruturais são imutáveis.
+ * ================================================================ */
+html[data-erp-theme="festa-junina"] {
+  --cr-ink:#503724;
+  --cr-muted:#95755d;
+  --cr-bg:#fbf4e6;
+  --cr-panel:#fffdfa;
+  --cr-panel2:#fff9f0;
+  --cr-top:rgba(255,252,246,.98);
+  --cr-side:rgba(255,250,241,.96);
+  --cr-line:#ead9bf;
+  --cr-accent:#cb6040;
+  --cr-accent2:#37946f;
+  --cr-halo:#f2be6e;
+  --cr-soft:#fff0dd;
+  --cr-shadow:0 12px 32px rgba(105,67,38,.075),0 2px 7px rgba(95,65,39,.04);
+  --cr-chart:#fffaf2;
+  --v13-neon:rgba(219,135,73,.33);
+  --v13-glow:rgba(234,164,88,.14);
+  --junina-brown:#6e452e;
+  --junina-bg:#fbf4e6;
+  --junina-surface:#fffdfa;
+  --junina-surface-2:#fff9f0;
+  --junina-border:#ead9bf;
+  --text-main:#503724;
+  --text-muted:#95755d;
+  --text-dim:#a38775;
+  --sidebar:198px;
+  color-scheme:light;
+}
+html[data-erp-theme="festa-junina"] body {
+  background:
+    radial-gradient(ellipse at 12% 9%,rgba(244,186,111,.19) 0,transparent 30%),
+    radial-gradient(ellipse at 89% 18%,rgba(79,156,117,.11) 0,transparent 32%),
+    radial-gradient(ellipse at 46% 78%,rgba(205,103,76,.085) 0,transparent 33%),
+    #fbf4e6 !important;
+  color:var(--cr-ink) !important;
+}
+html[data-erp-theme="festa-junina"] body::before,
+html[data-erp-theme="festa-junina"] body::after{
+  content:"" !important;display:block !important;position:fixed !important;
+  border-radius:50%;filter:blur(72px);pointer-events:none !important;z-index:0;
+}
+html[data-erp-theme="festa-junina"] body::before{
+  top:13%;left:-8%;width:34vw;height:34vw;background:radial-gradient(circle,rgba(250,185,104,.21),transparent 70%);
+}
+html[data-erp-theme="festa-junina"] body::after{
+  top:9%;right:-10%;width:30vw;height:30vw;background:radial-gradient(circle,rgba(77,164,131,.14),transparent 70%);
+}
+html[data-erp-theme="festa-junina"] #cr-chrome{border-bottom:1px solid rgba(222,189,148,.58)!important;box-shadow:0 5px 20px rgba(116,75,44,.05)!important}
+html[data-erp-theme="festa-junina"] #cr-chrome .cr-logo-mark i:nth-child(1){background:#db7254!important}
+html[data-erp-theme="festa-junina"] #cr-chrome .cr-logo-mark i:nth-child(2){background:#e9b85e!important}
+html[data-erp-theme="festa-junina"] #cr-chrome .cr-logo-mark i:nth-child(3){background:#509a72!important}
+html[data-erp-theme="festa-junina"] #cr-chrome .cr-logo-mark i:nth-child(4){background:#6b97ca!important}
+html[data-erp-theme="festa-junina"] #cr-chrome .cr-avatar{background:linear-gradient(135deg,#d36b4b,#e4b15e)!important}
+html[data-erp-theme="festa-junina"] .topbar .page-title .cr-head-accent{
+  color:#b8543a!important;background:linear-gradient(130deg,#ad4a35,#df8b4c 67%,#a65a3c);background-clip:text;-webkit-text-fill-color:transparent;
+}
+html[data-erp-theme="festa-junina"] :is(.main .panel,.main .status,.main .kpi,.sidebar .nav,.sidebar .side-card,#cr-mascot-house){
+  border-color:var(--v13-neon)!important;
+  box-shadow:0 0 0 1px rgba(229,169,97,.13),0 0 16px var(--v13-glow),var(--cr-shadow)!important;
+}
+html[data-erp-theme="festa-junina"] .main .panel{background:linear-gradient(145deg,#fffefb 0%,#fff9f2 100%)!important}
+html[data-erp-theme="festa-junina"] .main .panel .panel-head{position:relative;z-index:4}
+html[data-erp-theme="festa-junina"] #cr-theme-picker{position:relative;z-index:32}
+html[data-erp-theme="festa-junina"] :is(#cr-chrome,.topbar,#cr-theme-picker,#cr-theme-picker select){pointer-events:auto}
+html[data-erp-theme="festa-junina"] .sidebar .nav .nav-icon{font-family:Manrope,'DM Sans',sans-serif!important;font-size:17px!important}
+html[data-erp-theme="festa-junina"] .sidebar .nav-btn:is(:hover,.active){background:linear-gradient(112deg,#fbecd4,#f8e7d8)!important;color:#a94f35!important;border-color:#ecd0ab!important}
+html[data-erp-theme="festa-junina"] .main .btn-primary{color:#fff!important;text-shadow:0 1px 2px rgba(73,43,19,.13)}
+html[data-erp-theme="festa-junina"] #sideAuroraCard::before{background:linear-gradient(90deg,#de8c57,#3a9473,transparent)!important}
+html[data-erp-theme="festa-junina"] .kpi .kpi-icon{color:#c15b3b!important;background:#fff0d9!important}
+html[data-erp-theme="festa-junina"] #cr-portal{pointer-events:none!important;isolation:isolate}
+html[data-erp-theme="festa-junina"] #cr-portal *,
+html[data-erp-theme="festa-junina"] .cr-orbital-illustration,
+html[data-erp-theme="festa-junina"] .jn-sky-garland,
+html[data-erp-theme="festa-junina"] .jn-garland-line{pointer-events:none!important}
+
+/* Background strands: anchored above decorative surfaces, never above the theme selector. */
+html[data-erp-theme="festa-junina"] .jn-sky-garland{
+  position:fixed;top:59px;right:0;left:198px;height:53px;z-index:5;
+  background:url('../assets/rebirth/junina-bunting.svg') repeat-x left top / 220px 66px;
+  opacity:.54;filter:drop-shadow(0 3px 3px rgba(109,77,48,.14));
+  mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.8) 65%,transparent 100%);
+}
+/* The SVG mascot shares the original 10-click DOM ID and bubble. */
+html[data-erp-theme="festa-junina"] #cr-mascot-house{
+  position:relative;min-height:169px!important;isolation:isolate;overflow:visible!important;
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house::before{
+  content:"";position:absolute;inset:8px 10px 27px;border-radius:50%;z-index:0;
+  background:radial-gradient(circle,rgba(251,197,100,.28),rgba(253,233,194,.12) 47%,transparent 69%);
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house::after{
+  content:"";position:absolute;top:24px;right:10px;width:21px;height:32px;z-index:2;
+  background:url('../assets/rebirth/junina-lantern.svg') center/contain no-repeat;
+  opacity:.83;pointer-events:none;
+  animation:jn-lantern-sway 5.8s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot{
+  position:relative!important;inset:auto!important;right:auto!important;bottom:auto!important;top:auto!important;left:auto!important;
+  width:125px!important;height:142px!important;min-width:0!important;display:grid!important;place-items:center!important;
+  background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  cursor:pointer;z-index:4!important;padding:0!important;margin:0 auto!important;
+  animation:jn-mascot-dance 4.4s ease-in-out infinite!important;
+  transform-origin:50% 86%;transition:filter .2s ease!important;
+}
+html[data-erp-theme="festa-junina"] .junina-mascot .jn-mascot-art{
+  position:relative;width:100%;height:100%;max-width:125px;max-height:142px;object-fit:contain;
+  display:block;filter:drop-shadow(0 8px 10px rgba(91,57,33,.16));user-select:none;
+}
+html[data-erp-theme="festa-junina"] .junina-mascot .jn-mascot-halo{
+  position:absolute;inset:25px 7px 10px;border-radius:50%;background:radial-gradient(circle,#fff0bd9a,transparent 71%);
+  animation:jn-halo 6s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .cr-mascot-caption{
+  margin:-3px 4px 7px!important;font:650 9px 'DM Sans',sans-serif!important;color:#8a6b56!important;
+  text-align:center;white-space:normal;
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot .bubble{
+  position:absolute!important;bottom:auto!important;top:112px!important;left:50%!important;right:auto!important;
+  transform:translate(-50%,4px)!important;min-width:142px;max-width:169px;z-index:8!important;
+  padding:8px 10px!important;background:#fffdf7!important;border:1px solid #e6c59b!important;
+  border-radius:11px!important;box-shadow:0 8px 22px rgba(100,70,35,.13)!important;
+  color:#784e36!important;font:700 10px/1.35 'DM Sans',sans-serif!important;
+  opacity:0!important;visibility:visible!important;white-space:normal!important;text-align:center!important;
+  pointer-events:none!important;transition:opacity .18s ease,transform .18s ease;
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot:is(:hover,:focus-visible) .bubble,
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot .bubble.is-visible{opacity:1!important;transform:translate(-50%,0)!important}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot:focus-visible{outline:2px solid #ce7a4d!important;outline-offset:4px!important;border-radius:16px!important}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot:hover .jn-mascot-art{filter:drop-shadow(0 11px 14px rgba(201,107,56,.26))}
+
+/* Live decorations: restrained scale; accents never cover chart data or controls. */
+html[data-erp-theme="festa-junina"] .cr-orbital-illustration{display:block!important;pointer-events:none!important;z-index:2!important}
+html[data-erp-theme="festa-junina"] .cr-jn-bunting{
+  top:5px;right:11px;width:min(38%,162px);height:43px;
+  background:url('../assets/rebirth/junina-bunting.svg') center/contain no-repeat;
+  opacity:.82;transform-origin:top center;animation:jn-garland-sway 6.5s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] .cr-jn-lantern{
+  top:44px;right:9px;width:32px;height:53px;
+  background:url('../assets/rebirth/junina-lantern.svg') center/contain no-repeat;
+  opacity:.78;transform-origin:50% 5%;animation:jn-lantern-sway 5.5s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] .cr-jn-fire{
+  bottom:7px;right:10px;width:68px;height:68px;
+  background:url('../assets/rebirth/junina-bonfire.svg') center/contain no-repeat;
+  opacity:.72;filter:drop-shadow(0 2px 7px rgba(224,120,56,.23));
+  animation:jn-firelight 3.3s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] .cr-jn-accordion{
+  right:11px;bottom:8px;width:77px;height:59px;
+  background:url('../assets/rebirth/junina-accordion.svg') center/contain no-repeat;
+  opacity:.48;transform-origin:50% 75%;animation:jn-accordion 8.5s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] .cr-jn-spark{
+  right:23px;top:55px;width:34px;height:34px;border-radius:50%;
+  background:radial-gradient(circle,#f2bf78 0 2px,transparent 3px),radial-gradient(circle at 84% 27%,#5ca685 0 2px,transparent 3px),radial-gradient(circle at 18% 78%,#d68361 0 1px,transparent 2px);
+  animation:jn-fireflies 7s ease-in-out infinite;
+}
+/* A little accordion travels at the foot of Evolução diária, as the Halloween ghost does. */
+html[data-erp-theme="festa-junina"] .analytics-section>.panel:first-child .chart-wrap::after{
+  content:"";position:absolute;left:-53px;top:63%;height:43px;width:57px;
+  background:url('../assets/rebirth/junina-accordion.svg') center/contain no-repeat;
+  pointer-events:none;z-index:3;opacity:0;
+  filter:drop-shadow(0 4px 5px rgba(131,73,48,.18));
+  animation:jn-chart-forro 18s ease-in-out infinite;
+}
+html[data-erp-theme="festa-junina"] .analytics-section>.panel:first-child::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 96% 1%,rgba(244,177,103,.10),transparent 28%);
+}
+html[data-erp-theme="festa-junina"] #sideAuroraCard .aurora-live-block:nth-child(3n+1){border-color:rgba(207,133,78,.22)!important;background:linear-gradient(145deg,#fffefa,#fff8ec)!important}
+html[data-erp-theme="festa-junina"] #sideAuroraCard .aurora-live-block:nth-child(3n){border-color:rgba(72,151,111,.21)!important}
+/* Isolated click burst is mounted to body by the existing scoped effect runtime. */
+html[data-erp-theme="festa-junina"] .junina-particle{
+  position:fixed;pointer-events:none!important;z-index:8500;
+  text-shadow:0 2px 5px #5e462344;
+  will-change:transform,opacity;animation:jn-spark-out 1.55s cubic-bezier(.2,.68,.25,1) forwards;
+}
+html[data-erp-theme="festa-junina"] .junina-particle.jn-speck{
+  border-radius:4px;width:7px;height:10px;box-shadow:0 0 5px #efc48e77;text-shadow:none;
+}
+/* São João portal: bespoke stage, not reused pumpkin/snow/rainbow. */
+#cr-portal.is-playing.theme-festa-junina .cr-portal-logo{
+  padding:21px 24px 25px;max-width:min(88vw,470px);border-radius:28px;
+  background:radial-gradient(ellipse at center,rgba(103,59,38,.66),rgba(88,49,41,.22) 63%,transparent 82%);
+  filter:drop-shadow(0 16px 25px rgba(61,27,18,.24));
+}
+#cr-portal.is-playing.theme-festa-junina .cr-portal-logo img{
+  width:140px;height:142px;object-fit:contain;
+  filter:drop-shadow(0 11px 7px rgba(58,36,20,.3));
+}
+#cr-portal.is-playing.theme-festa-junina .cr-portal-title{
+  font:850 clamp(26px,4.4vw,47px) Manrope,sans-serif;letter-spacing:-.055em;
+  background:linear-gradient(180deg,#fff4bc,#ffd59a);background-clip:text;-webkit-text-fill-color:transparent;
+}
+#cr-portal.is-playing.theme-festa-junina .cr-portal-caption{
+  color:#ffe3b7;letter-spacing:.15em;text-align:center;font-size:10px;
+}
+#cr-portal.is-playing.theme-festa-junina .cr-vignette{
+  background:radial-gradient(ellipse at center,transparent 26%,rgba(55,23,27,.56));
+  opacity:.48;
+}
+/* Keyframes for stage effects (all transforms/opacity, no layout recalculation). */
+@keyframes jn-mascot-dance{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  20%{transform:translateY(-5px) rotate(3deg)}
+  44%{transform:translateY(1px) rotate(-4deg)}
+  67%{transform:translateY(-7px) rotate(3deg)}
+  83%{transform:translateY(-1px) rotate(-1deg)}
+}
+@keyframes jn-halo{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes jn-lantern-sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+@keyframes jn-garland-sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+@keyframes jn-firelight{0%,100%{opacity:.63;transform:translateY(0) scale(.97)}50%{opacity:.81;transform:translateY(-3px) scale(1.03)}}
+@keyframes jn-accordion{0%,100%{transform:rotate(-5deg) translateY(3px)}50%{transform:rotate(6deg) translateY(-5px)}}
+@keyframes jn-fireflies{0%,100%{transform:translate(0,0) scale(.75);opacity:.45}45%{transform:translate(-5px,-13px) scale(1.1);opacity:.9}75%{transform:translate(4px,4px) scale(.9);opacity:.52}}
+@keyframes jn-chart-forro{
+  0%,4%{left:-53px;transform:translateY(8px) rotate(-6deg);opacity:0}
+  10%{opacity:.85}
+  30%{transform:translateY(-5px) rotate(7deg)}
+  60%{transform:translateY(8px) rotate(-6deg)}
+  83%{opacity:.84;transform:translateY(-3px) rotate(7deg)}
+  97%,100%{left:calc(100% - 62px);opacity:0;transform:translateY(6px) rotate(0)}
+}
+@keyframes jn-spark-out{
+  0%{opacity:0;transform:translate(0,0) scale(.42) rotate(0)}
+  15%{opacity:1}
+  60%{opacity:.92}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.0) rotate(var(--rot))}
+}
+/* Layout adaptations for narrow screens: mascot remains clickable, never covers picker. */
+@media(max-width:930px){
+ html[data-erp-theme="festa-junina"] .jn-sky-garland{left:0;top:59px;height:25px;background-size:150px 43px;opacity:.37}
+ html[data-erp-theme="festa-junina"] #cr-mascot-house{min-height:55px!important;max-width:66px!important;flex:0 0 64px!important;box-shadow:none!important}
+ html[data-erp-theme="festa-junina"] #cr-mascot-house::after{display:none!important}
+ html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot{height:52px!important;width:55px!important}
+ html[data-erp-theme="festa-junina"] .junina-mascot .jn-mascot-art{max-width:55px;max-height:52px}
+ html[data-erp-theme="festa-junina"] #cr-mascot-house .cr-mascot-caption{display:none!important}
+ html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot .bubble{top:48px!important;left:50%!important;min-width:130px!important}
+ html[data-erp-theme="festa-junina"] .cr-jn-bunting{width:114px;right:2px;top:3px}
+ html[data-erp-theme="festa-junina"] .cr-jn-fire{width:45px;height:45px}
+}
+@media(max-width:740px){
+ html[data-erp-theme="festa-junina"] .jn-sky-garland{display:none!important}
+ html[data-erp-theme="festa-junina"] .cr-jn-lantern{width:24px;height:37px;top:39px}
+ html[data-erp-theme="festa-junina"] .cr-jn-fire{width:40px;height:40px;opacity:.55}
+ html[data-erp-theme="festa-junina"] .cr-jn-accordion{width:44px;height:35px}
+ html[data-erp-theme="festa-junina"] .analytics-section>.panel:first-child .chart-wrap::after{width:42px;height:32px}
+ #cr-portal.is-playing.theme-festa-junina .cr-portal-logo{padding:10px 12px 15px;max-width:90vw}
+ #cr-portal.is-playing.theme-festa-junina .cr-portal-logo img{width:105px;height:112px}
+ #cr-portal.is-playing.theme-festa-junina .cr-portal-title{font-size:clamp(23px,7vw,32px)}
+}
+/* Accessibility and user effects setting: static, equally usable presentation. */
+html[data-erp-effects="false"][data-erp-theme="festa-junina"] :is(.junina-mascot,.jn-mascot-halo,.cr-orbital-illustration,.jn-sky-garland,.junina-particle,.analytics-section>.panel:first-child .chart-wrap::after),
+html[data-erp-effects="false"][data-erp-theme="festa-junina"] #cr-mascot-house::after{
+ animation:none!important;transition:none!important;
+}
+html[data-erp-effects="false"][data-erp-theme="festa-junina"] :is(.junina-particle,.analytics-section>.panel:first-child .chart-wrap::after){display:none!important}
+@media(prefers-reduced-motion:reduce){
+ html[data-erp-theme="festa-junina"] :is(.junina-mascot,.jn-mascot-halo,.cr-orbital-illustration,.jn-sky-garland,.junina-particle,.analytics-section>.panel:first-child .chart-wrap::after),
+ html[data-erp-theme="festa-junina"] #cr-mascot-house::after{animation:none!important;transition:none!important}
+ html[data-erp-theme="festa-junina"] :is(.junina-particle,.analytics-section>.panel:first-child .chart-wrap::after){display:none!important}
+}

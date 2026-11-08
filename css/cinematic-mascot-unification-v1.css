@@ -1,0 +1,228 @@
+/* ================================================================
+ * ERP Motion & Animações — Mascots unification / phase 10
+ * Objetivo: deixar os mascotes livres, sem card próprio, alinhados
+ * ao padrão Cyberpunk, preservando os temas existentes.
+ * ================================================================ */
+
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-height:176px!important;
+  height:auto!important;
+  margin:0 0 11px!important;
+  padding:6px 4px 10px!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  isolation:auto!important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house::before,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house .cr-mascot-caption{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:168px!important;
+  margin:0 auto!important;
+  padding:0 4px!important;
+  text-align:center!important;
+  white-space:normal!important;
+  text-wrap:balance!important;
+  overflow:visible!important;
+  line-height:1.45!important;
+  letter-spacing:.01em!important;
+}
+
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot){
+  position:relative!important;
+  inset:auto!important;
+  display:grid!important;
+  place-items:center!important;
+  margin:0 auto 5px!important;
+  padding:0!important;
+  min-width:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+  overflow:visible!important;
+  isolation:auto!important;
+  transform-origin:50% 55%!important;
+}
+
+html[data-erp-theme="original"] #cr-mascot-house .unicorn-mascot{
+  width:126px!important;height:142px!important;
+  background:transparent url('../assets/rebirth/unicorn-mascot.svg') center/contain no-repeat!important;
+  filter:drop-shadow(0 6px 10px rgba(118,90,148,.12))!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html:is([data-erp-theme="claro"],[data-erp-theme="escuro"]) #cr-mascot-house .gemini-mascot{
+  width:128px!important;height:138px!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="claro"] #cr-mascot-house .gemini-mascot{
+  background:transparent url('../assets/rebirth/light-mascot.svg') center/contain no-repeat!important;
+  filter:drop-shadow(0 7px 12px rgba(89,131,205,.14))!important;
+}
+html[data-erp-theme="escuro"] #cr-mascot-house .gemini-mascot{
+  width:136px!important;height:146px!important;
+  background:transparent url('../assets/rebirth/dark-mascot.svg') center/contain no-repeat!important;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.24))!important;
+}
+html[data-erp-theme="natal"] #cr-mascot-house .santa-mascot{
+  width:130px!important;height:148px!important;
+  background:transparent url('../assets/rebirth/christmas-mascot-v2.svg') center/contain no-repeat!important;
+  filter:drop-shadow(0 7px 11px rgba(0,0,0,.15))!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="ano-novo"] #cr-mascot-house .toast-mascot{
+  width:142px!important;height:150px!important;
+  background:transparent url('../assets/rebirth/newyear-mascot-v3.svg') center/contain no-repeat!important;
+  filter:drop-shadow(0 7px 12px rgba(0,0,0,.18))!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="pascoa"] #cr-mascot-house .bunny-mascot{
+  width:128px!important;height:142px!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="pascoa"] #cr-mascot-house .bunny-mascot .easter-bunny-halo{display:none!important}
+html[data-erp-theme="pascoa"] #cr-mascot-house .bunny-mascot .easter-bunny-art{max-width:100%!important;max-height:100%!important}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot{
+  width:126px!important;height:138px!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot .jn-mascot-art{max-width:100%!important;max-height:100%!important}
+html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot .jn-mascot-halo{display:none!important}
+html[data-erp-theme="halloween"] #cr-mascot-house .pumpkin-mascot{
+  width:132px!important;height:138px!important;
+  background:transparent url('../assets/rebirth/pumpkin.svg') center/contain no-repeat!important;
+  filter:drop-shadow(0 9px 15px rgba(0,0,0,.22))!important;
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot{
+  width:124px!important;height:124px!important;
+  animation:cr-mascot-bob 4.4s ease-in-out infinite!important;
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot svg{
+  width:100%!important;height:100%!important;
+}
+
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot) .bubble{
+  position:absolute!important;
+  left:50%!important;
+  right:auto!important;
+  /* Falas visíveis ABAIXO do personagem, fora da área da barra superior. */
+  top:calc(100% - 12px)!important;
+  bottom:auto!important;
+  min-width:148px!important;
+  max-width:188px!important;
+  padding:8px 9px!important;
+  white-space:normal!important;
+  transform:translate(-50%,5px)!important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot):is(:hover,:focus-visible) .bubble,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house .bubble.is-visible{
+  transform:translate(-50%,0)!important;
+}
+
+
+/* Compatibilidade com o Menu Superior preservado pelo setor Geral. */
+html[data-erp-layout="top"]:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house{
+  width:auto!important;
+  max-width:164px!important;
+  min-height:0!important;
+  margin:0 10px 0 0!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+html[data-erp-layout="top"]:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house .cr-mascot-caption{
+  max-width:120px!important;
+  font-size:8.5px!important;
+}
+html[data-erp-layout="top"][data-erp-theme="original"] #cr-mascot-house .unicorn-mascot,
+html[data-erp-layout="top"][data-erp-theme="claro"] #cr-mascot-house .gemini-mascot,
+html[data-erp-layout="top"][data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot{width:82px!important;height:90px!important}
+html[data-erp-layout="top"][data-erp-theme="escuro"] #cr-mascot-house .gemini-mascot,
+html[data-erp-layout="top"][data-erp-theme="halloween"] #cr-mascot-house .pumpkin-mascot,
+html[data-erp-layout="top"][data-erp-theme="pascoa"] #cr-mascot-house .bunny-mascot{width:86px!important;height:94px!important}
+html[data-erp-layout="top"][data-erp-theme="natal"] #cr-mascot-house .santa-mascot,
+html[data-erp-layout="top"][data-erp-theme="ano-novo"] #cr-mascot-house .toast-mascot{width:88px!important;height:98px!important}
+html[data-erp-layout="top"][data-erp-theme="terror"] #cr-mascot-house .eye-mascot{width:78px!important;height:78px!important}
+
+/* Terror: unificar o fundo lateral ao fundo do tema e remover a linha lateral. */
+html[data-erp-theme="terror"] .sidebar{
+  background:transparent!important;
+  border-right:0!important;
+  box-shadow:none!important;
+}
+html[data-erp-theme="terror"] .sidebar::before,
+html[data-erp-theme="terror"] .sidebar::after{
+  display:none!important;
+  content:none!important;
+}
+
+/* Ajustes menores para telas compactas mantendo o mascote fora de uma caixa. */
+@media (max-width: 900px){
+  html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house{
+    min-height:140px!important;
+    padding:4px 2px 8px!important;
+  }
+  html[data-erp-theme="original"] #cr-mascot-house .unicorn-mascot{width:104px!important;height:116px!important}
+  html[data-erp-theme="claro"] #cr-mascot-house .gemini-mascot{width:104px!important;height:116px!important}
+  html[data-erp-theme="escuro"] #cr-mascot-house .gemini-mascot{width:110px!important;height:120px!important}
+  html[data-erp-theme="natal"] #cr-mascot-house .santa-mascot{width:108px!important;height:122px!important}
+  html[data-erp-theme="ano-novo"] #cr-mascot-house .toast-mascot{width:116px!important;height:124px!important}
+  html[data-erp-theme="pascoa"] #cr-mascot-house .bunny-mascot{width:108px!important;height:120px!important}
+  html[data-erp-theme="festa-junina"] #cr-mascot-house .junina-mascot{width:104px!important;height:116px!important}
+  html[data-erp-theme="halloween"] #cr-mascot-house .pumpkin-mascot{width:110px!important;height:114px!important}
+  html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot{width:100px!important;height:100px!important}
+  html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house .cr-mascot-caption{
+    max-width:150px!important;
+    font-size:9px!important;
+  }
+}
+
+/* Fase 11: mantém o balão inteiramente dentro da janela quando a navegação
+   passa ao topo ou o viewport é compacto. Preserva o resto do layout Geral. */
+html[data-erp-layout="top"]:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot) .bubble{
+  left:calc(50% + 14px)!important;
+}
+@media (max-width:900px){
+  html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot) .bubble{
+    left:calc(50% + 14px)!important;
+  }
+}
+/* Os estados clicados do Natal e do Celestial não podem herdar opacity:0
+   do seletor antigo com especificidade maior. */
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cr-mascot-house :is(.santa-mascot,.toast-mascot) .bubble.is-visible{
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+
+/* ================================================================
+ * Fase 11.1 — QA-F11-001 (P3): enquadramento horizontal dos balões
+ * Apenas no Menu Superior, até 480 px. As dimensões dos mascotes,
+ * os demais modos e toda a lógica do tema permanecem inalterados.
+ * A âncora é afastada 12 px da borda esquerda em relação à Fase 11,
+ * permitindo a largura mínima de 148 px + movimento de entrada.
+ * ================================================================ */
+@media (max-width:480px){
+  html[data-erp-layout="top"]:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],[data-erp-theme="festa-junina"],[data-erp-theme="halloween"],[data-erp-theme="terror"]) #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot) .bubble{
+    left:calc(50% + 26px)!important;
+  }
+}

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 278" width="240" height="278" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Papai Noel sorridente</title>
+  <desc id="desc">Mascote natalino vetorial com gorro vermelho, barba branca, roupa vermelha, cinto dourado e estrelas. Fundo transparente.</desc>
+  <defs>
+    <linearGradient id="coat" x1="73" y1="165" x2="166" y2="231" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FA556D"/>
+      <stop offset=".48" stop-color="#DF2745"/>
+      <stop offset="1" stop-color="#B91035"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="60" y1="36" x2="171" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5A70"/>
+      <stop offset=".52" stop-color="#E72A4D"/>
+      <stop offset="1" stop-color="#BF173D"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="82" y1="84" x2="152" y2="162" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE0C9"/>
+      <stop offset=".64" stop-color="#FFD0B2"/>
+      <stop offset="1" stop-color="#F3B79D"/>
+    </linearGradient>
+    <linearGradient id="beard" x1="89" y1="127" x2="144" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF5F5"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="109" y1="205" x2="144" y2="233" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4B1"/>
+      <stop offset=".47" stop-color="#FFC94F"/>
+      <stop offset="1" stop-color="#E7A522"/>
+    </linearGradient>
+    <linearGradient id="boots" x1="67" y1="226" x2="164" y2="255" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#534252"/>
+      <stop offset="1" stop-color="#2F2738"/>
+    </linearGradient>
+    <filter id="softShadow" x="0" y="0" width="240" height="278" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#77374B" flood-opacity=".20"/>
+    </filter>
+  </defs>
+
+  <!-- Floating magical details; transparent canvas with no bounding rectangle -->
+  <path d="M36 94l3.7 10.2L50 108l-10.3 3.7L36 122l-3.7-10.3L22 108l10.3-3.8L36 94z" fill="#FFD35D"/>
+  <path d="M188 108l2.8 7.3 7.2 2.7-7.2 2.7-2.8 7.3-2.7-7.3-7.3-2.7 7.3-2.7 2.7-7.3z" fill="#FFCD59"/>
+  <circle cx="48" cy="63" r="4.2" fill="#FFD566"/>
+  <circle cx="197" cy="83" r="4" fill="#FFD566"/>
+  <circle cx="60" cy="143" r="2.4" fill="#FFDF8C"/>
+  <circle cx="192" cy="161" r="2.4" fill="#FFDF8C"/>
+
+  <g filter="url(#softShadow)">
+    <!-- Feet and Santa boots -->
+    <path d="M84 215h32v30H77v-9c0-11 4-17 7-21z" fill="#F8E9DD"/>
+    <path d="M125 215h32v30h-41v-9c0-11 5-17 9-21z" fill="#F8E9DD"/>
+    <path d="M77 230h39v21H65c-3 0-5-3-4-6 3-9 9-15 16-15z" fill="url(#boots)"/>
+    <path d="M125 230h36c8 0 15 6 18 15 1 3-1 6-4 6h-50v-21z" fill="url(#boots)"/>
+    <path d="M68 248h48m9 0h48" stroke="#726271" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+
+    <!-- Sleeves behind mittens -->
+    <path d="M83 159c-18-3-32 9-37 28l-5 24 32 9 13-39-3-22z" fill="#CE1D3D"/>
+    <path d="M158 159c18-3 32 9 37 28l5 24-32 9-13-39 3-22z" fill="#C8183A"/>
+    <path d="M46 202c1-6 5-10 12-12 8-2 16 2 17 10l-3 17-30-9 4-6z" fill="#FFFAF7"/>
+    <path d="M197 202c-1-6-5-10-12-12-8-2-16 2-17 10l3 17 30-9-4-6z" fill="#FFFAF7"/>
+
+    <!-- Body and trim -->
+    <path d="M84 153c11-8 23-11 36-11s25 3 36 11c11 8 18 24 18 44v37H66v-37c0-20 7-36 18-44z" fill="url(#coat)"/>
+    <path d="M84 153c-8 14-13 30-13 47v34h-5v-37c0-20 7-36 18-44z" fill="#C8183B" opacity=".56"/>
+    <path d="M156 153c8 14 13 30 13 47v34h5v-37c0-20-7-36-18-44z" fill="#B50E32" opacity=".50"/>
+    <path d="M111 146h18v88h-18z" fill="#FFF8F0"/>
+    <path d="M107 147h5v87h-5z" fill="#FFEAE2" opacity=".9"/>
+    <path d="M66 226h108v10H66z" fill="#FFFAF7"/>
+
+    <!-- Belt -->
+    <path d="M67 204h107v20H67z" fill="#3B2D3C"/>
+    <path d="M68 206h106v4H68z" fill="#655062" opacity=".5"/>
+    <rect x="108" y="200" width="28" height="28" rx="5.6" fill="url(#gold)" stroke="#E7AA35" stroke-width="2"/>
+    <rect x="115" y="207" width="14" height="14" rx="2.6" fill="#FFF9D8" opacity=".95"/>
+    <circle cx="132" cy="214" r="2" fill="#D7992B"/>
+
+    <!-- Mittens in front -->
+    <circle cx="53" cy="207" r="17" fill="#FFFFFF"/>
+    <circle cx="187" cy="207" r="17" fill="#FFFFFF"/>
+    <path d="M41 209c-2-9 3-16 11-19m126 0c9 4 14 12 12 19" stroke="#EDF4F4" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Face and ears -->
+    <ellipse cx="77" cy="122" rx="10" ry="14" fill="#F5BDA7"/>
+    <ellipse cx="163" cy="122" rx="10" ry="14" fill="#F5BDA7"/>
+    <ellipse cx="120" cy="120" rx="47" ry="50" fill="url(#skin)"/>
+    <path d="M82 109c0-22 17-39 38-39 21 0 38 17 38 39" stroke="#FFF0E0" stroke-width="4" opacity=".64"/>
+
+    <!-- closed smiling eyes and blush -->
+    <path d="M93 112c5-7 13-7 18 0" stroke="#68525C" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M129 112c5-7 13-7 18 0" stroke="#68525C" stroke-width="5.4" stroke-linecap="round"/>
+    <ellipse cx="88" cy="124" rx="12" ry="6" fill="#F18FA5" opacity=".65"/>
+    <ellipse cx="152" cy="124" rx="12" ry="6" fill="#F18FA5" opacity=".65"/>
+    <path d="M101 141q19 18 38 0" stroke="#B85E71" stroke-width="4.3" stroke-linecap="round"/>
+
+    <!-- beard and moustache, intentionally sculpted vector edges -->
+    <path d="M81 130c3 6 4 13 6 20 3 10 7 17 13 22 3 8 7 13 13 14 5 5 11 5 16 0 6-1 10-6 13-14 6-5 10-12 13-22 2-7 3-14 6-20-9 7-19 7-26 6-8 4-23 4-31 0-7 1-17 1-23-6z" fill="url(#beard)"/>
+    <path d="M83 133c7 8 14 12 23 9 8 6 20 6 28 0 9 3 16-1 23-9" stroke="#DFECED" stroke-width="3.5" stroke-linecap="round" opacity=".8"/>
+    <path d="M103 156c5 4 10 5 17 5 7 0 12-1 17-5" stroke="#DFEAEB" stroke-width="3.2" stroke-linecap="round" opacity=".86"/>
+    <path d="M107 175q13 8 26 0" stroke="#E6F1F1" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- Big fluffy mustache, two separate rounded vector shapes -->
+    <path d="M120 132c-10-11-21-12-29-7-7 5-9 12-6 16 5 7 15 6 22 1 5-4 9-6 13-10z" fill="#FFFFFF"/>
+    <path d="M120 132c10-11 21-12 29-7 7 5 9 12 6 16-5 7-15 6-22 1-5-4-9-6-13-10z" fill="#FFFFFF"/>
+    <path d="M90 137q10 5 22-3m37 3q-10 5-22-3" stroke="#EAF2F3" stroke-width="2.8" stroke-linecap="round"/>
+    <!-- Round Santa nose above the mustache -->
+    <ellipse cx="120" cy="129" rx="9.5" ry="10" fill="#F1AE94"/>
+    <ellipse cx="116.5" cy="125.5" rx="3.5" ry="2.7" fill="#FFD6BF" opacity=".8"/>
+
+    <!-- Hat red dome with graceful right droop -->
+    <path d="M72 94c9-32 29-55 55-59 26-5 49 7 60 27l17 8-10 12c-6-8-12-12-24-15-24-2-56 1-98 27z" fill="url(#cap)"/>
+    <path d="M89 75c14-19 31-29 50-28 15 0 27 6 35 17" stroke="#FF7B8B" stroke-width="5" stroke-linecap="round" opacity=".62"/>
+    <path d="M173 63c9 3 18 10 22 19" stroke="#B91035" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+    <path d="M73 88c24-16 58-23 89-18 5 0 9 1 14 2" stroke="#FFF9F2" stroke-width="3.5" stroke-linecap="round" opacity=".48"/>
+    <!-- Red lower edge supporting the hat brim (prevents a transparent gap) -->
+    <path d="M68 91c28-19 61-24 94-17 12 2 22 9 29 15l-10 18c-30-8-59-5-86 4-10 3-19 5-27 4z" fill="#D92647"/>
+    <!-- Plush white hat trim and pompom -->
+    <path d="M70 96c25-13 61-22 93-16 8 1 16 4 20 7 2 3 2 8-1 11-3 4-7 5-11 4-32-11-60-4-88 6-7 3-13-1-16-5-3-4-2-6 3-7z" fill="#FFFFFF"/>
+    <path d="M77 98c29-12 58-18 85-15" stroke="#E5EFF0" stroke-width="3.2" stroke-linecap="round" opacity=".8"/>
+    <circle cx="204" cy="80" r="16" fill="#FFFFFF"/>
+    <circle cx="199" cy="73" r="7" fill="#FFFFFF" opacity=".94"/>
+  </g>
+  <!-- Real vector caption; no bitmap or background baked into the mascot -->
+  <text x="120" y="273" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="17" letter-spacing="-.4" fill="#BE2745">Feliz Natal!</text>
+</svg>

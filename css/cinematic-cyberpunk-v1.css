@@ -1,0 +1,391 @@
+/* ================================================================
+ * ERP | Motion & Animações · CYBERPUNK // NEON DISTRICT
+ * Visual overlay for Cinematic shared layout — presentation ONLY.
+ * Original business rules, API, charts datasets and cloud remain intact.
+ * ================================================================ */
+html[data-erp-theme="cyberpunk"] {
+  color-scheme: dark;
+  --cr-ink:#eefaff;--cr-muted:#94a8c0;--cr-bg:#070b17;
+  --cr-panel:#111a2b;--cr-panel2:#18243a;
+  --cr-top:#0b1122;--cr-side:#0a1020;
+  --cr-line:rgba(82,181,215,.23);
+  --cr-accent:#49e9f5;--cr-accent2:#ec77e3;--cr-halo:#55e7ff;
+  --cr-soft:#16243b;--cr-chart:#111b2e;
+  --cr-shadow:0 13px 29px rgba(0,4,15,.29),0 2px 8px rgba(0,4,15,.22);
+  --v13-neon:rgba(65,224,238,.20);
+  --v13-glow:rgba(42,212,238,.06);
+  --sidebar:198px;
+  --text:#eefaff;--muted:#94a8c0;--line:rgba(82,181,215,.23);
+  --surface:#111a2b;--surface-2:#18243a;--surface-3:#20314a;
+  --bg-deep:#070b17;--line-light:rgba(126,225,253,.14);
+  --primary:#49e9f5;--primary-2:#c579ef;
+}
+html[data-erp-theme="cyberpunk"] body {
+  color:var(--cr-ink)!important;
+  background:
+     radial-gradient(ellipse 59% 38% at 86% 6%,rgba(85,44,150,.20),transparent 65%),
+     radial-gradient(ellipse 35% 49% at 12% 74%,rgba(0,169,211,.13),transparent 74%),
+     radial-gradient(ellipse 48% 28% at 51% 101%,rgba(99,43,149,.11),transparent 80%),
+     linear-gradient(161deg,#080b19,#0a1021 57%,#0b0c19)!important;
+}
+/* Keep one clean, restrained scanline pass instead of old high-contrast VHS bands. */
+html[data-erp-theme="cyberpunk"] body::before{display:none!important}
+html[data-erp-theme="cyberpunk"] body::after{
+  content:""!important;display:block!important;pointer-events:none!important;
+  position:fixed;inset:0;z-index:2!important;opacity:.25!important;
+  background:repeating-linear-gradient(180deg,transparent 0,transparent 5px,rgba(69,183,233,.11) 6px,transparent 7px)!important;
+}
+html[data-erp-theme="cyberpunk"] #cyberCanvas {
+  position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
+  z-index:1!important;opacity:.33;pointer-events:none!important;
+}
+html[data-erp-theme="cyberpunk"] .app {z-index:3!important}
+html[data-erp-theme="cyberpunk"] #cr-chrome {
+  background:rgba(10,16,32,.97)!important;
+  border-bottom:1px solid rgba(82,232,244,.22)!important;
+  color:var(--cr-ink)!important;
+  box-shadow:0 5px 19px rgba(0,6,21,.21)!important;
+  backdrop-filter:none!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-logo {font-family:'Space Grotesk',sans-serif!important;letter-spacing:-.02em;font-weight:730}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-logo-mark i:nth-child(1){background:#5bf7ff!important}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-logo-mark i:nth-child(2){background:#e46be8!important}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-logo-mark i:nth-child(3){background:#6da5ff!important}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-logo-mark i:nth-child(4){background:#ffb26d!important}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-avatar{
+  background:linear-gradient(145deg,#2f79a6,#bb5ecb)!important;color:#fcffff!important;
+  border:1px solid rgba(104,240,255,.29);
+}
+html[data-erp-theme="cyberpunk"] #cr-chrome :is(.cr-tool,.cr-top-search){color:#c8e0ef!important}
+html[data-erp-theme="cyberpunk"] #cr-chrome .cr-tool:hover {background:rgba(65,217,237,.11)!important}
+html[data-erp-theme="cyberpunk"] .sidebar {
+  background:linear-gradient(180deg,#0b1426 0%,#0a1120 62%,#080e1b 100%)!important;
+  border-right:1px solid rgba(66,211,236,.25)!important;
+  box-shadow:none!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar .nav,
+html[data-erp-theme="cyberpunk"] .sidebar .side-card,
+html[data-erp-theme="cyberpunk"] #cr-mascot-house,
+html[data-erp-theme="cyberpunk"] :is(.main .panel,.main .status,.main .kpi){
+  border-color:var(--cr-line)!important;
+  box-shadow:0 1px 0 rgba(105,230,250,.04),var(--cr-shadow)!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar .nav-btn.active{
+  background:linear-gradient(95deg,rgba(56,215,234,.20),rgba(162,83,208,.08))!important;
+  color:#90f8ff!important;border:1px solid rgba(78,229,247,.34)!important;
+  box-shadow:inset 2px 0 #49e9f5!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar .nav-btn:hover{
+  background:rgba(54,218,241,.09)!important;color:#e4fbff!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar .nav-icon {font-family:'Space Grotesk',sans-serif!important}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house{
+  position:relative!important;min-height:183px!important;overflow:visible!important;isolation:isolate;
+  background:linear-gradient(180deg,rgba(18,34,57,.64),rgba(12,19,35,.88))!important;
+  border:1px solid rgba(64,224,238,.24)!important;
+  border-radius:15px!important;
+  margin-bottom:14px!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house::before {
+  content:"";position:absolute;inset:12px 11px 31px;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 61%,rgba(22,210,245,.20),rgba(107,45,176,.08) 52%,transparent 76%);
+  border-radius:45%;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house::after {
+  content:"SYSTEM 09";position:absolute;top:12px;right:11px;z-index:1;
+  color:rgba(97,235,248,.52);letter-spacing:.12em;font:600 7px 'Orbitron',sans-serif;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot {
+  display:grid!important;place-items:center!important;position:relative!important;
+  inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  flex:0 0 auto!important;width:133px!important;height:148px!important;min-width:0!important;
+  margin:0 auto -2px!important;padding:0!important;
+  background:none!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;clip-path:none!important;z-index:4!important;cursor:pointer;
+  font-size:0!important;filter:none!important;
+  animation:cy-kira-float 4.3s ease-in-out infinite!important;
+}
+html[data-erp-theme="cyberpunk"] .cyber-kira-art {
+  display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;
+  pointer-events:none!important;user-select:none!important;
+  filter:drop-shadow(0 5px 10px rgba(40,231,252,.19));
+  transition:filter .25s ease;
+}
+html[data-erp-theme="cyberpunk"] .cyber-mascot:hover .cyber-kira-art {
+  filter:drop-shadow(0 6px 13px rgba(62,235,255,.43)) drop-shadow(0 0 7px rgba(224,81,245,.19));
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cr-mascot-caption {
+  margin:0 8px 5px!important;color:#9aacc9!important;
+  text-align:center;font:600 9px/1.45 'Space Grotesk',sans-serif!important;
+  white-space:normal!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble {
+  display:block!important;position:absolute!important;top:117px!important;
+  bottom:auto!important;left:50%!important;right:auto!important;z-index:6!important;
+  opacity:0!important;visibility:visible!important;pointer-events:none!important;
+  transform:translate(-50%,4px)!important;min-width:156px!important;max-width:184px!important;
+  padding:8px 10px!important;background:#15233c!important;
+  color:#d8faff!important;border:1px solid rgba(64,237,247,.55)!important;
+  border-radius:10px!important;box-shadow:0 9px 24px rgba(1,6,18,.56)!important;
+  font:650 10px/1.4 'Space Grotesk',sans-serif!important;
+  white-space:normal!important;text-align:center!important;
+  transition:opacity .18s,transform .18s!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot:is(:hover,:focus-visible) .bubble,
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble.is-visible {
+  opacity:1!important;transform:translate(-50%,0)!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot:focus-visible{
+  outline:2px solid #5efaff!important;outline-offset:2px!important;
+}
+@keyframes cy-kira-float {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+html[data-erp-theme="cyberpunk"] .topbar .page-title {
+  color:#effbff!important;text-shadow:none!important;
+  font-family:'Orbitron','Space Grotesk',sans-serif!important;
+  font-size:clamp(24px,2.1vw,31px)!important;letter-spacing:-.055em!important;
+}
+html[data-erp-theme="cyberpunk"] .topbar .page-title .cr-head-accent {
+  color:#65eefa!important;
+  background:linear-gradient(115deg,#8af9ff,#55d9f5 47%,#dd7afa 93%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent!important;
+}
+html[data-erp-theme="cyberpunk"] .topbar .page-subtitle {color:#9aabc4!important}
+html[data-erp-theme="cyberpunk"] :is(.main .panel,.main .status,.main .kpi,#sideAuroraCard) {
+  background:linear-gradient(140deg,rgba(20,31,51,.96),rgba(14,23,40,.98))!important;
+  color:var(--cr-ink)!important;
+  border:1px solid rgba(83,189,215,.21)!important;
+  border-radius:14px!important;
+  overflow:hidden;
+}
+html[data-erp-theme="cyberpunk"] .main :is(.panel,.kpi):hover {border-color:rgba(77,234,250,.38)!important}
+html[data-erp-theme="cyberpunk"] #sideAuroraCard {
+  background:linear-gradient(160deg,#132036,#101828)!important;
+}
+html[data-erp-theme="cyberpunk"] #sideAuroraCard::before{
+  background:linear-gradient(90deg,#57f1f8,#ce68ee,transparent)!important;
+}
+html[data-erp-theme="cyberpunk"] .aurora-live-block {
+  background:linear-gradient(142deg,rgba(24,37,62,.96),rgba(20,30,50,.95))!important;
+  border-color:rgba(81,187,218,.21)!important;
+  color:#e6f8ff!important;
+}
+html[data-erp-theme="cyberpunk"] :is(.aurora-live-heading,.kpi-label,.panel-sub,.aurora-live-note,.side-aurora-tag){color:#a4b7cf!important}
+html[data-erp-theme="cyberpunk"] :is(.aurora-live-score,.aurora-live-comparison dd,.kpi-value){color:#d8faff!important}
+html[data-erp-theme="cyberpunk"] #sideAuroraCard .side-aurora-avatar {
+  background:linear-gradient(135deg,#39c9e4,#b05dce)!important;
+  box-shadow:0 4px 12px rgba(25,207,228,.15)!important;
+}
+html[data-erp-theme="cyberpunk"] .main :is(.btn-primary,.form-actions .btn-primary){
+  background:linear-gradient(115deg,#179ebd,#7960d3,#c85cbb)!important;
+  border:1px solid rgba(130,239,254,.38)!important;color:#fff!important;
+  box-shadow:0 5px 18px rgba(36,122,187,.13)!important;
+}
+html[data-erp-theme="cyberpunk"] :is(.main .btn,.aurora-live-button){font-family:'Space Grotesk',sans-serif!important;letter-spacing:0!important}
+html[data-erp-theme="cyberpunk"] :is(.control,input,select,textarea){color-scheme:dark}
+html[data-erp-theme="cyberpunk"] .main :is(.control,input,select,textarea){
+  background:#17233a!important;color:#e5f8ff!important;border-color:rgba(99,198,219,.22)!important;
+  border-radius:9px!important;
+}
+html[data-erp-theme="cyberpunk"] .main :is(.control,input,select,textarea)::placeholder {color:#8198b4!important}
+html[data-erp-theme="cyberpunk"] .main :is(.control,input,select,textarea):focus {
+  outline:1px solid rgba(67,232,250,.55)!important;outline-offset:1px;
+}
+html[data-erp-theme="cyberpunk"] #cr-theme-picker select option{background:#122037!important;color:#effbff!important}
+html[data-erp-theme="cyberpunk"] .main .summary-row {
+  background:rgba(30,45,68,.79)!important;border-color:rgba(91,185,212,.17)!important;
+  color:var(--cr-ink)!important;
+}
+html[data-erp-theme="cyberpunk"] .main .summary-highlight strong {color:#80f5ff!important}
+html[data-erp-theme="cyberpunk"] .main .erp-type-insight {
+  background:rgba(33,48,75,.86)!important;border-color:rgba(85,187,222,.2)!important;
+}
+html[data-erp-theme="cyberpunk"] .main .erp-type-insight :is(strong,span){color:#e7f7ff!important}
+html[data-erp-theme="cyberpunk"] .main .panel-head {border-color:rgba(87,199,228,.16)!important}
+html[data-erp-theme="cyberpunk"] .main .panel-title {color:#eafaff!important}
+html[data-erp-theme="cyberpunk"] .main .money-row {border-color:rgba(103,206,225,.15)!important;color:#bfcfe4!important}
+html[data-erp-theme="cyberpunk"] .main .money-total strong {color:#65f2f5!important}
+html[data-erp-theme="cyberpunk"] .main .table :is(th,td) {
+  background:transparent!important;color:#d5e8f5!important;border-color:rgba(93,198,224,.15)!important;
+}
+html[data-erp-theme="cyberpunk"] .main .table th {background:#192940!important}
+/* Independent panel ornaments — electrical rather than whimsical. */
+html[data-erp-theme="cyberpunk"] .cr-orbital-illustration {display:block!important;pointer-events:none!important;opacity:.72!important;z-index:2!important}
+html[data-erp-theme="cyberpunk"] .cr-cy-circuit {
+  right:6px;top:6px;width:112px;height:63px;
+  background:url('../assets/rebirth/cyberpunk-circuit.svg') center/contain no-repeat;
+}
+html[data-erp-theme="cyberpunk"] .cr-cy-chip {
+  right:8px;top:6px;width:50px;height:50px;
+  background:url('../assets/rebirth/cyberpunk-chip.svg') center/contain no-repeat;
+}
+html[data-erp-theme="cyberpunk"] .cr-cy-diamond {
+  right:12px;top:7px;width:39px;height:48px;
+  background:url('../assets/rebirth/cyberpunk-holo-diamond.svg') center/contain no-repeat;
+  animation:cy-diamond-float 5s ease-in-out infinite;
+}
+@keyframes cy-diamond-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+html[data-erp-theme="cyberpunk"] #historico {
+  background:#141f34!important;border-color:rgba(73,217,245,.25)!important;color:#eaf8ff!important;
+}
+html[data-erp-theme="cyberpunk"] .cr-history-filter-slot {
+  background:#141f34!important;border-color:rgba(85,197,218,.20)!important;
+}
+html[data-erp-theme="cyberpunk"] body.history-open #historico>.panel-head {
+  background:#18253c!important;
+}
+html[data-erp-theme="cyberpunk"] #historico .table-wrap {background:#101b2d!important}
+html[data-erp-theme="cyberpunk"] #historico .table th{background:#1b2b44!important;color:#a2bed3!important}
+html[data-erp-theme="cyberpunk"] #historico .table td {border-color:rgba(82,207,230,.11)!important;color:#d9ecf7!important}
+html[data-erp-theme="cyberpunk"] #historico .pagination {background:#141f34!important}
+html[data-erp-theme="cyberpunk"] :is(#historico .control,#historico input,#historico select){
+  color-scheme:dark;background:#1a2a43!important;color:#e5f8ff!important;border-color:rgba(101,208,228,.27)!important;
+}
+/* Cyberpunk — NEON CIRCUIT / transparent portal.
+   This is an overlay, not an opaque loading scene. The ERP stays visible. */
+#cr-portal.is-playing.theme-cyberpunk {
+  background:transparent!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-vignette{
+  opacity:0!important;display:none!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-logo {
+  position:absolute!important;
+  inset:auto!important;left:50%!important;top:50%!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  width:min(294px,calc(100vw - 52px))!important;
+  min-height:195px!important;height:auto!important;
+  padding:15px 20px 19px!important;
+  transform:translate(-50%,-50%) scale(.85);
+  border:1px solid rgba(73,233,245,.36)!important;
+  border-radius:19px!important;
+  background:linear-gradient(145deg,rgba(9,24,46,.83),rgba(11,16,39,.81))!important;
+  box-shadow:0 0 0 1px rgba(235,107,238,.10),0 16px 55px rgba(2,7,23,.33),0 0 40px rgba(61,228,246,.13)!important;
+  text-align:center!important;
+  overflow:visible!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-logo img {
+  display:block!important;
+  width:clamp(78px,10vw,106px)!important;
+  height:clamp(78px,10vw,106px)!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 16px rgba(58,235,255,.38));
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-title {
+  font:750 clamp(22px,2.6vw,31px)/1.22 'Orbitron','Space Grotesk',sans-serif!important;
+  color:#eaffff!important;letter-spacing:-.04em!important;
+  text-shadow:0 0 17px rgba(34,211,237,.31)!important;
+  max-width:100%!important;overflow-wrap:anywhere;white-space:normal!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-caption {
+  font:600 clamp(8px,1vw,10px)/1.6 'Space Grotesk',sans-serif!important;
+  color:#a2def1!important;letter-spacing:.15em!important;
+  margin-top:5px!important;
+  text-align:center!important;max-width:100%!important;
+  white-space:normal!important;
+}
+@media(max-width:930px){
+ html[data-erp-theme="cyberpunk"] #cr-mascot-house {min-height:55px!important;max-width:66px!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+ html[data-erp-theme="cyberpunk"] #cr-mascot-house::before,html[data-erp-theme="cyberpunk"] #cr-mascot-house::after{display:none!important}
+ html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot{width:57px!important;height:57px!important;min-width:57px!important}
+ html[data-erp-theme="cyberpunk"] #cr-mascot-house .cr-mascot-caption{display:none!important}
+ html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble{top:50px!important;min-width:130px!important}
+ html[data-erp-theme="cyberpunk"] #cyberCanvas{opacity:.20}
+}
+@media(max-width:650px){
+ html[data-erp-theme="cyberpunk"] .cr-cy-circuit{width:70px;height:43px;opacity:.40!important}
+ html[data-erp-theme="cyberpunk"] .cr-cy-chip{width:36px;height:36px}
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-erp-theme="cyberpunk"] :is(.cyber-mascot,.cr-cy-diamond){animation:none!important}
+ html[data-erp-theme="cyberpunk"] #cyberCanvas{display:none!important}
+}
+html[data-erp-theme="cyberpunk"][data-erp-effects="false"] :is(.cyber-mascot,.cr-cy-diamond){animation:none!important}
+html[data-erp-theme="cyberpunk"][data-erp-effects="false"] #cyberCanvas{display:none!important}
+
+/* Header de Aurora com ações compactas no intervalo entre tablet e desktop. */
+@media(min-width:931px) and (max-width:1499px){
+ html[data-erp-theme="cyberpunk"] #sideAuroraCard .aurora-live-date{display:none!important}
+ html[data-erp-theme="cyberpunk"] #sideAuroraCard .aurora-live-button{padding:6px 8px!important;font-size:10px!important}
+}
+
+
+/* ================================================================
+ * FASE 09.1 — Ajustes finos solicitados pela usuária
+ * - remove divisor lateral do sidebar
+ * - liberta o mascote (sem card/quadro)
+ * - evita corte de textos do mascote
+ * - reforça a animação do mascote
+ * ================================================================ */
+html[data-erp-theme="cyberpunk"] .sidebar{
+  border-right:0!important;
+  box-shadow:none!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar::before,
+html[data-erp-theme="cyberpunk"] .sidebar::after{
+  display:none!important;
+  content:none!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house{
+  width:100%!important;
+  min-height:184px!important;
+  padding:0 0 16px!important;
+  margin:0 0 12px!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house::before,
+html[data-erp-theme="cyberpunk"] #cr-mascot-house::after{
+  display:none!important;
+  content:none!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot{
+  width:136px!important;
+  height:136px!important;
+  margin:0 auto 4px!important;
+  animation:cy-kira-float 3.8s ease-in-out infinite,cy-kira-orbit 7.2s ease-in-out infinite!important;
+  transform-origin:50% 58%!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-kira-art{
+  animation:cy-kira-glow 4.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cr-mascot-caption{
+  display:block!important;
+  width:100%!important;
+  max-width:158px!important;
+  margin:2px auto 0!important;
+  padding:0 6px!important;
+  color:#a8bcda!important;
+  font:600 9px/1.45 'Space Grotesk',sans-serif!important;
+  text-align:center!important;
+  white-space:normal!important;
+  overflow:visible!important;
+  text-wrap:balance!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble{
+  top:110px!important;
+  min-width:158px!important;
+  max-width:184px!important;
+}
+@keyframes cy-kira-orbit{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-5px) rotate(-1.1deg)}
+  50%{transform:translateY(-8px) rotate(0deg)}
+  75%{transform:translateY(-4px) rotate(1.1deg)}
+}
+@keyframes cy-kira-glow{
+  0%,100%{filter:drop-shadow(0 5px 10px rgba(40,231,252,.19)) drop-shadow(0 0 0 rgba(224,81,245,0))}
+  50%{filter:drop-shadow(0 9px 15px rgba(62,235,255,.42)) drop-shadow(0 0 10px rgba(224,81,245,.26))}
+}
+@media (max-width:930px){
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house{
+    min-height:0!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cr-mascot-caption{
+    display:none!important;
+  }
+}

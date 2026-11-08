@@ -1,0 +1,322 @@
+/* ERP Letícia Lustosa — Cinematic Rebirth / polimento visual v6
+ * Escopo exclusivamente ORIGINAL + HALLOWEEN.
+ * Preserva gráficos, IDs, cálculos, dados e todo o JavaScript funcional.
+ * Corrige geometria introduzida ao inverter cartões na v5.
+ */
+
+/* A área lateral mantém o fundo do universo, com três cartões separados.
+   Neutraliza o invólucro único introduzido na v5. */
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar {
+  isolation:auto !important;
+  background:transparent !important;
+  border:0 !important;
+  overflow-x:hidden !important;
+  padding:12px 11px 14px !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar::after {
+  content:none !important;
+  display:none !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cr-mascot-house {
+  background:color-mix(in srgb,var(--cr-panel) 96%,transparent) !important;
+  border:1px solid var(--cr-line) !important;
+  border-radius:17px !important;
+  padding:9px 8px 11px !important;
+  margin:0 0 13px !important;
+  box-shadow:var(--cr-shadow) !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .side-section {
+  padding:6px 8px 9px !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .nav {
+  background:color-mix(in srgb,var(--cr-panel) 96%,transparent) !important;
+  border:1px solid var(--cr-line) !important;
+  border-radius:17px !important;
+  box-shadow:var(--cr-shadow) !important;
+  padding:9px !important;
+  gap:4px !important;
+}
+
+/* Status de sincronização: card específico e legível, em vez de texto
+   grudado na borda inferior da viewport. */
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .side-card {
+  display:block !important;
+  flex:0 0 auto;
+  margin-top:auto !important;
+  margin-bottom:3px !important;
+  padding:13px 12px 12px !important;
+  border:1px solid var(--cr-line) !important;
+  border-radius:17px !important;
+  background:color-mix(in srgb,var(--cr-panel) 96%,transparent) !important;
+  box-shadow:var(--cr-shadow) !important;
+  color:var(--cr-ink) !important;
+  min-height:82px;
+  overflow:hidden;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .side-card-title {
+  display:flex !important;
+  align-items:center;
+  gap:7px;
+  margin-bottom:11px !important;
+  color:var(--cr-muted) !important;
+  font:700 10px/1.35 'DM Sans', sans-serif !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .side-card-title::before {
+  content:"";
+  display:block;
+  width:16px;
+  height:16px;
+  flex:none;
+  background:var(--cr-accent);
+  mask:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="black" d="M18 18H7a5 5 0 0 1-.2-10A7 7 0 0 1 20 10.3 4 4 0 0 1 18 18Zm-11-8a3 3 0 0 0 0 6h11a2 2 0 0 0 .4-3.96l-1.1-.2.12-1.1a5 5 0 0 0-9.5-2.8L7.4 9.9 7 10Z"/%3E%3C/svg%3E') center/contain no-repeat;
+  -webkit-mask:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="black" d="M18 18H7a5 5 0 0 1-.2-10A7 7 0 0 1 20 10.3 4 4 0 0 1 18 18Zm-11-8a3 3 0 0 0 0 6h11a2 2 0 0 0 .4-3.96l-1.1-.2.12-1.1a5 5 0 0 0-9.5-2.8L7.4 9.9 7 10Z"/%3E%3C/svg%3E') center/contain no-repeat;
+  opacity:.82;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .sync-line {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:5px !important;
+  width:100%;
+  min-width:0;
+  color:var(--cr-muted) !important;
+  font:700 10px/1.25 'DM Sans',sans-serif !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .sync-line > span:first-child {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  min-width:0;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .status-dot {
+  display:inline-block;
+  flex:none;
+  width:8px !important;
+  height:8px !important;
+  margin:0 !important;
+  border-radius:50%;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .status-dot.status-online {
+  background:#32c48c !important;
+  box-shadow:0 0 0 4px rgba(50,196,140,.12),0 0 12px rgba(50,196,140,.23) !important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar #sideCount {
+  font-variant-numeric:tabular-nums;
+  color:var(--cr-muted) !important;
+  opacity:.94;
+  font-size:10px !important;
+}
+html[data-erp-theme="halloween"] .sidebar .side-card {
+  box-shadow:0 5px 18px rgba(0,0,0,.17),inset 0 0 12px rgba(255,126,41,.025) !important;
+}
+
+/* Original: mesmo cuidado tipográfico da palavra "Halloween", com uma
+   assinatura romântica e mágica própria ao unicórnio. */
+html[data-erp-theme="original"] .topbar .page-title .cr-head-accent {
+  font-family:Georgia,'Times New Roman',serif !important;
+  font-weight:800 !important;
+  letter-spacing:-.065em !important;
+  background:linear-gradient(175deg,#875ebd 1%,#b97cda 46%,#d768ac 88%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:#9566bf !important;
+  filter:drop-shadow(0 2px 4px rgba(157,110,204,.14));
+}
+html[data-erp-theme="original"] .topbar .page-title {
+  letter-spacing:-.045em !important;
+}
+
+/* Desktop largo: retoma a geometria exata da composição que funcionava:
+   cartão maior à esquerda atravessando duas linhas, dois menores à direita.
+   Só inverte os papéis: Produção (maior) e Evolução (menor). */
+@media (min-width:1361px) {
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child {
+    grid-column:1 / span 6 !important;
+    grid-row:4 / span 2 !important;
+    height:100% !important;
+    min-height:548px !important;
+    align-self:stretch !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:first-child {
+    grid-column:7 / span 4 !important;
+    grid-row:4 !important;
+    height:100% !important;
+    min-height:374px !important;
+    align-self:stretch !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .main>.kpi-grid {
+    grid-column:11 / span 2 !important;
+    grid-row:4 !important;
+    height:100% !important;
+    min-height:374px !important;
+    align-self:stretch !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:last-child {
+    grid-column:7 / span 6 !important;
+    grid-row:5 !important;
+    min-height:150px !important;
+    height:auto !important;
+    align-self:stretch !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .main>.finance-grid {
+    grid-column:1 / -1 !important;
+    grid-row:6 !important;
+  }
+}
+
+/* Dentro do card maior, o donut respira e as seis métricas ocupam a
+   largura disponível. Nada de metade inferior vazia. */
+@media (min-width:1361px) {
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .panel-body {
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    height:calc(100% - 60px) !important;
+    min-height:0 !important;
+    padding:5px 20px 19px !important;
+    overflow:hidden !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .analytics {
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    justify-content:center !important;
+    min-height:0 !important;
+    height:auto !important;
+    width:100%;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .analytics .chart-box {
+    height:285px !important;
+    flex:0 0 285px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-donut-scene {
+    height:285px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-donut-scene .chart-wrap {
+    width:280px !important;
+    max-width:100% !important;
+    height:268px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-type-insights {
+    overflow:visible !important;
+    gap:7px !important;
+    flex:0 0 auto !important;
+    min-height:0 !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-type-row {
+    min-height:40px !important;
+    padding:8px 10px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-type-totals .summary-row {
+    min-height:36px !important;
+    padding:9px 10px !important;
+  }
+}
+
+/* Evolução: sem transportar a altura de 548px do gráfico principal.
+   Gráfico ocupa apenas a altura do seu cartão de 374px. */
+@media (min-width:1361px) {
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:first-child .panel-body {
+    height:calc(100% - 60px) !important;
+    min-height:0 !important;
+    padding:8px 13px 14px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:first-child .chart-box,
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:first-child .chart-wrap {
+    height:100% !important;
+    min-height:0 !important;
+  }
+}
+
+/* 931–1360: produção ocupa a linha superior, enquanto evolução e KPIs
+   dividem a linha seguinte; sem células vazias ou painéis espremidos. */
+@media (min-width:931px) and (max-width:1360px) {
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child {
+    grid-column:1 / -1 !important;
+    grid-row:4 !important;
+    min-height:380px !important;
+    height:auto !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .panel-body {
+    height:auto !important;
+    min-height:310px !important;
+    overflow:visible !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:first-child {
+    grid-column:1 / span 7 !important;
+    grid-row:5 !important;
+    height:380px !important;
+    min-height:380px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .main>.kpi-grid {
+    grid-column:8 / span 5 !important;
+    grid-row:5 !important;
+    height:380px !important;
+    min-height:380px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:repeat(2,minmax(0,1fr)) !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .analytics-section>.panel:last-child {
+    grid-column:1 / -1 !important;
+    grid-row:6 !important;
+    min-height:150px !important;
+    height:auto !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .main>.finance-grid {
+    grid-column:1 / -1 !important;
+    grid-row:7 !important;
+  }
+}
+
+/* A barra superior e o seletor de tema não mudam. Os efeitos/animações
+   e todos os elementos funcionais permanecem como estavam na v5. */
+@media (max-width:930px) {
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar {
+    padding:9px 12px !important;
+    background:color-mix(in srgb,var(--cr-bg) 93%,transparent) !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .nav {
+    background:color-mix(in srgb,var(--cr-panel) 94%,transparent) !important;
+    border:1px solid var(--cr-line) !important;
+    border-radius:14px !important;
+    padding:6px !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cr-mascot-house {
+    background:transparent !important;
+    border:none !important;
+    padding:0 !important;
+    margin:0 !important;
+    box-shadow:none !important;
+  }
+}
+
+/* An older cinematic rule caps the donut container at 165px; remove that
+   specific cap only inside the new wide production card. Without this,
+   the enlarged chart escapes its box and can overlap the breakdown. */
+@media (min-width:1361px) {
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-types-chart {
+    height:285px !important;
+    max-height:none !important;
+    min-height:285px !important;
+    flex:0 0 285px !important;
+    align-self:stretch !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-donut-scene {
+    height:285px !important;
+    overflow:visible !important;
+  }
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cadastro>.panel:first-child .erp-type-insights {
+    max-height:none !important;
+    overflow:visible !important;
+  }
+}
+@media (max-width:930px) {
+  /* Keep the compact horizontal navigation from v4 on small screens.
+     The connection pill belongs to the desktop fixed sidebar only. */
+  html:is([data-erp-theme="original"],[data-erp-theme="halloween"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar .side-card {
+    display:none !important;
+  }
+}

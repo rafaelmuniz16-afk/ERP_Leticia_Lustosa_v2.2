@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 296" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Mascote de Ano Novo premium</title>
+  <desc id="desc">Duas taças de champanhe antropomórficas brindando, com brilhos, fogos suaves e faixa da virada 2027.</desc>
+  <defs>
+    <linearGradient id="sky" x1="52" y1="32" x2="196" y2="262" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#142646"/>
+      <stop offset=".54" stop-color="#0c1730"/>
+      <stop offset="1" stop-color="#081120"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ffffff" stop-opacity=".97"/>
+      <stop offset="1" stop-color="#b8e6ff" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="champagne" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff7bf"/>
+      <stop offset="1" stop-color="#f2cf72"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="60" y1="237" x2="190" y2="266" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#efd28a"/>
+      <stop offset="1" stop-color="#c8a14a"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="250" height="296" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#030916" flood-opacity=".33"/>
+    </filter>
+  </defs>
+
+  <circle cx="54" cy="58" r="5" fill="#65c9ff" opacity=".95"/>
+  <circle cx="76" cy="42" r="4" fill="#fff" opacity=".95"/>
+  <circle cx="192" cy="49" r="4.6" fill="#f5d88a"/>
+  <circle cx="207" cy="70" r="3.7" fill="#d7b4ff"/>
+  <path d="M32 90l4 10 10 4-10 4-4 10-4-10-10-4 10-4 4-10z" fill="#f5d37a"/>
+  <path d="M217 97l3 8 8 3-8 3-3 8-3-8-8-3 8-3 3-8z" fill="#f5d37a"/>
+
+  <g filter="url(#shadow)">
+    <rect x="38" y="26" width="174" height="238" rx="46" fill="url(#sky)"/>
+    <ellipse cx="125" cy="244" rx="61" ry="14" fill="#10223d"/>
+    <path d="M60 104c13-26 39-40 65-40 31 0 58 18 70 45" stroke="#2d4369" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+
+    <!-- fireworks -->
+    <g opacity=".9">
+      <path d="M78 88v-14M78 88l-10-9M78 88l-13 2M78 88l-10 11M78 88l1 14M78 88l10 10M78 88l13 2M78 88l10-10" stroke="#6ec7ff" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M175 78V62M175 78l-11-10M175 78l-15 2M175 78l-11 12M175 78l1 16M175 78l11 10M175 78l14 2M175 78l10-11" stroke="#f0cf76" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+
+    <!-- left glass -->
+    <g transform="translate(62 92) rotate(-8 28 52)">
+      <path d="M10 0h36l-5 34c-1.2 10-9.3 17-18 17-8.8 0-16.8-7-18-17L10 0z" fill="url(#glass)" opacity=".96"/>
+      <path d="M13 6h30l-4 19c-1 6-6.5 10.5-13 10.5-6.6 0-12-4.5-13-10.5L13 6z" fill="url(#champagne)" opacity=".98"/>
+      <circle cx="20" cy="18" r="3.2" fill="#23385a"/>
+      <circle cx="34" cy="18" r="3.2" fill="#23385a"/>
+      <circle cx="21" cy="17" r=".95" fill="#fff" opacity=".9"/>
+      <circle cx="35" cy="17" r=".95" fill="#fff" opacity=".9"/>
+      <path d="M20 27c2.2 2.5 4.7 3.7 7 3.7 2.2 0 4.8-1.2 7-3.7" stroke="#23385a" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M27 51v31" stroke="#d9efff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M18 84h18" stroke="#d9efff" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="14" cy="10" r="2.2" fill="#fff" opacity=".9"/>
+      <circle cx="34" cy="12" r="1.8" fill="#fff" opacity=".85"/>
+    </g>
+
+    <!-- right glass -->
+    <g transform="translate(126 92) rotate(8 28 52)">
+      <path d="M10 0h36l-5 34c-1.2 10-9.3 17-18 17-8.8 0-16.8-7-18-17L10 0z" fill="url(#glass)" opacity=".96"/>
+      <path d="M13 6h30l-4 19c-1 6-6.5 10.5-13 10.5-6.6 0-12-4.5-13-10.5L13 6z" fill="url(#champagne)" opacity=".98"/>
+      <circle cx="20" cy="18" r="3.2" fill="#23385a"/>
+      <circle cx="34" cy="18" r="3.2" fill="#23385a"/>
+      <circle cx="21" cy="17" r=".95" fill="#fff" opacity=".9"/>
+      <circle cx="35" cy="17" r=".95" fill="#fff" opacity=".9"/>
+      <path d="M20 27c2.2 2.5 4.7 3.7 7 3.7 2.2 0 4.8-1.2 7-3.7" stroke="#23385a" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M27 51v31" stroke="#d9efff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M18 84h18" stroke="#d9efff" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="24" cy="11" r="2.1" fill="#fff" opacity=".88"/>
+      <circle cx="38" cy="9" r="1.8" fill="#fff" opacity=".82"/>
+    </g>
+
+    <!-- clink spark -->
+    <path d="M121 124c2 4 4 6 5 6s3-2 5-6" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".95"/>
+    <path d="M126 113v8M120 118h12M122 114l8 8M130 114l-8 8" stroke="#fff4bc" stroke-width="2.2" stroke-linecap="round" opacity=".92"/>
+
+    <!-- ribbon banner -->
+    <path d="M76 225h98c9 0 16 7 16 16s-7 16-16 16H76c-9 0-16-7-16-16s7-16 16-16z" fill="url(#ribbon)"/>
+    <path d="M76 225l-16 10 16 8M174 225l16 10-16 8" fill="#b18539" opacity=".95"/>
+    <text x="125" y="246" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-size="18" font-weight="800" fill="#173151" letter-spacing=".02em">Virada 2027</text>
+  </g>
+</svg>

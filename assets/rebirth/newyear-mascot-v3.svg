@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" width="260" height="300" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Lumi, a estrelinha da Virada 2027</title>
+  <desc id="description">Mascote original em forma de estrela dourada sorridente, com chapéu azul de festa, roupa noturna, taça e varinha de fogos. Desenho vetorial sem fundo.</desc>
+  <defs>
+    <radialGradient id="starGold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 96) rotate(50) scale(163 166)">
+      <stop stop-color="#FFFCE1"/>
+      <stop offset=".37" stop-color="#FFE59C"/>
+      <stop offset=".72" stop-color="#F9BF56"/>
+      <stop offset="1" stop-color="#D78B32"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="46" y1="65" x2="194" y2="221" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7CB"/>
+      <stop offset=".47" stop-color="#ECAA42"/>
+      <stop offset="1" stop-color="#C57D30"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="88" y1="175" x2="177" y2="253" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#456B9B"/>
+      <stop offset=".45" stop-color="#1C345D"/>
+      <stop offset="1" stop-color="#0C1B38"/>
+    </linearGradient>
+    <linearGradient id="hat" x1="104" y1="9" x2="154" y2="65" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#547BAB"/>
+      <stop offset="1" stop-color="#122B52"/>
+    </linearGradient>
+    <linearGradient id="champagne" x1="210" y1="151" x2="224" y2="189" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7C3"/><stop offset="1" stop-color="#EAB54D"/>
+    </linearGradient>
+    <linearGradient id="sparkGold" x1="20" y1="75" x2="76" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7D0"/><stop offset="1" stop-color="#F6BC53"/>
+    </linearGradient>
+    <filter id="softShadow" x="0" y="0" width="260" height="300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#141A44" flood-opacity=".21"/>
+    </filter>
+  </defs>
+
+  <!-- Freely floating celestial confetti (not a background or container). -->
+  <path d="M35 58l3.4 8.7L47 70l-8.6 3.2L35 82l-3.3-8.8L23 70l8.7-3.3L35 58Z" fill="url(#sparkGold)"/>
+  <path d="M219 67l2.9 7.6 7.6 2.8-7.6 2.9L219 88l-2.9-7.7-7.6-2.9 7.6-2.8L219 67Z" fill="#B8E7FF"/>
+  <circle cx="57" cy="43" r="2.6" fill="#B1DFFF"/>
+  <circle cx="200" cy="42" r="3.4" fill="#FDE399"/>
+  <circle cx="30" cy="151" r="2.6" fill="#F6C765"/>
+  <path d="M209 115l4 7.5 7.5 4-7.5 4-4 7.5-4-7.5-7.5-4 7.5-4 4-7.5Z" fill="#FFE2A0"/>
+  <path d="M54 214l2.5 6.5 6.5 2.5-6.5 2.5L54 232l-2.5-6.5-6.5-2.5 6.5-2.5L54 214Z" fill="#C4E6FF"/>
+
+  <!-- Little legs behind star, with tiny dress shoes. -->
+  <g filter="url(#softShadow)">
+    <path d="M109 207c1 14-1 26-5 40M146 207c-1 14 2 25 6 40" stroke="#23436C" stroke-width="11" stroke-linecap="round"/>
+    <path d="M103 241c-8 0-15 7-16 13-1 4 2 7 6 7h23c4 0 6-4 5-7-2-8-7-13-18-13Z" fill="#172849" stroke="#F1CF87" stroke-width="2"/>
+    <path d="M151 241c10 0 17 7 18 14 1 4-2 7-6 7h-23c-4 0-6-4-5-7 2-9 7-14 16-14Z" fill="#172849" stroke="#F1CF87" stroke-width="2"/>
+
+    <!-- Sweeping gold-trimmed twilight cape, visible below the star. -->
+    <path d="M88 163c-14 18-22 42-27 74 19 9 44 13 64 10 22 3 47-1 68-10-5-33-16-57-31-74l-37 5-37-5Z" fill="url(#navy)" stroke="#D5AC61" stroke-width="3"/>
+    <path d="M88 171c-8 12-15 35-20 57M164 171c9 12 17 35 22 57" stroke="#93C9E7" stroke-width="3" opacity=".46" stroke-linecap="round"/>
+    <path d="M78 234c33 10 64 12 94 0" stroke="#F5D37A" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Golden star body: the outline IS the character, no boxed backdrop. -->
+    <path d="M127 50c4-1 7 2 9 6l18 46 49 5c10 1 14 12 7 19l-38 35 13 48c3 10-7 17-16 12l-42-26-43 26c-8 5-18-2-16-12l13-48-38-35c-7-7-3-18 7-19l49-5 18-46c2-4 5-7 10-6Z" fill="url(#starGold)" stroke="url(#rim)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M127 66 144 110 190 115M58 116l47-6 22-44" stroke="#FFF9D5" stroke-width="3.2" stroke-linecap="round" opacity=".83"/>
+    <path d="M79 201 90 158 61 128M179 201l-13-43 30-30" stroke="#D9973C" stroke-width="2.5" opacity=".36" stroke-linecap="round"/>
+
+    <!-- Navy ceremonial vest and gold bow. -->
+    <path d="M106 167c8 5 14 8 21 8 7 0 15-3 24-8l10 23-34 27-33-27 12-23Z" fill="#1E385F" stroke="#E8BC66" stroke-width="2.2"/>
+    <path d="M111 175 126 190 117 200M143 175 128 190 137 200" stroke="#A6D7F0" stroke-width="2.1" opacity=".72" stroke-linecap="round"/>
+    <path d="M112 172c6-6 11-5 15 2 4-7 9-8 15-2l-15 12-15-12Z" fill="#F8D16B" stroke="#B5813A" stroke-width="1.8"/>
+    <circle cx="127" cy="178" r="3" fill="#FFFBDF"/>
+    <circle cx="127" cy="202" r="2.4" fill="#F7D280"/>
+
+    <!-- Midnight-blue festival cap tilted over the golden star point. -->
+    <g transform="rotate(-12 131 54)">
+      <path d="M110 59 133 8 156 59Z" fill="url(#hat)" stroke="#E9D392" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M116 47 151 47 155 57 111 57Z" fill="#EFC86F"/>
+      <path d="M119 52h32" stroke="#FFF7CF" stroke-width="2.3" stroke-linecap="round" opacity=".9"/>
+      <circle cx="133" cy="8" r="7" fill="#FFF1B3" stroke="#F3CB6D" stroke-width="1.7"/>
+      <path d="M129 27l4-5 4 5-4 5-4-5Z" fill="#FFF2C1"/>
+      <path d="M117 40l2-4 2 4-2 4-2-4ZM144 40l2-4 2 4-2 4-2-4Z" fill="#B4E2FF"/>
+    </g>
+
+    <!-- Expressive friendly face at a size legible in the sidebar. -->
+    <path d="M93 127c4-5 11-7 16-4M144 123c5-3 12-1 16 4" stroke="#925A3F" stroke-width="3" stroke-linecap="round" opacity=".67"/>
+    <ellipse cx="106" cy="138" rx="6.3" ry="8" fill="#344064"/>
+    <ellipse cx="149" cy="138" rx="6.3" ry="8" fill="#344064"/>
+    <circle cx="108" cy="135" r="2.2" fill="white"/>
+    <circle cx="151" cy="135" r="2.2" fill="white"/>
+    <ellipse cx="91" cy="154" rx="10" ry="5" fill="#F08F91" opacity=".48"/>
+    <ellipse cx="164" cy="154" rx="10" ry="5" fill="#F08F91" opacity=".48"/>
+    <path d="M115 154c6 9 19 9 25 0" stroke="#8D5961" stroke-width="4.1" stroke-linecap="round"/>
+    <path d="M120 158c4 3 10 3 14 0" stroke="#DD7A8D" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Gloved arms and playful props. -->
+    <path d="M74 163 55 179" stroke="#29466E" stroke-width="12" stroke-linecap="round"/>
+    <path d="M178 162 199 176" stroke="#29466E" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="51" cy="184" r="9.5" fill="#FFF8EA" stroke="#C8DDE7" stroke-width="2"/>
+    <circle cx="201" cy="181" r="9.5" fill="#FFF8EA" stroke="#C8DDE7" stroke-width="2"/>
+
+    <!-- Left: enchanted sparkler, glowing star tip. -->
+    <path d="M49 178 29 101" stroke="#D7A75D" stroke-width="4.6" stroke-linecap="round"/>
+    <path d="M28 80 32 90l10 4-10 4-4 10-4-10-10-4 10-4 4-10Z" fill="#FFF0AB" stroke="#E8B64E" stroke-width="1.7"/>
+    <path d="M28 70v7M28 111v7M7 94h8M41 94h8M13 79l6 6M37 103l7 7M13 110l6-6M37 85l7-6" stroke="#FFD96F" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- Right: slim champagne flute, distinct from the previous double-glass mascot. -->
+    <path d="M205 172c0-5 3-11 5-19h23c2 8 5 14 5 19 0 9-7 16-16.5 16S205 181 205 172Z" fill="#E6F7FF" fill-opacity=".61" stroke="#EAF7FF" stroke-width="2.5"/>
+    <path d="M210 159h24c1 4 2 7 2 10 0 8-6 14-14 14s-14-6-14-14c0-3 1-6 2-10Z" fill="url(#champagne)" opacity=".92"/>
+    <path d="M222 188v22m-11 2h22" stroke="#D8EDFF" stroke-width="4.8" stroke-linecap="round"/>
+    <circle cx="217" cy="162" r="2" fill="#FFFDF4"/>
+    <circle cx="227" cy="169" r="2" fill="#FFFDF4"/>
+  </g>
+
+  <!-- Floating light particles, all within transparent viewBox. -->
+  <circle cx="211" cy="224" r="3.1" fill="#FDE6A6"/>
+  <circle cx="47" cy="255" r="3" fill="#B7E0FE"/>
+  <path d="M182 42 185 49l7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#F9DF9C"/>
+</svg>

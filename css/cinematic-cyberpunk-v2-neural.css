@@ -1,0 +1,200 @@
+/* ================================================================
+ * ERP Motion & Animações — Cyberpunk // NEURAL CONVERGENCE, Fase 09.3
+ * Pontual e exclusivo do tema Cyberpunk. Outras interfaces intactas.
+ * ================================================================ */
+
+/* A borda quadrada antiga não vinha do SVG: era desenhada pelo
+   refinamentos-fase4.css em .cyber-mascot::before. Desligar esse legado. */
+html[data-erp-theme="cyberpunk"] .cyber-mascot::before,
+html[data-erp-theme="cyberpunk"] .cyber-mascot::after {
+  content:none!important;display:none!important;visibility:hidden!important;
+  border:0!important;background:none!important;box-shadow:none!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar{
+  border-right:0!important;box-shadow:none!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house{
+  box-sizing:border-box!important;
+  width:100%!important;max-width:100%!important;
+  min-height:213px!important;height:auto!important;
+  padding:4px 3px 9px!important;margin:0 0 11px!important;
+  background:transparent!important;border:0!important;
+  border-bottom:0!important;border-radius:0!important;
+  box-shadow:none!important;overflow:visible!important;
+  isolation:auto!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house::before,
+html[data-erp-theme="cyberpunk"] #cr-mascot-house::after{
+  display:none!important;content:none!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot{
+  position:relative!important;inset:auto!important;
+  width:142px!important;height:160px!important;min-width:0!important;
+  padding:0!important;margin:0 auto 3px!important;
+  background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;clip-path:none!important;
+  overflow:visible!important;isolation:auto!important;
+  transform-origin:50% 55%!important;
+  animation:cy-kira-levitate-v2 5.6s ease-in-out infinite!important;
+  will-change:transform;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-kira-art{
+  display:block!important;width:100%!important;height:100%!important;
+  object-fit:contain!important;pointer-events:none!important;
+  animation:cy-kira-radiance-v2 5.6s ease-in-out infinite!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cr-mascot-caption{
+  display:block!important;position:relative!important;
+  box-sizing:border-box!important;width:100%!important;max-width:169px!important;
+  padding:0 3px!important;margin:0 auto!important;
+  color:#a9c8e4!important;text-align:center!important;
+  font:600 9.5px/1.48 'Space Grotesk',sans-serif!important;
+  overflow:visible!important;text-wrap:balance!important;
+  white-space:normal!important;letter-spacing:.01em!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble{
+  position:absolute!important;
+  top:auto!important;bottom:calc(100% - 18px)!important;
+  left:50%!important;right:auto!important;
+  min-width:158px!important;max-width:186px!important;
+  padding:8px 9px!important;
+  white-space:normal!important;
+  transform:translate(-50%,5px)!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot:is(:hover,:focus-visible) .bubble,
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble.is-visible{
+  transform:translate(-50%,0)!important;
+}
+@keyframes cy-kira-levitate-v2{
+  0%,100%{transform:translate3d(0,2px,0) rotate(-1.3deg)}
+  50%{transform:translate3d(0,-10px,0) rotate(1.3deg)}
+}
+@keyframes cy-kira-radiance-v2{
+  0%,100%{filter:drop-shadow(0 5px 11px rgba(52,221,255,.18))}
+  50%{filter:drop-shadow(0 12px 18px rgba(55,231,255,.32)) drop-shadow(0 0 8px rgba(222,91,246,.21))}
+}
+
+/* Full-screen neon circuits + full-screen wisps and eventual hologram:
+   the ERP stays visible below the transparent overlay. */
+#cr-portal.is-playing.theme-cyberpunk {
+  background:transparent!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-vignette{
+  background:none!important;display:none!important;opacity:0!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-logo{
+  width:min(345px,calc(100vw - 40px))!important;
+  height:auto!important;min-height:0!important;
+  left:50%!important;top:49%!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  padding:5px 12px 15px!important;
+  background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;filter:none!important;overflow:visible!important;
+  isolation:isolate!important;
+  text-align:center!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-logo::before{
+  content:"";position:absolute;pointer-events:none;
+  z-index:-1;left:50%;top:23%;width:240px;height:225px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(48,206,252,.17),rgba(100,68,224,.08) 49%,transparent 76%);
+  border:0;box-shadow:none;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-logo::after{
+  content:"";position:absolute;pointer-events:none;
+  z-index:1;left:50%;top:0;width:min(220px,75%);height:70%;
+  transform:translateX(-50%);
+  background:repeating-linear-gradient(to bottom,transparent 0 9px,rgba(113,255,255,.11) 10px,transparent 12px);
+  mask-image:radial-gradient(ellipse,black,transparent 76%);
+  border:0;box-shadow:none;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-logo img{
+  width:clamp(142px,18vw,205px)!important;
+  height:clamp(164px,21vw,232px)!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 3px 19px rgba(39,231,255,.55)) drop-shadow(0 0 18px rgba(182,109,244,.28))!important;
+  border:0!important;background:none!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-title{
+  color:#dcffff!important;
+  font:750 clamp(17px,2.3vw,25px)/1.30 'Orbitron','Space Grotesk',sans-serif!important;
+  letter-spacing:.11em!important;text-shadow:0 0 20px rgba(79,230,250,.48)!important;
+  margin-top:-4px!important;white-space:normal!important;
+}
+#cr-portal.is-playing.theme-cyberpunk .cr-portal-caption{
+  font:650 clamp(9px,1vw,11px)/1.5 'Space Grotesk',sans-serif!important;
+  color:#91dbf1!important;letter-spacing:.16em!important;
+  white-space:normal!important;max-width:100%!important;
+  margin-top:6px!important;
+}
+
+@media (max-width:930px){
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house{
+    min-height:54px!important;width:62px!important;max-width:62px!important;
+    margin:0!important;padding:0!important;
+  }
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot{
+    width:57px!important;height:57px!important;
+    margin:0 auto!important;
+  }
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cr-mascot-caption{display:none!important}
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble{
+    bottom:auto!important;top:52px!important;
+    min-width:145px!important;max-width:175px!important;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot,
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-kira-art{
+    animation:none!important;will-change:auto!important;
+  }
+}
+html[data-erp-theme="cyberpunk"][data-erp-effects="false"] #cr-mascot-house .cyber-mascot,
+html[data-erp-theme="cyberpunk"][data-erp-effects="false"] #cr-mascot-house .cyber-kira-art{
+  animation:none!important;will-change:auto!important;
+}
+
+
+/* ================================================================
+ * Fase 09.4 — unifica o plano de fundo da lateral com o cenário.
+ * Remove o "bloco" visual próprio do sidebar para que o background
+ * do tema atravesse toda a coluna esquerda, mantendo apenas os cards.
+ * ================================================================ */
+html[data-erp-theme="cyberpunk"] .sidebar{
+  background:transparent!important;
+  border-right:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+}
+html[data-erp-theme="cyberpunk"] .sidebar::before,
+html[data-erp-theme="cyberpunk"] .sidebar::after{
+  content:none!important;
+  display:none!important;
+}
+
+
+/* ================================================================
+ * Fase 09.5 — correção do balão de fala da KIRA-09.
+ * Evita corte da frase no topo reposicionando o speech bubble
+ * para a área útil do card do mascote na navegação lateral.
+ * ================================================================ */
+html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble{
+  top:calc(100% - 6px)!important;
+  bottom:auto!important;
+  left:50%!important;
+  min-width:154px!important;
+  max-width:188px!important;
+  padding:8px 10px!important;
+  line-height:1.38!important;
+  z-index:14!important;
+}
+html[data-erp-theme="cyberpunk"] #cr-mascot-house{
+  min-height:226px!important;
+}
+@media (max-width:930px){
+  html[data-erp-theme="cyberpunk"] #cr-mascot-house .cyber-mascot .bubble{
+    top:52px!important;
+    bottom:auto!important;
+  }
+}

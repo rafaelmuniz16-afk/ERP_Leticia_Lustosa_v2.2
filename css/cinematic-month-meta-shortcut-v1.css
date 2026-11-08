@@ -1,0 +1,82 @@
+/* ERP Motion — Planejamento mensal ao alcance da tela inicial.
+   Aparência exclusiva para os nove temas Cinematic: controles do Histórico
+   permanecem originais, com os mesmos eventos e regras operacionais. */
+.cr-month-meta-bar{display:none!important}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],
+[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],
+[data-erp-theme="halloween"],[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+.topbar .cr-month-meta-bar{
+  display:flex!important;align-items:center;flex:0 0 100%;order:10;
+  box-sizing:border-box;min-width:0;min-height:48px;flex-wrap:wrap;
+  gap:9px 13px;padding:8px 12px;margin:1px 0 0;
+  background:color-mix(in srgb,var(--cr-panel) 78%,transparent)!important;
+  border:1px solid var(--cr-line)!important;border-radius:13px!important;
+  box-shadow:0 5px 16px color-mix(in srgb,var(--cr-accent) 5%,transparent)!important;
+  color:var(--cr-ink)!important;
+  font-family:var(--motion-type-body,'DM Sans',sans-serif)!important;
+  isolation:isolate;position:relative;z-index:4;
+}
+.cr-month-meta-bar *{box-sizing:border-box}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],
+[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],
+[data-erp-theme="halloween"],[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+.topbar .cr-month-meta-caption{
+  display:flex;align-items:center;gap:7px;white-space:nowrap;
+  color:var(--cr-accent)!important;font-size:10px!important;
+  font-weight:750!important;letter-spacing:.015em;
+  margin-right:5px;
+}
+.cr-month-meta-caption svg{width:15px;height:15px;stroke:currentColor;flex-shrink:0}
+.cr-month-meta-field{display:flex;align-items:center;gap:8px;min-width:0}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],
+[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],
+[data-erp-theme="halloween"],[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+.topbar .cr-month-meta-field label{
+  font-family:var(--motion-type-body,'DM Sans',sans-serif)!important;
+  font-size:10px!important;line-height:1.2!important;font-weight:650!important;
+  color:var(--cr-muted)!important;white-space:nowrap;letter-spacing:0!important;
+  text-transform:none!important;margin:0!important;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],
+[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],
+[data-erp-theme="halloween"],[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+.topbar :is(#crMonthShortcut,#crGoalShortcut){
+  display:block!important;height:32px!important;min-height:32px!important;
+  padding:5px 9px!important;margin:0!important;
+  border:1px solid var(--cr-line)!important;border-radius:9px!important;
+  color:var(--cr-ink)!important;background:var(--cr-panel2)!important;
+  font-family:var(--motion-type-body,'DM Sans',sans-serif)!important;
+  font-size:11px!important;font-weight:750!important;line-height:20px!important;
+  box-shadow:none!important;outline:0;letter-spacing:0!important;
+}
+.topbar #crMonthShortcut{width:131px!important;min-width:131px!important;cursor:pointer}
+.topbar #crGoalShortcut{width:80px!important;min-width:80px!important;min-height:32px!important;text-align:right;font-variant-numeric:tabular-nums}
+.topbar .cr-month-meta-field :is(select,input):focus-visible{
+  border-color:var(--cr-accent)!important;
+  outline:2px solid color-mix(in srgb,var(--cr-accent) 40%,transparent)!important;
+  outline-offset:1px!important;
+}
+.topbar .cr-month-meta-unit{color:var(--cr-muted);font-size:10px;font-weight:650;white-space:nowrap}
+.topbar .cr-month-meta-hint{margin-left:auto;color:var(--cr-muted);font-size:9px;white-space:nowrap;opacity:.78}
+/* O seletor e os botões do cabeçalho ficam na linha superior; os atalhos, abaixo. */
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],
+[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],
+[data-erp-theme="halloween"],[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+.topbar #cr-theme-picker{order:2}
+
+@media(max-width:1090px){
+  .topbar .cr-month-meta-hint{display:none}
+}
+@media(max-width:650px){
+  html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],
+  [data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="pascoa"],
+  [data-erp-theme="halloween"],[data-erp-theme="festa-junina"],[data-erp-theme="terror"],[data-erp-theme="cyberpunk"],[data-erp-theme="glassy-crm"])
+  .topbar .cr-month-meta-bar{gap:8px 10px;padding:9px 10px!important;justify-content:space-between}
+  .cr-month-meta-caption{flex:0 0 100%;margin-bottom:2px}
+  .cr-month-meta-field{flex:1 1 145px;justify-content:space-between}
+  .topbar #crMonthShortcut{width:110px!important;min-width:0!important}
+  .topbar #crGoalShortcut{width:64px!important;min-width:0!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .cr-month-meta-bar,.cr-month-meta-bar *{animation:none!important;transition:none!important}
+}

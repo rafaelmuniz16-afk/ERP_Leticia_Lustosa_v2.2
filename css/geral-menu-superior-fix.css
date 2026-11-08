@@ -1,0 +1,196 @@
+/* ============================================================================
+ ERP Letícia Lustosa · Desenvolvimento Geral · Correção do Menu Principal Superior
+ Layout exclusivamente visual. Nenhuma alteração no motor de temas, nas preferências,
+ nos eventos de navegação, nos indicadores ou nos módulos da Aurora.
+
+ Problema: as folhas Cinematic/Motion carregadas DEPOIS de settings.css aplicavam
+ display:grid, sidebar vertical, width:198px e position:sticky com !important,
+ sobrepondo a preferência persistida data-erp-layout="top".
+
+ O layout lateral ou automático NÃO recebe regra alguma neste arquivo.
+ ============================================================================ */
+
+/* Quando o usuário escolhe Superior, a navegação deixa de ser uma coluna. */
+html[data-erp-layout="top"][data-erp-theme] .app {
+  display:flex!important;
+  flex-direction:column!important;
+  grid-template-columns:none!important;
+  grid-template-rows:none!important;
+  align-items:stretch!important;
+  min-width:0!important;
+}
+
+html[data-erp-layout="top"][data-erp-theme] .app > .sidebar {
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  align-content:center!important;
+  justify-content:flex-start!important;
+  position:relative!important;
+  inset:auto!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  flex:0 0 auto!important;
+  gap:8px 12px!important;
+  padding:10px 16px!important;
+  margin:0!important;
+  overflow:visible!important;
+  border-right:0!important;
+  border-bottom:1px solid var(--cr-line,var(--line,rgba(180,180,180,.28)))!important;
+  border-radius:0!important;
+  box-sizing:border-box!important;
+  z-index:25!important;
+}
+
+/* Preserva o mosaico e todas as seções do dashboard, independentemente de tema. */
+html[data-erp-layout="top"][data-erp-theme] .app > .main {
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  flex:1 1 auto!important;
+  box-sizing:border-box!important;
+}
+
+/* O título "Navegação" pertencia apenas ao menu lateral. */
+html[data-erp-layout="top"][data-erp-theme] .sidebar .side-section {
+  display:none!important;
+}
+
+/* Mantém os MESMOS botões e listeners; apenas altera o fluxo horizontal. */
+html[data-erp-layout="top"][data-erp-theme] .sidebar .nav {
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  flex:1 1 530px!important;
+  order:2!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  align-self:center!important;
+  gap:5px!important;
+  min-width:0!important;
+  max-width:100%!important;
+  width:auto!important;
+  margin:0!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  box-sizing:border-box!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar .nav-btn {
+  display:flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  min-height:39px!important;
+  height:auto!important;
+  padding:9px 11px!important;
+  margin:0!important;
+  white-space:nowrap!important;
+  position:relative!important;
+  box-sizing:border-box!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar .nav-btn > span:not(.nav-icon) {
+  display:inline!important;
+  position:static!important;
+  clip:auto!important;
+  clip-path:none!important;
+  visibility:visible!important;
+  opacity:1!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  overflow:visible!important;
+  white-space:nowrap!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar .nav-btn > .nav-icon {
+  position:static!important;
+  flex:0 0 auto!important;
+}
+
+/* Elementos secundários permanecem no DOM e disponíveis no layout superior. */
+html[data-erp-layout="top"][data-erp-theme] .sidebar > .brand {
+  flex:0 0 auto!important;
+  order:0!important;
+  max-width:180px!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar > #cr-mascot-house {
+  flex:0 0 auto!important;
+  order:1!important;
+  min-height:0!important;
+  height:auto!important;
+  width:auto!important;
+  max-width:120px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  overflow:visible!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar > #cr-mascot-house :is(.unicorn-mascot,.pumpkin-mascot,.santa-mascot,.toast-mascot,.gemini-mascot) {
+  width:65px!important;
+  height:68px!important;
+  min-width:0!important;
+  min-height:0!important;
+  flex:0 0 auto!important;
+  margin:0 auto!important;
+  background-size:contain!important;
+}
+html[data-erp-layout="top"][data-erp-theme] #cr-mascot-house .cr-mascot-caption {
+  margin:0 auto!important;
+  max-width:112px!important;
+  line-height:1.3!important;
+  text-align:center!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar > .side-card {
+  flex:0 0 auto!important;
+  order:3!important;
+  width:auto!important;
+  max-width:180px!important;
+  min-width:0!important;
+  margin:0!important;
+  align-self:center!important;
+}
+html[data-erp-layout="top"][data-erp-theme] .sidebar > .side-countdown {
+  order:4!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+}
+
+/* Evita que estilos estreitos de temas tornem invisível a barra principal. */
+@media(max-width:1180px) {
+  html[data-erp-layout="top"][data-erp-theme] .sidebar .nav {
+    flex:1 1 100%!important;
+    order:5!important;
+    width:100%!important;
+  }
+}
+@media(max-width:900px) {
+  html[data-erp-layout="top"][data-erp-theme] .app > .sidebar {
+    padding:9px 11px!important;
+    gap:7px!important;
+  }
+  html[data-erp-layout="top"][data-erp-theme] .sidebar > .side-card {
+    display:none!important; /* O status já é ocultado no layout móvel original. */
+  }
+  html[data-erp-layout="top"][data-erp-theme] .sidebar .nav {
+    flex:1 1 100%!important;
+    order:5!important;
+  }
+  html[data-erp-layout="top"][data-erp-theme] .sidebar .nav-btn {
+    min-height:40px!important;
+    padding:8px 10px!important;
+  }
+}

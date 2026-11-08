@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" role="img" aria-labelledby="kiraTitle kiraDesc">
+<title id="kiraTitle">KIRA-09 Nova Geração — sentinela holográfica</title>
+<desc id="kiraDesc">Pequena raposa robótica flutuante sem fundo retangular, com orelhas de cristal, olhos ciano, cauda luminosa violeta e núcleo holográfico no peito.</desc>
+<defs>
+ <linearGradient id="armor" x1=".08" y1=".01" x2=".9" y2="1"><stop stop-color="#5369ad"/><stop offset=".29" stop-color="#273d77"/><stop offset=".7" stop-color="#1a234c"/><stop offset="1" stop-color="#131730"/></linearGradient>
+ <linearGradient id="face" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#1b3758"/><stop offset=".49" stop-color="#0b1939"/><stop offset="1" stop-color="#1a1743"/></linearGradient>
+ <linearGradient id="edges" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#93faff"/><stop offset=".36" stop-color="#4fe5fa"/><stop offset=".75" stop-color="#b983ff"/><stop offset="1" stop-color="#ff80ce"/></linearGradient>
+ <linearGradient id="ears" x1="0" y1="0" x2=".85" y2="1"><stop stop-color="#f78be4"/><stop offset=".48" stop-color="#9b62ed"/><stop offset="1" stop-color="#394ca9"/></linearGradient>
+ <linearGradient id="tail" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#54f5ff"/><stop offset=".56" stop-color="#977cff"/><stop offset="1" stop-color="#f983d7"/></linearGradient>
+ <radialGradient id="cheeks"><stop stop-color="#ff76ce" stop-opacity=".77"/><stop offset="1" stop-color="#ff76ce" stop-opacity="0"/></radialGradient>
+ <radialGradient id="glimmer"><stop stop-color="#c5ffff" stop-opacity=".55"/><stop offset="1" stop-color="#40e8ff" stop-opacity="0"/></radialGradient>
+ <filter id="halo" x="-65%" y="-65%" width="230%" height="230%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="aura" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<!-- Soft levitation light, freely shaped with no frame. -->
+<ellipse cx="124" cy="279" rx="63" ry="8" fill="#4ef2ff" opacity=".20" filter="url(#aura)"/>
+<path d="M78 270q45 17 93 0" fill="none" stroke="#6df0ff" stroke-width="1.5" stroke-dasharray="3 9" opacity=".5"/>
+<!-- Futuristic fox tail visible outside the body silhouette. -->
+<path d="M173 213c41-27 62-5 49 23-12 26-48 33-67 17 31 1 48-13 48-26-1-11-19-12-32 2Z" fill="url(#armor)" stroke="url(#tail)" stroke-width="4" stroke-linejoin="round"/>
+<path d="M206 218q18 13-2 28-14 10-29 8" fill="none" stroke="#f58de5" stroke-width="3" stroke-linecap="round" opacity=".87"/>
+<path d="M211 224q4 8-1 13" fill="none" stroke="#b0ffff" stroke-width="3" stroke-linecap="round" filter="url(#halo)"/>
+<!-- Antenna, crystal orbit and ears -->
+<path d="M131 69V29" fill="none" stroke="#65e9ff" stroke-width="3" stroke-linecap="round"/>
+<path d="M131 28l-8-9 8-11 8 11z" fill="#b8ffff" stroke="#b17df3" stroke-width="1.5" filter="url(#halo)"/>
+<circle cx="131" cy="31" r="10" fill="url(#glimmer)"/>
+<path d="M73 111 52 33q-1-10 9-7l50 45M186 111l21-78q1-10-9-7l-50 45" fill="url(#armor)" stroke="url(#edges)" stroke-width="4.5" stroke-linejoin="round"/>
+<path d="M72 92 64 48l34 32M188 92l8-44-34 32" fill="url(#ears)" opacity=".9"/>
+<path d="M71 60 83 78M190 60l-12 18" fill="none" stroke="#d6ffff" stroke-width="3" opacity=".8"/>
+<!-- Small floating shoulders and torso -->
+<path d="M89 205q-31 13-36 40l18 17 30-16M169 205q31 13 36 40l-18 17-30-16" fill="url(#armor)" stroke="#5edbeb" stroke-width="3.4" stroke-linejoin="round"/>
+<path d="M88 208q-18 10-16 41 54 33 116 0 2-31-17-41" fill="url(#armor)" stroke="url(#edges)" stroke-width="4"/>
+<path d="M95 237h69l-7 22q-27 14-54 0z" fill="#0d1c3b" stroke="#6bdff1" stroke-width="2"/>
+<path d="M130 219 145 234l-15 18-15-18z" fill="#22375b" stroke="#ac7dff" stroke-width="2.5"/>
+<path d="M130 223l10 11-10 13-10-13z" fill="#7efaff" filter="url(#halo)"/>
+<path d="M91 227 80 239m89-12 11 12" stroke="#ff77d7" stroke-width="3" stroke-linecap="round"/>
+<path d="M90 255q9 8 19 6m42 0q10 1 19-6" fill="none" stroke="#91ffff" stroke-width="3" stroke-linecap="round"/>
+<!-- Rounded animated character silhouette (not an enclosing box). -->
+<path d="M61 127q0-69 68-74 68 5 70 74l-5 47q-14 47-65 48-52-1-65-48z" fill="url(#armor)" stroke="url(#edges)" stroke-width="4.6" stroke-linejoin="round"/>
+<path d="M74 112q55-38 109 0" fill="none" stroke="#c7ddff" stroke-width="3" opacity=".57"/>
+<path d="M76 123q23-26 53-26t54 26l-4 53q-19 29-50 29-31 0-50-29z" fill="url(#face)" stroke="#4ed5ee" stroke-width="2.7"/>
+<path d="M90 114q38-20 77 0" fill="none" stroke="#9ac1fd" stroke-width="1.8" opacity=".47"/>
+<!-- expressive cyan eyes; two distinct shapes for a friendly personality -->
+<ellipse cx="104" cy="146" rx="25" ry="20" fill="url(#glimmer)"/>
+<ellipse cx="155" cy="146" rx="25" ry="20" fill="url(#glimmer)"/>
+<path d="M88 150q16-20 30 0M142 150q14-20 30 0" fill="none" stroke="#96ffff" stroke-width="7" stroke-linecap="round" filter="url(#halo)"/>
+<path d="M99 139h6m52 0h6" stroke="#eaffff" stroke-width="2.7" stroke-linecap="round"/>
+<!-- fox cheeks, nose and playful mouth -->
+<ellipse cx="85" cy="175" rx="16" ry="11" fill="url(#cheeks)"/>
+<ellipse cx="175" cy="175" rx="16" ry="11" fill="url(#cheeks)"/>
+<path d="M125 169q5 4 10 0l-5 7z" fill="#ff8bd7"/>
+<path d="M130 176v5m0 0q-7 7-14-1m14 1q7 7 14-1" fill="none" stroke="#d7ffff" stroke-width="2" stroke-linecap="round"/>
+<path d="M76 175 62 171m14 11-14 5m122-12 14-4m-14 11 14 5" fill="none" stroke="#ff94e6" stroke-width="2" opacity=".75" stroke-linecap="round"/>
+<!-- tiny processor modules, not a decorative frame -->
+<path d="M56 143h12v33H56q-8-16 0-33Zm136 0h12q8 17 0 33h-12Z" fill="#283263" stroke="#b47cff" stroke-width="2.5"/>
+<path d="M58 155h8m128 0h8" stroke="#7ffbff" stroke-width="3" filter="url(#halo)"/>
+<!-- orbiting pixel sparks -->
+<path d="M37 112h12m-6-6v12M216 103h11m-5-5v10" fill="none" stroke="#52e8ff" stroke-width="1.7" opacity=".9" stroke-linecap="round"/>
+<path d="m47 214 5 5-5 5-5-5ZM214 267l4 4-4 4-4-4Z" fill="#f47fe1" opacity=".85"/>
+<circle cx="227" cy="158" r="2.2" fill="#96ffff"/>
+</svg>

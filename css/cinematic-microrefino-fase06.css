@@ -1,0 +1,38 @@
+/* ERP Motion · Fase 06 — display-only refinements, no business-state changes. */
+/* The confirmation must float above the still-open History dialog/backdrop.
+   Applicable only while the cinematic History is open. */
+body.history-open .swal2-container {z-index:1000100!important;}
+
+/* New etched medallions: thematic metals, pearls, coloured inlays.
+   SVG icon geometry comes from the existing 70-level catalogue. */
+:root {
+  --aa-medal-face-light:#fff9eb;
+  --aa-medal-face-shade:#ead9ef;
+  --aa-medal-rim-hi:#fff1bd;
+  --aa-medal-rim-mid:#ceb4d9;
+  --aa-medal-rim-lo:#9876ac;
+  --aa-medal-gem:#ffe6a8;
+}
+html[data-erp-theme="original"] {--aa-medal-face-shade:#e4dcff;--aa-medal-rim-mid:#bba8e9;--aa-medal-rim-lo:#9276c8;--aa-medal-gem:#ffc8ea;}
+html[data-erp-theme="claro"] {--aa-medal-face-shade:#dbecff;--aa-medal-rim-mid:#a6c3e4;--aa-medal-rim-lo:#6a9bc9;--aa-medal-gem:#ffe49c;}
+html[data-erp-theme="escuro"] {--aa-medal-face-light:#d8e4ff;--aa-medal-face-shade:#99a1d9;--aa-medal-rim-hi:#f2eeff;--aa-medal-rim-mid:#b4a5dc;--aa-medal-rim-lo:#8d7aca;--aa-medal-gem:#c7f3ff;}
+html[data-erp-theme="natal"] {--aa-medal-face-light:#fff9ea;--aa-medal-face-shade:#f3d6cf;--aa-medal-rim-hi:#fff0b0;--aa-medal-rim-mid:#d9ae64;--aa-medal-rim-lo:#ab715a;--aa-medal-gem:#c8f4dc;}
+html[data-erp-theme="ano-novo"] {--aa-medal-face-light:#fff8df;--aa-medal-face-shade:#c8ddf7;--aa-medal-rim-hi:#fff8ce;--aa-medal-rim-mid:#e1bd64;--aa-medal-rim-lo:#9e88c8;--aa-medal-gem:#b4e9ff;}
+html[data-erp-theme="pascoa"] {--aa-medal-face-light:#fffef7;--aa-medal-face-shade:#fee0ed;--aa-medal-rim-hi:#fff1cc;--aa-medal-rim-mid:#e7b9d6;--aa-medal-rim-lo:#bb8dc6;--aa-medal-gem:#c2eeff;}
+html[data-erp-theme="halloween"] {--aa-medal-face-light:#f4d7ae;--aa-medal-face-shade:#c7aadf;--aa-medal-rim-hi:#ffe5ae;--aa-medal-rim-mid:#c78e80;--aa-medal-rim-lo:#9862a2;--aa-medal-gem:#b5e678;}
+html[data-erp-theme="festa-junina"] {--aa-medal-face-light:#fff4d3;--aa-medal-face-shade:#f6d6ba;--aa-medal-rim-hi:#ffe7a3;--aa-medal-rim-mid:#d9ad6a;--aa-medal-rim-lo:#ac784a;--aa-medal-gem:#b1dfb8;}
+html[data-erp-theme="terror"] {--aa-medal-face-light:#eac1cf;--aa-medal-face-shade:#855276;--aa-medal-rim-hi:#fad6d6;--aa-medal-rim-mid:#c489a3;--aa-medal-rim-lo:#844661;--aa-medal-gem:#ffbed2;}
+html[data-erp-theme="cyberpunk"] {--aa-medal-face-light:#d8fff9;--aa-medal-face-shade:#8fc8f8;--aa-medal-rim-hi:#bafff6;--aa-medal-rim-mid:#81cff6;--aa-medal-rim-lo:#9874ec;--aa-medal-gem:#ffb2ee;}
+html[data-erp-theme="glassy-crm"] {--aa-medal-face-light:#f5fcff;--aa-medal-face-shade:#c9ddf3;--aa-medal-rim-hi:#f6ffff;--aa-medal-rim-mid:#bbd0ee;--aa-medal-rim-lo:#8aa7d6;--aa-medal-gem:#e5cfff;}
+:is(#sideAuroraCard,#auroraAchievementsDialog) svg.aa-emblem {
+  overflow:visible;
+  flex:0 0 60px;
+  width:60px;height:60px;
+  filter:drop-shadow(0 4px 6px rgba(61,34,62,.12));
+  transition:filter .2s ease,transform .2s ease;
+}
+:is(#sideAuroraCard,#auroraAchievementsDialog) .aa-level-heading:hover svg.aa-emblem {
+  filter:drop-shadow(0 6px 9px rgba(61,34,62,.18));
+}
+@media(max-width:440px){:is(#sideAuroraCard,#auroraAchievementsDialog) svg.aa-emblem{width:52px;height:52px;flex-basis:52px}}
+@media(prefers-reduced-motion:reduce){:is(#sideAuroraCard,#auroraAchievementsDialog) svg.aa-emblem{transition:none}}

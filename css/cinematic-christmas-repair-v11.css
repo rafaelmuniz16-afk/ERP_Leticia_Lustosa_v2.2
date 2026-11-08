@@ -1,0 +1,174 @@
+/* ERP Letícia Lustosa — v11 Christmas visual repair.
+ * Only presentation: Natal + Ano Novo gain the same interaction-safe layout
+ * used by Original, Halloween, Claro and Escuro.
+ */
+
+/* Critical: invisible drawers, flyouts and festive layers cannot capture input. */
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .ai-drawer:not(.ai-open) {
+  display:none!important; visibility:hidden!important; pointer-events:none!important;
+}
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .ai-drawer:not(.ai-open) * {
+  pointer-events:none!important;
+}
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cr-portal,
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #cr-portal *,
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) #snowContainer,
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .cr-orbital-illustration,
+html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .xmas-burst-elem {
+  pointer-events:none!important;
+}
+
+/* The sidebar is the same transparent background as the dashboard, with
+ * the three individual boxes kept in place. No white vertical slab. */
+@media (min-width:931px) {
+  html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .app {
+    grid-template-columns:198px minmax(0,1fr)!important;
+    background:transparent!important;
+  }
+  html:is([data-erp-theme="natal"],[data-erp-theme="ano-novo"]) .sidebar {
+    background:transparent!important;
+    border:0!important;
+    border-right:0!important;
+    box-shadow:none!important;
+    position:sticky!important;
+    top:59px!important;
+    align-self:start!important;
+    height:calc(100dvh - 59px)!important;
+  }
+}
+
+/* Custom Santa (the original interactive DOM node and 10-click Easter egg stay). */
+html[data-erp-theme="natal"] #cr-mascot-house .santa-mascot {
+  background:transparent url('../assets/rebirth/christmas-mascot-v2.svg') center/contain no-repeat!important;
+  width:126px!important;
+  height:152px!important;
+  min-width:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 9px 16px rgba(186,44,69,.18));
+  animation:cr-mascot-bob 3.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="natal"] #cr-mascot-house .santa-mascot > span:first-child {
+  font-size:0!important;opacity:0!important;
+}
+html[data-erp-theme="natal"] #cr-mascot-house .cr-mascot-caption {
+  color:#47785b!important;
+}
+
+/* Replace accidentally recycled / abstract illustrations with unmistakable
+ * Christmas artwork. No rainbows, prisms, hourglasses or unrelated icons. */
+html[data-erp-theme="natal"] :is(.cr-rainbow,.cr-sunburst,.cr-prism,.cr-comet,
+.cr-snowglobe,.cr-holly,.cr-garland,.cr-snowspark,.cr-ghost,.cr-pumpkin) {
+  display:none!important;
+}
+html[data-erp-theme="natal"] .cr-christmas-tree,
+html[data-erp-theme="natal"] .cr-christmas-hat,
+html[data-erp-theme="natal"] .cr-christmas-star,
+html[data-erp-theme="natal"] .cr-christmas-snow {
+  display:block!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+  pointer-events:none!important;
+  animation:cr-christmas-float 4.8s ease-in-out infinite!important;
+}
+html[data-erp-theme="natal"] .cr-christmas-tree {
+  top:10px;right:14px;width:63px;height:75px;
+  background-image:url('../assets/rebirth/christmas-tree.svg')!important;
+  filter:drop-shadow(0 8px 10px rgba(27,124,77,.12));
+}
+html[data-erp-theme="natal"] .cr-christmas-hat {
+  top:7px;right:10px;width:78px;height:57px;
+  background-image:url('../assets/rebirth/christmas-hat.svg')!important;
+  filter:drop-shadow(0 7px 9px rgba(196,30,58,.12));
+  animation-delay:-1.4s!important;
+}
+html[data-erp-theme="natal"] .cr-christmas-star {
+  right:17px;bottom:12px;width:39px;height:39px;
+  background-image:none!important;
+  background:radial-gradient(circle at 50% 50%,#fffdf3 0 13%,#f8da6a 22%,transparent 60%)!important;
+  clip-path:polygon(50% 0%,61% 35%,95% 39%,68% 60%,79% 94%,50% 73%,21% 94%,32% 60%,5% 39%,39% 35%);
+  filter:drop-shadow(0 0 7px rgba(244,196,65,.24));
+  animation:cr-christmas-twinkle 3.4s ease-in-out infinite!important;
+}
+html[data-erp-theme="natal"] .cr-christmas-snow {
+  right:18px;top:13px;width:54px;height:46px;
+  background-image:none!important;
+}
+html[data-erp-theme="natal"] .cr-christmas-snow::before,
+html[data-erp-theme="natal"] .cr-christmas-snow::after {
+  content:'❄';position:absolute;top:3px;left:5px;font-size:27px;
+  color:#8fbec0;text-shadow:0 1px 8px rgba(130,195,190,.12);
+  animation:cr-christmas-twinkle 3.6s ease-in-out infinite;
+}
+html[data-erp-theme="natal"] .cr-christmas-snow::after {
+  top:21px;left:31px;font-size:13px;color:#c83d5a;animation-delay:-1.8s;
+}
+html[data-erp-theme="natal"] :is(.analytics-section>.panel:first-child,
+#cadastro>.panel:first-child,.analytics-section>.panel:last-child)::before,
+html[data-erp-theme="natal"] :is(.analytics-section>.panel:first-child,
+#cadastro>.panel:first-child,.analytics-section>.panel:last-child)::after {
+  content:none!important;display:none!important;
+}
+html[data-erp-theme="natal"] #sideAuroraCard .aurora-live-block:nth-child(odd)::after {
+  content:'❄'!important;position:absolute;top:8px;right:10px;
+  font-size:17px;color:#8cbfb1;opacity:.52;pointer-events:none;
+  animation:cr-christmas-twinkle 4s ease-in-out infinite;
+}
+html[data-erp-theme="natal"] #sideAuroraCard .aurora-live-block:nth-child(even)::after {
+  content:'✦'!important;position:absolute;top:8px;right:10px;
+  font-size:15px;color:#dfad48;opacity:.45;pointer-events:none;
+  animation:cr-christmas-twinkle 3.6s ease-in-out infinite;
+}
+html[data-erp-theme="natal"] #sideAuroraCard .aurora-live-block {position:relative}
+
+/* Christmas portal: Santa's sleigh really crosses the scene, rather than a
+ * generic rainbow arch from the Original theme. */
+#cr-portal .cr-portal-sleigh {
+  display:none;position:absolute;top:22%;left:-38%;z-index:4;
+  width:min(35vw,480px);height:auto;pointer-events:none!important;
+  filter:drop-shadow(0 7px 17px rgba(17,45,58,.25));
+}
+#cr-portal.is-playing.theme-natal .cr-portal-sleigh {
+  display:block;
+  animation:cr-sleigh-flight 1.9s cubic-bezier(.26,.12,.64,.82) both;
+}
+#cr-portal.is-playing.theme-natal .cr-portal-logo {
+  z-index:5;
+}
+@keyframes cr-sleigh-flight {
+  0%{left:-38%;top:36%;opacity:0;transform:rotate(-9deg) scale(.76)}
+  13%{opacity:1}
+  50%{left:39%;top:13%;transform:rotate(-5deg) scale(1.02);opacity:1}
+  85%{opacity:1}
+  100%{left:112%;top:-8%;opacity:0;transform:rotate(-12deg) scale(.82)}
+}
+@keyframes cr-christmas-float {
+  0%,100%{transform:translateY(1px) rotate(-1deg)}
+  50%{transform:translateY(-5px) rotate(2deg)}
+}
+@keyframes cr-christmas-twinkle {
+  0%,100%{opacity:.38;transform:scale(.9)}
+  50%{opacity:.92;transform:scale(1.08)}
+}
+
+/* New Year shares the repaired navigation and modal, but retains its own
+ * fireworks/champagne animation and distinct gold-blue identity. */
+html[data-erp-theme="ano-novo"] :is(.cr-christmas-tree,.cr-christmas-hat,
+.cr-christmas-star,.cr-christmas-snow,.cr-portal-sleigh) {display:none!important}
+
+@media (max-width:930px){
+ html[data-erp-theme="natal"] #cr-mascot-house .santa-mascot{
+   width:52px!important;height:52px!important;background-size:contain!important;
+ }
+ #cr-portal.is-playing.theme-natal .cr-portal-sleigh{width:min(56vw,270px)}
+}
+@media (prefers-reduced-motion:reduce){
+ html[data-erp-theme="natal"] :is(.cr-christmas-tree,.cr-christmas-hat,
+ .cr-christmas-star,.cr-christmas-snow,.santa-mascot),
+ #cr-portal.is-playing.theme-natal .cr-portal-sleigh {animation:none!important}
+}
+html[data-erp-effects="false"][data-erp-theme="natal"] :is(.cr-christmas-tree,
+.cr-christmas-hat,.cr-christmas-star,.cr-christmas-snow,.santa-mascot) {
+ animation:none!important;
+}

@@ -1,0 +1,351 @@
+/* ==================================================================
+   ERP | Motion — NOCTURNE / O OLHO DO ABISMO | Cinematic Terror v1
+   Strictly scoped to [data-erp-theme="terror"]. No business rules.
+   ================================================================== */
+html[data-erp-theme="terror"] {
+  color-scheme:dark;
+  --cr-ink:#f3e8ef;
+  --cr-muted:#beaab9;
+  --cr-bg:#090910;
+  --cr-panel:#19131f;
+  --cr-panel2:#241a29;
+  --cr-top:#110d19;
+  --cr-side:#100e18;
+  --cr-line:#483445;
+  --cr-accent:#dd6275;
+  --cr-accent2:#9872b0;
+  --cr-halo:#ce7b93;
+  --cr-soft:#291c2e;
+  --cr-shadow:0 18px 40px rgba(0,0,0,.34),0 1px 0 rgba(255,255,255,.025);
+  --cr-chart:#1a1420;
+  --v13-neon:rgba(174,84,109,.28);
+  --v13-glow:rgba(183,66,106,.09);
+  --text-main:#f3e8ef;
+  --text-muted:#beaab9;
+  --text-dim:#8f7c91;
+  --surface:#19131f; --surface-2:#241a29; --surface-3:#2e2235;
+  --bg-deep:#090910;
+  --line-light:rgba(237,194,209,.11);
+  --blood-red:#cc5470;--blood-glow:#d86f86;
+  --blood-line:rgba(187,78,101,.23);
+  --muted:#beaab9;--text:#f3e8ef;
+  --sidebar:198px;
+}
+html[data-erp-theme="terror"] body {
+  background:
+    radial-gradient(ellipse at 73% 1%,rgba(143,43,74,.14),transparent 30%),
+    radial-gradient(ellipse at 8% 46%,rgba(107,59,109,.11),transparent 32%),
+    radial-gradient(ellipse at 77% 94%,rgba(118,40,83,.10),transparent 29%),
+    #090910!important;
+  color:var(--cr-ink)!important;
+}
+/* Legacy VHS overlay is disabled; this universe uses precise restrained light. */
+html[data-erp-theme="terror"] body::before,
+html[data-erp-theme="terror"] body::after{display:none!important}
+html[data-erp-theme="terror"] #horrorCanvas{
+  position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
+  z-index:1!important;opacity:.7!important;pointer-events:none!important;
+  mix-blend-mode:screen;
+}
+html[data-erp-theme="terror"] #cr-chrome{
+  background:rgba(15,11,22,.97)!important;border-color:rgba(171,93,119,.19)!important;
+  box-shadow:0 6px 29px rgba(0,0,0,.19)!important;
+}
+html[data-erp-theme="terror"] #cr-chrome .cr-logo-mark i:nth-child(1){background:#b04962!important}
+html[data-erp-theme="terror"] #cr-chrome .cr-logo-mark i:nth-child(2){background:#d3a18e!important}
+html[data-erp-theme="terror"] #cr-chrome .cr-logo-mark i:nth-child(3){background:#8d658b!important}
+html[data-erp-theme="terror"] #cr-chrome .cr-logo-mark i:nth-child(4){background:#69779b!important}
+html[data-erp-theme="terror"] #cr-chrome .cr-avatar{
+  background:linear-gradient(140deg,#77314f,#be7580)!important;color:#fbeef1!important;
+}
+html[data-erp-theme="terror"] .sidebar{
+  background:linear-gradient(180deg,#13101b,#100e17 68%,#15101a)!important;
+  border-right:1px solid rgba(188,108,141,.19)!important;
+}
+html[data-erp-theme="terror"] .sidebar .nav,
+html[data-erp-theme="terror"] .sidebar .side-card,
+html[data-erp-theme="terror"] #cr-mascot-house,
+html[data-erp-theme="terror"] :is(.main .panel,.main .status,.main .kpi){
+  border-color:var(--v13-neon)!important;
+  box-shadow:0 0 0 1px rgba(178,80,116,.035),0 0 17px rgba(153,47,88,.085),var(--cr-shadow)!important;
+}
+html[data-erp-theme="terror"] .sidebar .nav-btn.active{
+  background:linear-gradient(110deg,rgba(169,62,94,.23),rgba(116,67,119,.12))!important;
+  border:1px solid rgba(208,102,138,.35)!important;color:#ffced8!important;
+  box-shadow:inset 2px 0 #d76a86!important;
+}
+html[data-erp-theme="terror"] .sidebar .nav-btn:hover{
+  background:rgba(176,83,118,.14)!important;color:#ffe6ea!important;
+}
+html[data-erp-theme="terror"] .topbar .page-title .cr-head-accent{
+  color:#f0b4ba!important;
+  background:linear-gradient(117deg,#ffdbcd,#d88a9d 46%,#a76b96);
+  background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none!important;
+}
+html[data-erp-theme="terror"] .topbar .page-subtitle{color:#bfa6b7!important}
+html[data-erp-theme="terror"] .topbar .page-title{color:var(--cr-ink)!important;text-shadow:none!important}
+html[data-erp-theme="terror"] :is(.main .panel,.main .status,.main .kpi,#sideAuroraCard){
+  background:linear-gradient(146deg,rgba(33,24,37,.98),rgba(21,18,31,.99))!important;
+  color:var(--cr-ink)!important;
+  border:1px solid rgba(177,95,126,.27)!important;
+  border-radius:15px!important;
+  overflow:hidden;
+}
+html[data-erp-theme="terror"] .main .panel::before,
+html[data-erp-theme="terror"] .main .kpi::before{
+  pointer-events:none!important;
+}
+html[data-erp-theme="terror"] :is(.main .panel,.main .kpi):hover{
+  border-color:rgba(208,112,148,.39)!important;
+  box-shadow:0 0 0 1px rgba(196,96,132,.06),0 0 20px rgba(179,65,111,.11),var(--cr-shadow)!important;
+}
+html[data-erp-theme="terror"] :is(.main .panel,.main .kpi) :is(h2,h3,h4,.panel-title){color:#f3e8ef!important}
+html[data-erp-theme="terror"] :is(.main .panel,.main .kpi) :is(.muted,.subtext,.text-muted){color:#bca7b7!important}
+html[data-erp-theme="terror"] .btn-primary{
+  background:linear-gradient(115deg,#b74c6c,#76517c)!important;
+  border-color:rgba(246,164,179,.34)!important;color:#fff2f2!important;
+}
+html[data-erp-theme="terror"] .btn{
+  background:#2a1e30!important;color:#f5e5ef!important;border-color:#54394f!important;
+}
+html[data-erp-theme="terror"] :is(input,select,textarea){
+  background:#211925!important;color:#f4e4ed!important;border-color:#594052!important;
+  caret-color:#ffb8c0!important;
+}
+html[data-erp-theme="terror"] :is(input,textarea)::placeholder{color:#a58c9e!important;opacity:1}
+html[data-erp-theme="terror"] :is(input,select,textarea):focus{
+  outline:2px solid rgba(220,109,142,.32)!important;outline-offset:1px!important;
+  border-color:#c47495!important;
+}
+html[data-erp-theme="terror"] :is(.main .panel,.main .kpi) .panel-head,
+html[data-erp-theme="terror"] .side-card-title{color:#f5dce5!important}
+html[data-erp-theme="terror"] .main .filters,
+html[data-erp-theme="terror"] #sideAuroraCard .aurora-live-block,
+html[data-erp-theme="terror"] .main .status{
+  background:linear-gradient(136deg,#221823,#17141f)!important;color:#f3e8ef!important;
+}
+html[data-erp-theme="terror"] :is(.main .filters,.main .status,.main .kpi,.main .panel) :is(.field-label,label,.hint,.subtle,.panel-subtitle){color:#bfa6b6!important}
+html[data-erp-theme="terror"] :is(.main .panel,.main .status) :is(.progress,.track,.progress-track){background:rgba(216,152,173,.16)!important}
+html[data-erp-theme="terror"] #cr-theme-picker select{
+  background:linear-gradient(110deg,#352331,#211a2c)!important;
+  border-color:#765066!important;color:#f8d9e3!important;
+}
+/* The native theme dropdown is white on Windows/Edge: darken only its option labels.
+   Preserve the light text of the closed selector on its original dark surface. */
+html[data-erp-theme="terror"] #cr-theme-picker select option{
+  color:#151515!important;
+}
+/* The eye is an actual inline vector. Moving only the iris is both crisp and cheap. */
+html[data-erp-theme="terror"] #cr-mascot-house{
+  position:relative!important;min-height:170px!important;
+  border-radius:15px!important;padding:7px 0 10px!important;
+  margin:0 0 14px!important;
+  background:radial-gradient(ellipse at 50% 39%,rgba(124,36,75,.20),transparent 66%),#18111d!important;
+  isolation:isolate;
+}
+html[data-erp-theme="terror"] #cr-mascot-house::before{
+  content:"";position:absolute;inset:12px 20px 35px;border:1px solid rgba(192,105,139,.13);
+  border-radius:50%;z-index:0;pointer-events:none;
+  box-shadow:inset 0 0 19px rgba(143,39,93,.11),0 0 24px rgba(157,62,104,.07);
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot{
+  display:grid!important;place-items:center!important;position:relative!important;
+  top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  width:118px!important;height:126px!important;min-width:118px!important;
+  padding:0!important;margin:0 auto!important;
+  background:transparent!important;border:0!important;border-radius:50%!important;
+  box-shadow:none!important;z-index:3!important;cursor:pointer;
+  overflow:visible!important;transform:none!important;
+  filter:drop-shadow(0 8px 10px rgba(0,0,0,.46));
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot svg{
+  display:block!important;width:118px!important;height:126px!important;max-width:100%!important;
+  overflow:visible;pointer-events:none;filter:drop-shadow(0 1px 6px rgba(210,62,110,.23));
+  animation:terror-eye-breathe 5.8s ease-in-out infinite;
+}
+html[data-erp-theme="terror"] .eye-mascot .terror-eye-iris{
+  transform-box:view-box;transform-origin:120px 124px;
+  transition:transform .14s cubic-bezier(.15,.72,.32,1);
+  will-change:transform;
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot:hover svg{
+  filter:drop-shadow(0 1px 11px rgba(226,86,130,.43));
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot:focus-visible{
+  outline:2px solid #e799a7!important;outline-offset:3px!important;
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot .bubble{
+  display:block!important;position:absolute!important;z-index:7!important;
+  top:112px!important;bottom:auto!important;left:50%!important;right:auto!important;
+  transform:translate(-50%,4px)!important;min-width:155px!important;max-width:174px!important;
+  padding:8px 9px!important;background:#251828!important;color:#fae5ed!important;
+  border:1px solid rgba(196,115,146,.47)!important;border-radius:10px!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.37)!important;
+  font:650 10px/1.35 'DM Sans',sans-serif!important;
+  pointer-events:none!important;text-align:center!important;
+  opacity:0!important;visibility:visible!important;
+  transition:transform .18s,opacity .18s!important;
+}
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot:is(:hover,:focus-visible) .bubble,
+html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot .bubble.is-visible{
+  opacity:1!important;transform:translate(-50%,0)!important;
+}
+html[data-erp-theme="terror"] #cr-mascot-house .cr-mascot-caption{
+  margin:0 5px 1px!important;font:650 9px/1.3 'DM Sans',sans-serif!important;
+  text-align:center!important;color:#b9a0b1!important;letter-spacing:.015em;
+}
+/* Panel scenery is bespoke noir geometry, never pumpkins, ghosts or bats. */
+html[data-erp-theme="terror"] .cr-orbital-illustration{display:block!important;pointer-events:none!important;z-index:1!important}
+html[data-erp-theme="terror"] .cr-tr-watcher{
+  width:92px;height:61px;right:12px;top:10px;
+  background:url('../assets/rebirth/terror-watcher.svg') center/contain no-repeat;
+  opacity:.62;animation:terror-watcher-drift 9s ease-in-out infinite;
+}
+html[data-erp-theme="terror"] .cr-tr-veil{
+  width:84px;height:45px;right:6px;bottom:4px;
+  background:radial-gradient(ellipse at center,rgba(169,59,96,.19),transparent 67%);
+  animation:terror-breathe 8s ease-in-out infinite;
+}
+html[data-erp-theme="terror"] .cr-tr-seal{
+  width:70px;height:70px;right:10px;top:7px;
+  background:url('../assets/rebirth/terror-sigil.svg') center/contain no-repeat;
+  opacity:.47;animation:terror-sigil-rotate 32s linear infinite;
+}
+html[data-erp-theme="terror"] .cr-tr-hourglass{
+  width:56px;height:78px;right:10px;bottom:9px;
+  background:url('../assets/rebirth/terror-hourglass.svg') center/contain no-repeat;
+  opacity:.55;animation:terror-watcher-drift 8s ease-in-out infinite reverse;
+}
+html[data-erp-theme="terror"] .cr-tr-runes{
+  width:99px;height:46px;right:13px;bottom:8px;
+  background:url('../assets/rebirth/terror-runes.svg') center/contain no-repeat;
+  opacity:.49;animation:terror-breathe 12s ease-in-out infinite;
+}
+html[data-erp-theme="terror"] .analytics-section>.panel:first-child .chart-wrap::after{
+  content:"";position:absolute;right:3%;bottom:8px;width:47px;height:26px;
+  background:url('../assets/rebirth/terror-watcher.svg') center/contain no-repeat;
+  pointer-events:none;opacity:.38;animation:terror-graph-shadow 19s ease-in-out infinite;
+}
+html[data-erp-theme="terror"] .analytics-section>.panel:first-child::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 96% 0%,rgba(201,73,118,.11),transparent 36%);
+}
+/* Terror click particles: now more visible and closer to the other themes. */
+html[data-erp-theme="terror"] .terror-fragment{
+  position:fixed!important;z-index:8500!important;pointer-events:none!important;
+  left:0;top:0;display:grid;place-items:center;
+  min-width:20px;min-height:20px;padding:0 2px;box-sizing:border-box;
+  color:#ffe4e0;font:700 20px/1 'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif;
+  text-shadow:0 0 12px rgba(214,83,130,.34),0 1px 8px rgba(0,0,0,.35);
+  filter:drop-shadow(0 0 8px rgba(214,83,130,.22));
+  animation:terror-fragment-out 1.55s cubic-bezier(.2,.66,.3,1) both;
+}
+html[data-erp-theme="terror"] .terror-fragment.terror-diamond,
+html[data-erp-theme="terror"] .terror-fragment.terror-ring,
+html[data-erp-theme="terror"] .terror-fragment.terror-shard{
+  font-size:20px;
+}
+html[data-erp-theme="terror"] .terror-fragment.terror-speck{
+  width:7px;height:7px;min-width:7px;min-height:7px;padding:0;border-radius:50%;
+  background:radial-gradient(circle,#f7ccd4 0%,#d1537a 58%,#54182c 100%);
+  box-shadow:0 0 10px rgba(214,83,130,.42);
+}
+#cr-portal.is-playing.theme-terror .cr-portal-logo{
+  padding:20px 24px 23px;border-radius:28px;max-width:min(86vw,520px);
+  background:radial-gradient(ellipse,rgba(58,21,48,.55),transparent 70%);
+  filter:drop-shadow(0 14px 24px rgba(0,0,0,.31));
+}
+#cr-portal.is-playing.theme-terror .cr-portal-logo img{
+  width:165px;height:168px;object-fit:contain;
+  filter:drop-shadow(0 7px 15px rgba(215,75,126,.35));
+}
+#cr-portal.is-playing.theme-terror .cr-portal-title{
+  font:850 clamp(24px,4.4vw,44px) 'Manrope',sans-serif;
+  color:#f4cad2;text-shadow:0 0 28px rgba(226,101,140,.29);
+  letter-spacing:-.04em;text-align:center;
+}
+#cr-portal.is-playing.theme-terror .cr-portal-caption{
+  font:650 11px/1.45 'DM Sans',sans-serif;color:#e4bac9;
+  letter-spacing:.12em;text-align:center;
+}
+#cr-portal.is-playing.theme-terror .cr-vignette{
+  background:radial-gradient(ellipse at center,transparent 27%,rgba(8,4,16,.89));
+  opacity:.7;
+}
+@keyframes terror-eye-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes terror-watcher-drift{0%,100%{transform:translateY(0);opacity:.42}50%{transform:translateY(-7px);opacity:.76}}
+@keyframes terror-breathe{0%,100%{opacity:.18;transform:scale(.94)}50%{opacity:.62;transform:scale(1.04)}}
+@keyframes terror-sigil-rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes terror-graph-shadow{0%,100%{transform:translateX(-24px);opacity:.13}45%{transform:translateX(7px);opacity:.48}70%{transform:translateX(-42px);opacity:.27}}
+@keyframes terror-fragment-out{
+  0%{opacity:0;transform:translate(0,0) scale(.45) rotate(0)}
+  14%{opacity:.93}
+  72%{opacity:.67}
+  100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(var(--scale,.86)) rotate(var(--turn))}
+}
+@media(max-width:930px){
+ html[data-erp-theme="terror"] #cr-mascot-house{min-height:57px!important;max-width:66px!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important}
+ html[data-erp-theme="terror"] #cr-mascot-house::before{display:none!important}
+ html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot{width:58px!important;min-width:58px!important;height:58px!important}
+ html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot svg{width:58px!important;height:58px!important}
+ html[data-erp-theme="terror"] #cr-mascot-house .cr-mascot-caption{display:none!important}
+ html[data-erp-theme="terror"] #cr-mascot-house .eye-mascot .bubble{top:49px!important;min-width:128px!important}
+ html[data-erp-theme="terror"] .cr-tr-seal{height:45px;width:45px;right:4px;top:4px}
+}
+@media(max-width:740px){
+ html[data-erp-theme="terror"] .cr-tr-watcher{height:30px;width:50px;top:5px}
+ html[data-erp-theme="terror"] .cr-tr-hourglass{height:44px;width:32px}
+ html[data-erp-theme="terror"] #horrorCanvas{opacity:.35!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-erp-theme="terror"] :is(.eye-mascot svg,.cr-tr-watcher,.cr-tr-veil,.cr-tr-seal,.cr-tr-hourglass,.cr-tr-runes,.analytics-section>.panel:first-child .chart-wrap::after){animation:none!important}
+ html[data-erp-theme="terror"] .eye-mascot .terror-eye-iris{transform:none!important;transition:none!important}
+ html[data-erp-theme="terror"] #horrorCanvas{display:none!important}
+ html[data-erp-theme="terror"] .terror-fragment{display:none!important}
+}
+html[data-erp-theme="terror"][data-erp-effects="false"] :is(.eye-mascot svg,.cr-tr-watcher,.cr-tr-veil,.cr-tr-seal,.cr-tr-hourglass,.cr-tr-runes,.analytics-section>.panel:first-child .chart-wrap::after){animation:none!important}
+html[data-erp-theme="terror"][data-erp-effects="false"] .eye-mascot .terror-eye-iris{transform:none!important;transition:none!important}
+html[data-erp-theme="terror"][data-erp-effects="false"] #horrorCanvas,
+html[data-erp-theme="terror"][data-erp-effects="false"] .terror-fragment{display:none!important}
+
+/* Fase 03: independent centering of Terror portal. The optional GSAP animation
+   may change transform on the logo; the full-screen flex host stays centered. */
+#cr-portal.is-playing.theme-terror .cr-portal-logo{
+  position:absolute!important;inset:0!important;
+  top:0!important;right:0!important;bottom:0!important;left:0!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;
+  width:100%!important;max-width:100%!important;
+  padding:20px 24px!important;margin:0!important;
+  transform:none!important;
+  text-align:center!important;
+  background:none!important;
+  border:0!important;
+}
+#cr-portal.is-playing.theme-terror .cr-portal-title{
+  box-sizing:border-box!important;
+  max-width:min(90vw,900px)!important;
+  margin-inline:auto!important;
+  white-space:normal!important;
+  overflow-wrap:break-word;
+  text-wrap:balance;
+  line-height:1.12!important;
+  font-size:clamp(23px,3.25vw,44px)!important;
+  text-align:center!important;
+}
+#cr-portal.is-playing.theme-terror .cr-portal-caption{
+  max-width:min(88vw,780px)!important;
+  text-align:center!important;
+  line-height:1.45!important;
+  white-space:normal!important;
+}
+@media(max-width:600px){
+ #cr-portal.is-playing.theme-terror .cr-portal-logo img{
+   width:128px!important;height:132px!important;
+ }
+ #cr-portal.is-playing.theme-terror .cr-portal-title{
+   font-size:clamp(21px,6vw,30px)!important;
+ }
+}

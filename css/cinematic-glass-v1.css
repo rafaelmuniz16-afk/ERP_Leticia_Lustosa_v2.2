@@ -1,0 +1,380 @@
+/* ERP | Motion & Animações — GLASS: Liquid Glass Edition / fase 01.
+   Todas as regras escopadas ao tema glassy-crm; preserva funcionalidades.
+   Cristal Perolado e Obsidiana Noturna são atmosferas do MESMO tema. */
+html[data-erp-theme="glassy-crm"]{
+  --cr-ink:#263249;--cr-muted:#62748c;--cr-bg:#f3f5fa;--cr-panel:rgba(255,255,255,.77);
+  --cr-panel2:rgba(242,247,255,.75);--cr-top:rgba(252,253,255,.93);
+  --cr-side:transparent;--cr-line:rgba(131,159,199,.31);
+  --cr-accent:#8499d1;--cr-accent2:#b68bc7;--cr-halo:#d7eaff;
+  --cr-soft:rgba(197,218,243,.3);--cr-chart:#f0f4fc;
+  --cr-shadow:0 19px 42px rgba(88,116,162,.13),0 3px 8px rgba(88,116,162,.06);
+  --v13-neon:rgba(130,171,220,.17);--v13-glow:rgba(171,192,227,.08);
+  --sidebar:198px;--text:var(--cr-ink);--muted:var(--cr-muted);
+  --line:var(--cr-line);--surface:var(--cr-panel);--surface-2:var(--cr-panel2);
+  --surface-3:#e4edf9;--bg-deep:var(--cr-bg);--line-light:var(--cr-line);
+  --primary:var(--cr-accent);--primary-2:var(--cr-accent2);
+  --gl-peak:rgba(255,255,255,.88);--gl-inner:rgba(255,255,255,.23);
+  --gl-dawn:#dfecff;--gl-shadow:rgba(77,106,158,.15);
+  --gl-frost:linear-gradient(145deg,rgba(255,255,255,.64) 0%,rgba(237,249,255,.33) 43%,rgba(237,232,255,.32) 100%);
+  color-scheme:light!important;
+}
+html[data-erp-theme="glassy-crm"][data-glass-light="obsidian"]{
+  --cr-ink:#eef2fa;--cr-muted:#aabbd4;--cr-bg:#0d1320;
+  --cr-panel:rgba(25,35,55,.88);--cr-panel2:rgba(35,48,70,.89);
+  --cr-top:rgba(14,23,39,.96);--cr-line:rgba(155,186,219,.24);
+  --cr-accent:#84c7dc;--cr-accent2:#a699df;--cr-halo:#7cbbda;
+  --cr-soft:rgba(90,122,164,.18);--cr-chart:#172536;
+  --cr-shadow:0 16px 44px rgba(0,3,18,.33),0 3px 11px rgba(0,2,12,.14);
+  --v13-neon:rgba(152,197,226,.12);--v13-glow:rgba(83,131,185,.06);
+  --text:var(--cr-ink);--muted:var(--cr-muted);--line:var(--cr-line);
+  --surface:var(--cr-panel);--surface-2:var(--cr-panel2);
+  --surface-3:#253951;--bg-deep:var(--cr-bg);--line-light:var(--cr-line);
+  --primary:var(--cr-accent);--primary-2:var(--cr-accent2);
+  --gl-peak:rgba(236,248,255,.25);--gl-inner:rgba(172,210,244,.05);
+  --gl-dawn:#708ba9;--gl-shadow:rgba(0,9,29,.27);
+  --gl-frost:linear-gradient(149deg,rgba(104,151,187,.16),rgba(25,42,63,.19) 52%,rgba(111,94,163,.12));
+  color-scheme:dark!important;
+}
+html[data-erp-theme="glassy-crm"] body{
+  min-width:0!important;color:var(--cr-ink)!important;
+  background:radial-gradient(ellipse 50% 42% at 15% 8%,rgba(204,230,253,.88),transparent 77%),
+  radial-gradient(ellipse 41% 48% at 93% 3%,rgba(223,210,254,.74),transparent 82%),
+  radial-gradient(ellipse 57% 48% at 72% 99%,rgba(247,221,238,.58),transparent 86%),
+  linear-gradient(145deg,#f7f9fe,#edf4fc 54%,#f7f3fb)!important;
+  background-attachment:fixed!important;overflow-x:clip!important;
+  transition:background-color .85s,color .75s!important;
+}
+html[data-erp-theme="glassy-crm"][data-glass-light="obsidian"] body{
+  background:radial-gradient(ellipse 47% 39% at 15% 8%,rgba(59,94,134,.3),transparent 74%),
+  radial-gradient(ellipse 40% 45% at 94% 4%,rgba(92,71,156,.28),transparent 79%),
+  radial-gradient(ellipse 55% 49% at 74% 98%,rgba(36,92,117,.24),transparent 81%),
+  linear-gradient(145deg,#0c1423,#121c2c 53%,#101725)!important;
+}
+html[data-erp-theme="glassy-crm"] body::before,
+html[data-erp-theme="glassy-crm"] body::after{content:none!important;display:none!important}
+html[data-erp-theme="glassy-crm"] .app{
+  width:100%!important;max-width:100vw!important;min-width:0!important;
+  margin:0!important;padding:0!important;background:transparent!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  isolation:auto!important;overflow:visible!important;
+}
+html[data-erp-theme="glassy-crm"] .main{min-width:0!important;max-width:100%!important;background:transparent!important}
+html[data-erp-theme="glassy-crm"] :is(.main,.main>*,#cadastro,#sideAuroraCard,.analytics-section,.content-grid,.finance-grid,.kpi-grid){min-width:0;max-width:100%}
+/* Atmosphere carries through the sidebar: no separate dark vertical wall. */
+html[data-erp-theme="glassy-crm"] .sidebar{
+  background:transparent!important;border:0!important;border-right:0!important;
+  box-shadow:none!important;color:var(--cr-ink)!important;overflow-x:visible!important;
+}
+html[data-erp-theme="glassy-crm"] .sidebar::before,
+html[data-erp-theme="glassy-crm"] .sidebar::after{content:none!important;display:none!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome{
+  background:var(--cr-top)!important;border-bottom:1px solid var(--cr-line)!important;
+  color:var(--cr-ink)!important;box-shadow:0 8px 24px var(--gl-shadow)!important;
+  backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important;
+}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo{font-family:'Plus Jakarta Sans','Manrope',sans-serif!important;letter-spacing:-.035em!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo-mark i:nth-child(1){background:#8ac6dc!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo-mark i:nth-child(2){background:#b4a1df!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo-mark i:nth-child(3){background:#e6b6ce!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo-mark i:nth-child(4){background:#92b8e6!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome :is(.cr-tool,.cr-top-search){color:var(--cr-ink)!important}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-top-search{
+  background:var(--cr-panel2)!important;border:1px solid var(--cr-line)!important;
+  max-width:min(420px,35vw)!important;min-width:0!important;
+}
+html[data-erp-theme="glassy-crm"] #cr-chrome .cr-avatar{
+  background:linear-gradient(140deg,#94c9dc,#a99cd8)!important;color:#fff!important;
+}
+/* The *material* is drawn by layered gradients and crystalline edge strokes.
+   No expensive per-card backdrop-filter. */
+html[data-erp-theme="glassy-crm"] :is(.main .panel,.main .status,.main .kpi,.main .filters,#sideAuroraCard,.sidebar .nav,.sidebar .side-card){
+  position:relative!important;
+  color:var(--cr-ink)!important;
+  background:var(--gl-frost),var(--cr-panel)!important;
+  border:1px solid var(--cr-line)!important;
+  border-top-color:var(--gl-peak)!important;
+  border-radius:19px!important;
+  box-shadow:inset 0 1px 0 var(--gl-peak),inset 0 -1px 0 var(--gl-inner),var(--cr-shadow)!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  transition:background-color .8s,border-color .7s,box-shadow .75s,transform .26s!important;
+}
+html[data-erp-theme="glassy-crm"] :is(.main .panel,.main .kpi,#sideAuroraCard):hover{
+  border-color:color-mix(in srgb,var(--cr-accent) 55%,var(--gl-peak))!important;
+  box-shadow:inset 0 1px 0 var(--gl-peak),0 19px 44px var(--gl-shadow)!important;
+}
+html[data-erp-theme="glassy-crm"] :is(.main .panel,.main .status,.main .kpi,#sideAuroraCard){overflow:hidden}
+html[data-erp-theme="glassy-crm"] :is(.main .panel,.main .kpi,#sideAuroraCard)::before{
+  background:linear-gradient(112deg,rgba(255,255,255,.22),transparent 42%,rgba(160,195,226,.09) 80%,transparent)!important;
+  pointer-events:none!important;
+}
+html[data-erp-theme="glassy-crm"] .sidebar .nav{
+  border-radius:17px!important;padding:9px!important;gap:3px!important;
+}
+html[data-erp-theme="glassy-crm"] .sidebar .nav-btn{font-family:'Plus Jakarta Sans','DM Sans',sans-serif!important;color:var(--cr-muted)!important}
+html[data-erp-theme="glassy-crm"] .sidebar .nav-btn.active{
+  background:linear-gradient(115deg,color-mix(in srgb,var(--cr-accent) 21%,transparent),color-mix(in srgb,var(--cr-accent2) 12%,transparent))!important;
+  color:var(--cr-ink)!important;border:1px solid color-mix(in srgb,var(--cr-accent) 39%,transparent)!important;
+  box-shadow:inset 2px 0 var(--cr-accent)!important;
+}
+html[data-erp-theme="glassy-crm"] .topbar .page-title{
+  color:var(--cr-ink)!important;-webkit-text-fill-color:var(--cr-ink)!important;
+  font-family:'Plus Jakarta Sans','Manrope',sans-serif!important;
+  font-weight:750!important;letter-spacing:-.05em!important;
+}
+html[data-erp-theme="glassy-crm"] .topbar .page-title .cr-head-accent{
+  background:linear-gradient(120deg,#829dd1,#b38bca 67%,#75b6c8);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+html[data-erp-theme="glassy-crm"][data-glass-light="obsidian"] .topbar .page-title .cr-head-accent{
+  background:linear-gradient(120deg,#c7e5f9,#a8b5e4 65%,#d8b9eb);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+html[data-erp-theme="glassy-crm"] :is(.topbar .page-subtitle,.panel-sub,.aurora-live-subtitle,.kpi-note,.kpi-label){color:var(--cr-muted)!important}
+html[data-erp-theme="glassy-crm"] :is(.panel-title,.aurora-live-heading,.status-title){color:var(--cr-ink)!important;font-family:'Plus Jakarta Sans','Manrope',sans-serif!important}
+html[data-erp-theme="glassy-crm"] .panel-head{background:transparent!important;border-bottom:0!important}
+html[data-erp-theme="glassy-crm"] :is(.control,.btn,.aurora-live-button,#cr-theme-picker select,#crMonthShortcut,#crGoalShortcut){
+  border:1px solid var(--cr-line)!important;
+  color:var(--cr-ink)!important;
+  background:var(--cr-panel2)!important;
+  border-radius:10px!important;
+  box-shadow:inset 0 1px 0 var(--gl-peak)!important;
+  transition:border-color .18s,box-shadow .18s,background-color .8s!important;
+}
+html[data-erp-theme="glassy-crm"] :is(input,select,textarea,button):focus-visible{
+  outline:2px solid var(--cr-accent)!important;outline-offset:2px!important;
+}
+html[data-erp-theme="glassy-crm"] .control:focus{
+  border-color:var(--cr-accent)!important;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--cr-accent) 18%,transparent)!important;
+}
+html[data-erp-theme="glassy-crm"] select option{color:var(--cr-ink)!important;background:var(--cr-bg)!important}
+html[data-erp-theme="glassy-crm"] :is(.btn-primary,#btnSalvar,.btn.btn-primary){
+  background:linear-gradient(120deg,#8aa9d6,#b69dcf)!important;color:#fff!important;
+  border-color:transparent!important;text-shadow:0 1px 1px rgba(0,0,0,.14)!important;
+}
+html[data-erp-theme="glassy-crm"][data-glass-light="obsidian"] :is(.btn-primary,#btnSalvar,.btn.btn-primary){
+  background:linear-gradient(120deg,#417e9a,#8172b6)!important;
+}
+html[data-erp-theme="glassy-crm"] .kpi .kpi-value{color:var(--cr-ink)!important;font-family:'Plus Jakarta Sans',sans-serif!important}
+html[data-erp-theme="glassy-crm"] .kpi .kpi-icon{color:var(--cr-accent)!important;background:var(--cr-soft)!important}
+html[data-erp-theme="glassy-crm"] #sideAuroraCard{
+  background:linear-gradient(138deg,color-mix(in srgb,var(--cr-accent) 10%,transparent),transparent 43%),var(--gl-frost),var(--cr-panel)!important;
+  border-top:2px solid color-mix(in srgb,var(--cr-accent) 65%,var(--gl-peak))!important;
+  backdrop-filter:blur(4px)!important;-webkit-backdrop-filter:blur(4px)!important;
+}
+html[data-erp-theme="glassy-crm"] #sideAuroraCard .aurora-live-block{
+  background:var(--cr-panel2)!important;border:1px solid var(--cr-line)!important;
+  border-radius:14px!important;box-shadow:inset 0 1px 0 var(--gl-peak)!important;
+  min-width:0!important;
+}
+html[data-erp-theme="glassy-crm"] #sideAuroraCard :is(.aurora-live-comment,.aurora-live-relation,.aurora-live-score){color:var(--cr-ink)!important}
+html[data-erp-theme="glassy-crm"] #sideAuroraCard .aurora-live-note{color:var(--cr-muted)!important}
+html[data-erp-theme="glassy-crm"] #sideAuroraCard .aurora-live-progress{background:var(--cr-soft)!important}
+html[data-erp-theme="glassy-crm"] #sideAuroraCard .side-aurora-avatar{background:linear-gradient(145deg,#a0cbe9,#b5a4dc)!important;color:#fff!important}
+html[data-erp-theme="glassy-crm"] .status .progress{background:var(--cr-soft)!important}
+html[data-erp-theme="glassy-crm"] .progress>div{background:linear-gradient(90deg,#8dadd8,#a8a3e1)!important}
+html[data-erp-theme="glassy-crm"] :is(.summary-row,.money-row,#cadastro .erp-type-row){
+  background:var(--cr-panel2)!important;border:1px solid var(--cr-line)!important;
+  color:var(--cr-ink)!important;border-radius:10px!important;
+}
+html[data-erp-theme="glassy-crm"] :is(.summary-row,.money-row) strong{color:var(--cr-ink)!important}
+html[data-erp-theme="glassy-crm"] :is(.table th,.table td){color:var(--cr-ink)!important;border-color:var(--cr-line)!important}
+html[data-erp-theme="glassy-crm"] .table th{background:var(--cr-panel2)!important}
+html[data-erp-theme="glassy-crm"] .table td{background:var(--cr-panel)!important}
+html[data-erp-theme="glassy-crm"] #cr-theme-picker{display:flex!important;align-items:center!important}
+html[data-erp-theme="glassy-crm"] #cr-theme-picker select{min-width:129px!important}
+html[data-erp-theme="glassy-crm"] .cr-month-meta-bar{background:var(--gl-frost),var(--cr-panel)!important;border-color:var(--cr-line)!important;color:var(--cr-ink)!important}
+html[data-erp-theme="glassy-crm"] .cr-month-meta-caption{color:var(--cr-accent)!important}
+html[data-erp-theme="glassy-crm"] .cr-month-meta-hint{color:var(--cr-muted)!important}
+/* A control local to Glass. Manual preference is session-only; the General
+   sector can integrate durable saving without changing global contracts. */
+html[data-erp-theme="glassy-crm"] .glass-light-control{
+  display:flex!important;align-items:center;gap:7px;order:2;
+  padding:5px 8px;border:1px solid var(--cr-line);
+  background:var(--gl-frost),var(--cr-panel);border-radius:12px;
+  color:var(--cr-ink);font:650 10px 'Plus Jakarta Sans',sans-serif;
+  box-shadow:inset 0 1px 0 var(--gl-peak);
+}
+.glass-light-control{display:none!important}
+.glass-light-control .glass-light-symbol{color:var(--cr-accent);font-size:14px}
+.glass-light-control select{border:0!important;background:transparent!important;color:var(--cr-ink)!important;font:650 10px 'Plus Jakarta Sans',sans-serif;max-width:143px;cursor:pointer;outline:0}
+.glass-light-control select option{background:var(--cr-bg);color:var(--cr-ink)}
+html[data-erp-theme="glassy-crm"] :is(#erp-settings,#historico,#auroraAchievementsDialog,.ai-panel,.floating-window,.loading-card,.aurora-voice-card){
+  background:var(--cr-panel)!important;color:var(--cr-ink)!important;
+  border-color:var(--cr-line)!important;
+  box-shadow:0 22px 60px var(--gl-shadow)!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+}
+/* MIRA is free of any rounded square, with transparent art and subtle rise. */
+html[data-erp-theme="glassy-crm"] #cr-mascot-house{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex-direction:column!important;box-sizing:border-box!important;
+  width:100%!important;max-width:100%!important;min-height:202px!important;
+  margin:0 0 12px!important;padding:2px 4px 10px!important;
+  background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;overflow:visible!important;isolation:auto!important;
+}
+html[data-erp-theme="glassy-crm"] #cr-mascot-house::before,
+html[data-erp-theme="glassy-crm"] #cr-mascot-house::after{content:none!important;display:none!important}
+html[data-erp-theme="glassy-crm"] #cr-mascot-house .glassy-mascot{
+  position:relative!important;inset:auto!important;
+  display:block!important;width:144px!important;height:161px!important;
+  padding:0!important;margin:0 auto 2px!important;
+  border:0!important;border-radius:0!important;outline-offset:3px;
+  background:transparent!important;box-shadow:none!important;
+  cursor:pointer!important;overflow:visible!important;z-index:3!important;
+  animation:gl-mira-hover 5.4s ease-in-out infinite!important;
+  transform-origin:50% 59%;
+}
+html[data-erp-theme="glassy-crm"] .glassy-companion-art{
+  display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;
+  filter:drop-shadow(0 9px 14px rgba(95,152,197,.2));
+  transition:filter .9s,transform .4s;
+}
+html[data-erp-theme="glassy-crm"][data-glass-light="obsidian"] .glassy-companion-art{
+  filter:drop-shadow(0 9px 15px rgba(93,167,209,.34)) hue-rotate(17deg) saturate(1.06) brightness(.88);
+}
+html[data-erp-theme="glassy-crm"] .glassy-mascot:hover .glassy-companion-art{transform:rotate(-3deg) scale(1.03)}
+html[data-erp-theme="glassy-crm"] #cr-mascot-house .cr-mascot-caption{
+  display:block!important;position:relative!important;max-width:164px!important;
+  margin:0 auto!important;text-align:center!important;white-space:normal!important;
+  color:var(--cr-muted)!important;font:650 9px/1.45 'Plus Jakarta Sans',sans-serif!important;
+}
+html[data-erp-theme="glassy-crm"] .glassy-bubble{
+  position:absolute!important;left:50%!important;top:calc(100% - 12px)!important;
+  bottom:auto!important;right:auto!important;
+  min-width:145px;max-width:190px;padding:8px 11px;
+  color:var(--cr-ink)!important;background:var(--cr-panel)!important;
+  border:1px solid var(--cr-line)!important;border-radius:13px!important;
+  font:650 10px/1.45 'Plus Jakarta Sans',sans-serif!important;
+  text-align:center;white-space:normal!important;pointer-events:none;
+  box-shadow:0 8px 20px var(--gl-shadow);opacity:0;
+  transform:translate(-50%,6px)!important;transition:opacity .18s,transform .18s;
+}
+html[data-erp-theme="glassy-crm"] .glassy-mascot:is(:hover,:focus-visible) .glassy-bubble,
+html[data-erp-theme="glassy-crm"] .glassy-bubble.is-visible{opacity:1!important;transform:translate(-50%,0)!important}
+@keyframes gl-mira-hover{0%,100%{transform:translateY(2px) rotate(-.9deg)}50%{transform:translateY(-8px) rotate(.8deg)}}
+/* Crystal touch: short-lived DOM sparks (effect scope owns deletion). */
+html[data-erp-theme="glassy-crm"] .glassy-click-spark{font-size:18px!important;color:var(--cr-accent)!important;text-shadow:0 0 7px color-mix(in srgb,var(--cr-accent) 40%,transparent)!important}
+/* Portal stays transparent, dashboard always visible; reveal material via Canvas. */
+#cr-portal.is-playing.theme-glassy-crm{background:transparent!important;pointer-events:none!important}
+#cr-portal.is-playing.theme-glassy-crm .cr-vignette{background:none!important;display:none!important;opacity:0!important}
+#cr-portal.is-playing.theme-glassy-crm .cr-portal-logo{
+  background:transparent!important;box-shadow:none!important;border:0!important;
+  border-radius:0!important;filter:none!important;overflow:visible!important;
+  display:flex!important;flex-direction:column;align-items:center;
+  width:min(340px,calc(100vw - 36px))!important;padding:0 10px!important;
+}
+#cr-portal.is-playing.theme-glassy-crm .cr-portal-logo::before,
+#cr-portal.is-playing.theme-glassy-crm .cr-portal-logo::after{content:none!important;display:none!important}
+#cr-portal.is-playing.theme-glassy-crm .cr-portal-logo img{
+  width:155px!important;height:178px!important;object-fit:contain!important;
+  background:none!important;border:0!important;
+  filter:drop-shadow(0 11px 20px rgba(133,175,215,.37))!important;
+}
+#cr-portal.is-playing.theme-glassy-crm .cr-portal-title{
+  color:#daeefd!important;font:750 18px/1.25 'Plus Jakarta Sans',sans-serif!important;
+  letter-spacing:.06em!important;text-align:center!important;text-shadow:0 2px 12px rgba(0,0,0,.35)!important;
+}
+#cr-portal.is-playing.theme-glassy-crm .cr-portal-caption{color:#d8e5f9!important;text-shadow:0 2px 8px rgba(0,0,0,.35)!important}
+/* Light-switch controls do not alter ERP data, and all motion can stop. */
+@media (prefers-reduced-motion:reduce){
+  html[data-erp-theme="glassy-crm"] .glassy-mascot{animation:none!important}
+  html[data-erp-theme="glassy-crm"] *{transition-duration:0s!important}
+}
+html[data-erp-theme="glassy-crm"][data-erp-effects="false"] .glassy-mascot{animation:none!important}
+/* Correct the QA-20261105-001 overflow in both menu locations. */
+html[data-erp-theme="glassy-crm"] .main :is(.finance-card,.form-panel,.panel,.kpi,.aurora-live-grid,.aurora-live-block){min-width:0!important;max-width:100%!important}
+html[data-erp-theme="glassy-crm"] :is(.finance-grid,.content-grid,.analytics-section,.kpi-grid){min-width:0!important;max-width:100%!important}
+html[data-erp-theme="glassy-crm"] .panel-body{min-width:0!important;max-width:100%!important}
+html[data-erp-theme="glassy-crm"] .sidebar .nav{max-width:100%;min-width:0}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] .app{display:block!important;width:100%!important}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] .sidebar{
+  position:relative!important;top:auto!important;width:100%!important;height:auto!important;
+  min-height:0!important;display:flex!important;flex-flow:row wrap!important;
+  align-items:center!important;gap:8px!important;overflow:visible!important;
+}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] #cr-mascot-house{
+  width:95px!important;max-width:95px!important;min-height:0!important;margin:0 6px 0 0!important;padding:0!important;
+}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] #cr-mascot-house .glassy-mascot{width:70px!important;height:75px!important}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] #cr-mascot-house .cr-mascot-caption{display:none!important}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] .sidebar .nav{flex-direction:row!important;flex-wrap:wrap!important;min-width:0!important;max-width:100%!important}
+@media(max-width:930px){
+  html[data-erp-theme="glassy-crm"] .app{display:block!important;min-width:0!important;width:100%!important}
+  html[data-erp-theme="glassy-crm"] .sidebar{
+    position:relative!important;top:auto!important;width:100%!important;
+    height:auto!important;min-height:0!important;padding:9px 11px!important;
+    overflow:visible!important;display:flex!important;flex-direction:row!important;align-items:center!important;
+  }
+  html[data-erp-theme="glassy-crm"] #cr-mascot-house{width:56px!important;min-height:0!important;margin:0!important;padding:0!important}
+  html[data-erp-theme="glassy-crm"] #cr-mascot-house .glassy-mascot{width:52px!important;height:56px!important}
+  html[data-erp-theme="glassy-crm"] #cr-mascot-house .cr-mascot-caption{display:none!important}
+  html[data-erp-theme="glassy-crm"] .sidebar .nav{overflow-x:auto!important;flex-wrap:nowrap!important;flex:1 1 auto!important;min-width:0!important}
+  html[data-erp-theme="glassy-crm"] .main{padding:15px 12px 50px!important;max-width:100%!important}
+  html[data-erp-theme="glassy-crm"] .topbar{gap:9px!important;align-items:flex-start!important}
+  html[data-erp-theme="glassy-crm"] .glass-light-control{margin:0!important}
+  html[data-erp-theme="glassy-crm"] :is(.aurora-live-block,.panel,.status,.kpi){min-width:0!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-top-search{max-width:42vw!important}
+}
+@media(max-width:480px){
+  html[data-erp-theme="glassy-crm"] body{width:100%!important;overflow-x:clip!important}
+  html[data-erp-theme="glassy-crm"] .main{padding:12px 9px 36px!important;width:100%!important}
+  html[data-erp-theme="glassy-crm"] .topbar{width:100%!important;gap:9px!important}
+  html[data-erp-theme="glassy-crm"] .topbar .page-title{font-size:clamp(24px,8vw,31px)!important}
+  html[data-erp-theme="glassy-crm"] .topbar .top-actions{gap:5px!important}
+  html[data-erp-theme="glassy-crm"] .glass-light-control{order:3;width:100%;justify-content:space-between}
+  html[data-erp-theme="glassy-crm"] .topbar :is(#cr-theme-picker,.cr-month-meta-bar){min-width:0!important;max-width:100%!important}
+  html[data-erp-theme="glassy-crm"] :is(.panel,.kpi,.status,.finance-card,.aurora-live-block){max-width:100%!important;min-width:0!important}
+  html[data-erp-theme="glassy-crm"] .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-top-search{max-width:38vw!important}
+  html[data-erp-theme="glassy-crm"] .sidebar .nav{min-width:0!important}
+  html[data-erp-theme="glassy-crm"] #cadastro>.panel:first-child .erp-type-totals{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+/* Search stays usable without wrapping into three lines on 320/390px. */
+@media(max-width:480px){
+  html[data-erp-theme="glassy-crm"] #cr-chrome{gap:5px!important;padding:0 7px!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo{min-width:0!important;width:auto!important;font-size:clamp(12px,4vw,15px)!important;gap:5px!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-logo-mark{transform:rotate(-9deg) scale(.82)}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-top-search{
+    flex:0 0 38px!important;width:38px!important;max-width:38px!important;min-width:38px!important;
+    justify-content:center!important;padding:0!important;text-align:center!important;
+  }
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-top-search span{display:none!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-nav-actions{gap:1px!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-tool{width:26px!important;height:30px!important}
+  html[data-erp-theme="glassy-crm"] #cr-chrome .cr-user{padding-left:2px!important}
+}
+
+/* A light-only ambient crossfade (850 ms), behind cards and not intercepting input. */
+html[data-erp-theme="glassy-crm"] .glass-light-wash{
+  position:fixed;inset:0;z-index:1;pointer-events:none!important;
+  opacity:1;transition:opacity .85s ease!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-erp-theme="glassy-crm"] .glass-light-wash{display:none!important;transition:none!important}
+}
+
+/* ================================================================
+ * Motion Fase 02.3 — QA-GLASS-001 (P2): fala da MIRA sem corte lateral.
+ * Mantém o balão ancorado ao mascote, mas compensa a proximidade
+ * da borda esquerda no menu Superior e na navegação compacta.
+ * Não modifica conteúdo, eventos, lógica ou iluminação.
+ * ================================================================ */
+html[data-erp-theme="glassy-crm"] #cr-mascot-house .glassy-bubble{
+  box-sizing:border-box!important;
+  width:max-content!important;
+  min-width:min(169px,calc(100vw - 24px))!important;
+  max-width:min(200px,calc(100vw - 24px))!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  left:calc(50% + 12px)!important;
+}
+html[data-erp-theme="glassy-crm"][data-erp-layout="top"] #cr-mascot-house .glassy-bubble{
+  left:calc(50% + 78px)!important;
+}
+@media(max-width:930px){
+  html[data-erp-theme="glassy-crm"] #cr-mascot-house .glassy-bubble{
+    left:calc(50% + 78px)!important;
+  }
+}

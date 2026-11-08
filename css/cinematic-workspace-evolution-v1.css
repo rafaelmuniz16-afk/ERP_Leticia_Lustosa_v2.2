@@ -1,0 +1,272 @@
+/* ERP Motion — Cinematic Workspace, 3 presentation-only surfaces.
+ * Source of truth: original controls, IDs, scripts, tables and native events. */
+html[data-erp-theme]{
+ --cw-surface:var(--cr-panel,var(--surface,#fff));--cw-soft:var(--cr-panel2,var(--surface-2,#f6f7fb));
+ --cw-ink:var(--cr-ink,var(--text,#263149));--cw-muted:var(--cr-muted,var(--muted,#7c8599));
+ --cw-line:var(--cr-line,var(--line,#dce0eb));--cw-accent:var(--cr-accent,var(--primary,#9b86d9));
+ --cw-accent2:var(--cr-accent2,var(--primary,#d88fc9));
+ --cw-glow:color-mix(in srgb,var(--cw-accent) 10%,var(--cw-surface));
+ --cw-shadow:0 24px 74px rgba(12,16,37,.16),0 5px 16px rgba(12,16,37,.07);
+}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings){color:var(--cw-ink)!important;border-color:var(--cw-line)!important}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) .cw-heading{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 auto}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) .cw-copy{min-width:0;display:flex;flex-direction:column;gap:3px}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) .cw-icon{flex:0 0 46px;width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,color-mix(in srgb,var(--cw-accent) 16%,var(--cw-surface)),color-mix(in srgb,var(--cw-accent2) 9%,var(--cw-surface)));color:var(--cw-accent);border:1px solid color-mix(in srgb,var(--cw-accent) 26%,var(--cw-line));box-shadow:0 6px 18px color-mix(in srgb,var(--cw-accent) 12%,transparent)}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) .cw-icon svg{width:23px;height:23px}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) :is(.cw-kicker,.erp-settings-kicker){font:800 9px/1.35 'DM Sans',sans-serif!important;letter-spacing:.15em!important;color:var(--cw-accent)!important;margin:0!important}
+html[data-erp-theme] :is(#historico,#winAuditoria) .section-cute::before,
+html[data-erp-theme] :is(#historico,#winAuditoria) .section-cute::after{content:none!important;display:none!important}
+html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) :is(button,input,select):focus-visible{outline:2px solid var(--cw-accent)!important;outline-offset:3px!important}
+
+/* CASE ARCHIVE — maintain existing modal controller, filters and 9 columns. */
+html[data-erp-theme] #historico{border-radius:22px!important;border:1px solid color-mix(in srgb,var(--cw-accent) 23%,var(--cw-line))!important;box-shadow:var(--cw-shadow)!important;color:var(--cw-ink)!important}
+html[data-erp-theme] body.history-open #historico>.panel-head{display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;gap:12px!important;padding:17px 20px!important;background:linear-gradient(115deg,var(--cw-glow),var(--cw-surface) 77%)!important;border-bottom:1px solid var(--cw-line)!important;position:relative!important;z-index:3}
+html[data-erp-theme] #historico>.panel-head>.cw-heading{order:0!important;max-width:calc(100% - 55px)}
+html[data-erp-theme] #historico .cw-heading .panel-title{margin:0!important;font:800 clamp(18px,2vw,23px)/1.25 'Manrope','DM Sans',sans-serif!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #historico .cw-heading .panel-sub{font-size:11px!important;line-height:1.4!important;color:var(--cw-muted)!important;margin:0!important}
+html[data-erp-theme] #historico .history-modal-close{order:1!important;align-self:flex-start!important;margin-left:auto!important;min-width:38px!important;width:38px!important;height:38px!important;display:grid!important;place-items:center!important;padding:0!important;line-height:1!important;border:1px solid var(--cw-line)!important;border-radius:11px!important;background:var(--cw-soft)!important;color:var(--cw-ink)!important;box-shadow:none!important}
+html[data-erp-theme] #historico .history-modal-close:hover{background:var(--cw-glow)!important;border-color:var(--cw-accent)!important}
+html[data-erp-theme] body.history-open #historico .table-tools{order:2!important;flex:1 1 100%!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;width:100%!important;min-width:0!important;max-width:none!important;padding:12px!important;margin:4px 0 0!important;background:var(--cw-soft)!important;border:1px solid var(--cw-line)!important;border-radius:14px}
+html[data-erp-theme] #historico .table-tools .field{min-width:0!important;max-width:none!important;flex:auto!important;margin:0!important;display:flex!important;flex-direction:column!important;gap:5px!important}
+html[data-erp-theme] #historico :is(.table-tools,.filters) .field>label{font:800 9px/1.45 'DM Sans',sans-serif!important;letter-spacing:.055em!important;color:var(--cw-muted)!important}
+html[data-erp-theme] #historico :is(.table-tools,.filters) .control{width:100%!important;min-width:0!important;min-height:38px!important;padding:8px 10px!important;border:1px solid var(--cw-line)!important;border-radius:10px!important;color:var(--cw-ink)!important;background:var(--cw-surface)!important;box-shadow:none!important;font:600 11px/1.4 'DM Sans',sans-serif!important}
+html[data-erp-theme] #historico :is(.table-tools,.filters) .control:focus{border-color:var(--cw-accent)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--cw-accent) 17%,transparent)!important}
+html[data-erp-theme] #historico .cr-history-filter-slot{flex:0 0 auto!important;min-width:0!important;padding:13px 20px 17px!important;border-bottom:1px solid var(--cw-line)!important;background:color-mix(in srgb,var(--cw-soft) 52%,var(--cw-surface))!important}
+html[data-erp-theme] #historico .cr-filter-title{margin:0 0 10px!important;font:800 10px/1.4 'DM Sans',sans-serif!important;letter-spacing:.06em!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #historico .cr-filter-title::before{content:'⌕';display:inline-grid;place-items:center;width:24px;height:24px;margin-right:8px;border-radius:8px;background:var(--cw-glow);color:var(--cw-accent);font-size:19px;vertical-align:middle}
+html[data-erp-theme] #historico .cr-history-filter-slot .filters{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important;min-width:0!important;width:100%!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+html[data-erp-theme] #historico .cr-history-filter-slot .filters>.field{display:flex!important;flex-direction:column!important;min-width:0!important;max-width:none!important;flex:auto!important;gap:6px!important;margin:0!important;padding:10px!important;border:1px solid var(--cw-line)!important;border-radius:13px;background:var(--cw-surface)!important}
+html[data-erp-theme] #historico .filters>.meta-box{background:var(--cw-glow)!important;border-color:color-mix(in srgb,var(--cw-accent) 27%,var(--cw-line))!important}
+html[data-erp-theme] #historico .filters>.history-smart-field{grid-column:1/-1!important;position:relative;padding:11px 13px!important;border-color:color-mix(in srgb,var(--cw-accent) 32%,var(--cw-line))!important}
+html[data-erp-theme] #historico .filters>.history-smart-field .control{min-height:42px!important;padding-left:34px!important}
+html[data-erp-theme] #historico .filters>.history-smart-field::after{content:'⌕';pointer-events:none;position:absolute;left:24px;bottom:16px;color:var(--cw-accent);font-size:22px}
+html[data-erp-theme] body.history-open #historico>.table-wrap{flex:1 1 auto!important;min-height:90px!important;max-height:none!important;min-width:0!important;overflow:auto!important;margin:0 12px!important;border:1px solid var(--cw-line)!important;border-radius:13px!important;background:var(--cw-surface)!important}
+html[data-erp-theme] #historico .table{width:100%!important;min-width:960px!important;border-collapse:separate!important;border-spacing:0!important;table-layout:auto!important}
+html[data-erp-theme] #historico .table th{position:sticky!important;top:0!important;z-index:2!important;background:color-mix(in srgb,var(--cw-accent) 6%,var(--cw-soft))!important;color:var(--cw-muted)!important;padding:12px!important;border-bottom:1px solid var(--cw-line)!important;font:800 10px/1.3 'DM Sans',sans-serif!important;letter-spacing:.04em!important;white-space:nowrap!important}
+html[data-erp-theme] #historico .table td{background:transparent!important;color:var(--cw-ink)!important;padding:12px!important;border-bottom:1px solid var(--cw-line)!important;vertical-align:middle!important;line-height:1.5!important;font-size:11px!important}
+html[data-erp-theme] #historico .table tbody tr:hover td{background:color-mix(in srgb,var(--cw-accent) 7%,var(--cw-surface))!important}
+html[data-erp-theme] #historico .table td:nth-child(2){min-width:165px;overflow-wrap:anywhere}
+html[data-erp-theme] #historico .table td:nth-child(8){max-width:220px;overflow-wrap:anywhere}
+html[data-erp-theme] #historico .table td:is(.yes,.no){font-weight:750!important}
+html[data-erp-theme] #historico .table .badge{border-radius:999px!important;padding:5px 9px!important;font:800 10px/1.3 'DM Sans',sans-serif!important}
+html[data-erp-theme] #historico .table .actions{white-space:nowrap!important}
+html[data-erp-theme] #historico .table .actions .icon-btn{width:34px!important;height:34px!important;min-width:34px!important;border-radius:10px!important;margin-right:4px!important;border:1px solid var(--cw-line)!important;background:var(--cw-soft)!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #historico .table .actions .icon-btn:hover{border-color:var(--cw-accent)!important}
+html[data-erp-theme] #historico .table td.empty{padding:35px 18px!important;text-align:center!important;color:var(--cw-muted)!important}
+html[data-erp-theme] body.history-open #historico .pagination{flex:0 0 auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin:0!important;padding:13px 18px!important;background:var(--cw-surface)!important;border-top:1px solid var(--cw-line)!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #historico .pagination .btn{min-height:35px!important;min-width:87px!important;background:var(--cw-soft)!important;border:1px solid var(--cw-line)!important;border-radius:10px!important;color:var(--cw-ink)!important;box-shadow:none!important}
+html[data-erp-theme] #historico .pagination .btn:disabled{opacity:.42!important;cursor:not-allowed!important}
+html[data-erp-theme] #historico #pageInfo{font:800 11px/1.4 'DM Sans',sans-serif!important;color:var(--cw-ink)!important}
+
+/* ACTIVITY CHRONICLE — drag/resize/open mechanism remains the original JavaScript. */
+html[data-erp-theme] #winAuditoria{border:1px solid var(--cw-line)!important;border-radius:20px!important;background:var(--cw-surface)!important;color:var(--cw-ink)!important;box-shadow:var(--cw-shadow)!important;backdrop-filter:none!important}
+html[data-erp-theme] #winAuditoria #winAuditoriaHeader{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;padding:15px 18px!important;background:linear-gradient(115deg,var(--cw-glow),var(--cw-surface) 75%)!important;border-bottom:1px solid var(--cw-line)!important}
+html[data-erp-theme] #winAuditoria .cw-icon{width:40px;flex-basis:40px;height:40px;border-radius:13px}
+html[data-erp-theme] #winAuditoria .win-title{font:800 17px/1.3 'Manrope','DM Sans',sans-serif!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #winAuditoria #btnCloseAuditoria{flex:0 0 36px!important;width:36px!important;height:36px!important;border-radius:10px!important;background:var(--cw-soft)!important;border:1px solid var(--cw-line)!important;color:var(--cw-ink)!important;font-size:18px!important}
+html[data-erp-theme] #winAuditoria .win-sub{padding:11px 18px!important;background:var(--cw-surface)!important;border-bottom:1px solid var(--cw-line)!important;color:var(--cw-muted)!important;font:500 11px/1.5 'DM Sans',sans-serif!important}
+html[data-erp-theme] #winAuditoria .win-body{flex:1 1 auto!important;min-height:0!important;overflow:auto!important;padding:12px!important;background:var(--cw-surface)!important}
+html[data-erp-theme] #winAuditoria .table{width:100%!important;table-layout:fixed!important;border-collapse:separate!important;border-spacing:0 7px!important}
+html[data-erp-theme] #winAuditoria .table th{background:var(--cw-soft)!important;color:var(--cw-muted)!important;padding:11px!important;font:800 10px/1.4 'DM Sans',sans-serif!important}
+html[data-erp-theme] #winAuditoria .table th:nth-child(1){width:26%}html[data-erp-theme] #winAuditoria .table th:nth-child(2){width:22%}html[data-erp-theme] #winAuditoria .table th:nth-child(3){width:17%}html[data-erp-theme] #winAuditoria .table th:nth-child(4){width:35%}
+html[data-erp-theme] #winAuditoria .table tbody tr{background:var(--cw-soft)!important}
+html[data-erp-theme] #winAuditoria .table tbody td{background:transparent!important;color:var(--cw-ink)!important;padding:12px!important;border-top:1px solid var(--cw-line)!important;border-bottom:1px solid var(--cw-line)!important;overflow-wrap:anywhere;font-size:11px!important;line-height:1.5!important;vertical-align:middle!important}
+html[data-erp-theme] #winAuditoria .table tbody td:first-child{border-left:3px solid var(--cw-accent)!important;border-radius:10px 0 0 10px!important;color:var(--cw-muted)!important;font-variant-numeric:tabular-nums}
+html[data-erp-theme] #winAuditoria .table tbody td:last-child{border-right:1px solid var(--cw-line)!important;border-radius:0 10px 10px 0!important}
+html[data-erp-theme] #winAuditoria .table tbody tr:hover{background:var(--cw-glow)!important}
+html[data-erp-theme] #winAuditoria .table .badge{font:800 10px/1.4 'DM Sans',sans-serif!important;padding:5px 8px!important;border-radius:999px!important;white-space:normal!important}
+html[data-erp-theme] #winAuditoria .table td.empty{text-align:center!important;color:var(--cw-muted)!important;padding:30px!important}
+
+/* CONTROL CENTER — native controls are retained, checkbox appearance only. */
+html[data-erp-theme] #erp-settings{border:1px solid var(--cw-line)!important;border-radius:22px!important;box-shadow:var(--cw-shadow)!important;background:var(--cw-surface)!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #erp-settings::backdrop{background:rgba(7,13,28,.56)!important;backdrop-filter:blur(4px)!important}
+html[data-erp-theme] #erp-settings .erp-settings-header{position:sticky;top:0;z-index:4;display:flex!important;gap:13px!important;align-items:center!important;padding:19px 24px!important;border-bottom:1px solid var(--cw-line)!important;background:linear-gradient(117deg,var(--cw-glow),var(--cw-surface) 77%)!important}
+html[data-erp-theme] #erp-settings #erp-settings-title{font:800 25px/1.2 'Manrope','DM Sans',sans-serif!important;color:var(--cw-ink)!important;letter-spacing:-.025em!important}
+html[data-erp-theme] #erp-settings .cw-desc{font:500 11px/1.55 'DM Sans',sans-serif;color:var(--cw-muted)!important;margin:3px 0 0}
+html[data-erp-theme] #erp-settings .erp-close{min-width:38px!important;width:38px!important;height:38px!important;border-radius:11px!important;border:1px solid var(--cw-line)!important;background:var(--cw-soft)!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #erp-settings .erp-settings-body{padding:4px 24px 24px!important}
+html[data-erp-theme] #erp-settings .erp-section-heading{margin:19px 0 9px!important}
+html[data-erp-theme] #erp-settings .erp-section-heading h3{font:800 16px/1.4 'Manrope',sans-serif!important;color:var(--cw-ink)!important;margin:0 0 5px!important}
+html[data-erp-theme] #erp-settings .erp-section-heading p{font-size:11px!important;color:var(--cw-muted)!important}
+html[data-erp-theme] #erp-settings .erp-options{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;align-items:stretch!important;margin:16px 0 0!important;padding:17px!important;min-width:0!important;border:1px solid var(--cw-line)!important;border-radius:17px!important;background:var(--cw-soft)!important}
+html[data-erp-theme] #erp-settings .erp-options legend{font:800 11px/1.4 'DM Sans',sans-serif!important;padding:0 10px!important;color:var(--cw-ink)!important}
+html[data-erp-theme] #erp-settings .erp-options legend::before{content:'';display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:8px;background:var(--cw-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--cw-accent) 12%,transparent)}
+html[data-erp-theme] #erp-settings .erp-options label{display:flex!important;flex-direction:column!important;justify-content:center!important;gap:7px!important;min-width:0!important;max-width:none!important;margin:0!important;padding:13px!important;border-radius:12px!important;border:1px solid var(--cw-line)!important;background:var(--cw-surface)!important;color:var(--cw-ink)!important;font:750 11px/1.45 'DM Sans',sans-serif!important}
+html[data-erp-theme] #erp-settings .erp-options label small{display:block!important;font:500 10px/1.5 'DM Sans',sans-serif!important;color:var(--cw-muted)!important;margin:0!important}
+html[data-erp-theme] #erp-settings .erp-options select{width:100%!important;min-height:39px!important;max-width:100%!important;padding:9px 12px!important;border:1px solid var(--cw-line)!important;border-radius:10px!important;background:var(--cw-soft)!important;color:var(--cw-ink)!important;font:700 11px 'DM Sans',sans-serif!important}
+html[data-erp-theme] #erp-settings .erp-options label:has(>input[type="checkbox"]){display:grid!important;grid-template-columns:41px minmax(0,1fr)!important;grid-template-rows:auto auto;column-gap:12px!important;row-gap:4px!important;align-items:center!important;min-height:76px!important;cursor:pointer}
+html[data-erp-theme] #erp-settings .erp-options label:has(>input[type="checkbox"])>small{grid-column:2;grid-row:2}
+html[data-erp-theme] #erp-settings .erp-options input[type="checkbox"]{appearance:none!important;-webkit-appearance:none!important;position:relative;display:block!important;grid-column:1;grid-row:1/span 2;align-self:center;width:40px!important;min-width:40px!important;height:23px!important;margin:0!important;border-radius:999px!important;border:1px solid var(--cw-line)!important;background:color-mix(in srgb,var(--cw-muted) 18%,var(--cw-soft))!important;cursor:pointer;transition:background-color .18s!important}
+html[data-erp-theme] #erp-settings .erp-options input[type="checkbox"]::before{content:'';position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:var(--cw-surface);box-shadow:0 1px 4px rgba(0,0,0,.15);transform:translateX(0);transition:transform .18s!important}
+html[data-erp-theme] #erp-settings .erp-options input[type="checkbox"]:checked{background:var(--cw-accent)!important;border-color:var(--cw-accent)!important}
+html[data-erp-theme] #erp-settings .erp-options input[type="checkbox"]:checked::before{transform:translateX(17px)!important;background:#fff}
+html[data-erp-theme] #erp-settings .erp-options input[type="checkbox"]:focus-visible{outline:3px solid var(--cw-accent)!important;outline-offset:3px!important}
+html[data-erp-theme] #erp-settings .erp-options .erp-settings-reset-row{grid-column:1/-1!important;margin:3px 0 0!important;padding:14px!important;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:12px!important;border:1px solid color-mix(in srgb,#b98276 32%,var(--cw-line))!important;border-radius:13px!important;background:color-mix(in srgb,#b98276 5%,var(--cw-surface))!important}
+html[data-erp-theme] #erp-settings .erp-options>.erp-settings-help{grid-column:1/-1!important;margin:0!important;padding:10px 12px!important;border-radius:10px!important;background:var(--cw-glow)!important;color:var(--cw-muted)!important}
+html[data-erp-theme] #erp-settings .erp-options>button{min-height:40px!important;border:1px solid var(--cw-line)!important;border-radius:10px!important;background:var(--cw-surface)!important;color:var(--cw-ink)!important;box-shadow:none!important;white-space:normal!important}
+html[data-erp-theme] #erp-settings #auroraEraseFeedback{border-color:color-mix(in srgb,#df6b82 40%,var(--cw-line))!important}
+html[data-erp-theme] #erp-settings .erp-settings-footer{position:sticky;bottom:0;z-index:3;background:var(--cw-soft)!important;border-top:1px solid var(--cw-line)!important;padding:13px 24px!important}
+html[data-erp-theme] #erp-settings .erp-settings-footer p{color:var(--cw-muted)!important}
+
+/* Responsividade / visual mobile while all original controls and cells survive. */
+@media(min-width:641px) and (max-width:1100px){html[data-erp-theme]:not([data-erp-theme="glassy-crm"]) #winAuditoria:not([data-moved="true"]){width:min(720px,calc(100vw - 24px))!important;max-width:calc(100vw - 24px)!important;left:calc((100vw - min(720px,calc(100vw - 24px))) / 2)!important}}
+@media(max-width:800px){
+ html[data-erp-theme] body.history-open #historico>.panel-head{padding:13px 15px!important}
+ html[data-erp-theme] #historico .cr-history-filter-slot{padding:12px 15px!important}
+ html[data-erp-theme] #historico .table-tools{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html[data-erp-theme] #historico .filters{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html[data-erp-theme] #historico .table-wrap{margin:0 10px!important}
+ html[data-erp-theme] #erp-settings .erp-settings-header{padding:15px!important}
+ html[data-erp-theme] #erp-settings .erp-settings-body{padding:4px 15px 20px!important}
+ html[data-erp-theme] #erp-settings .erp-settings-footer{padding:12px 15px!important}
+}
+@media(max-width:640px){
+ html[data-erp-theme] #winAuditoria{position:fixed!important;top:8px!important;left:8px!important;right:8px!important;width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;min-width:0!important;height:calc(100dvh - 16px)!important;max-height:calc(100dvh - 16px)!important;min-height:0!important;resize:none!important;border-radius:15px!important}
+ html[data-erp-theme] #winAuditoria #winAuditoriaHeader{cursor:default!important;padding:12px!important}
+ html[data-erp-theme] #winAuditoria .cw-audit-hint{display:none!important}
+ html[data-erp-theme] #winAuditoria .win-body{padding:8px!important}
+ html[data-erp-theme] #winAuditoria .table{display:block!important;width:100%!important;min-width:0!important;table-layout:auto!important}
+ html[data-erp-theme] #winAuditoria .table thead{display:none!important}
+ html[data-erp-theme] #winAuditoria .table tbody{display:flex!important;flex-direction:column!important;gap:8px!important}
+ html[data-erp-theme] #winAuditoria .table tbody tr{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0!important;border:1px solid var(--cw-line)!important;border-left:3px solid var(--cw-accent)!important;border-radius:11px!important;background:var(--cw-soft)!important}
+ html[data-erp-theme] #winAuditoria .table tbody td{display:flex!important;flex-direction:column!important;align-items:flex-start!important;min-width:0!important;max-width:none!important;padding:10px!important;border:0!important;border-radius:0!important;white-space:normal!important}
+ html[data-erp-theme] #winAuditoria .table tbody td::before{display:block;font:800 9px/1.4 'DM Sans',sans-serif;color:var(--cw-muted);letter-spacing:.045em;margin-bottom:4px}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(1)::before{content:'DATA / HORA'}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(2)::before{content:'AÇÃO'}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(3)::before{content:'ID DO CASO'}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(4)::before{content:'DETALHES'}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(3),html[data-erp-theme] #winAuditoria .table tbody td:nth-child(4){grid-column:1/-1}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(4){border-top:1px solid var(--cw-line)!important}
+ html[data-erp-theme] #winAuditoria .table tbody td.empty{grid-column:1/-1;display:block!important}
+ html[data-erp-theme] #erp-settings .erp-options{grid-template-columns:minmax(0,1fr)!important;padding:13px!important}
+ html[data-erp-theme] #erp-settings .erp-settings-reset-row,html[data-erp-theme] #erp-settings .erp-options>.erp-settings-help{grid-column:1!important}
+}
+@media(max-width:420px){
+ html[data-erp-theme] #historico .cw-icon{width:38px;height:38px;flex-basis:38px}
+ html[data-erp-theme] #historico .cw-heading .panel-title{font-size:17px!important}
+ html[data-erp-theme] #historico .cw-heading .panel-sub{font-size:9px!important}
+ html[data-erp-theme] #historico .cr-history-filter-slot{max-height:38dvh!important;overflow:auto!important}
+ html[data-erp-theme] #historico .pagination{padding:10px!important;gap:6px!important}
+ html[data-erp-theme] #historico .pagination .btn{min-width:73px!important;padding:7px 5px!important;font-size:10px!important}
+ html[data-erp-theme] #historico #pageInfo{font-size:10px!important}
+ html[data-erp-theme] #erp-settings .cw-icon{width:38px;height:38px;flex-basis:38px}
+ html[data-erp-theme] #erp-settings .erp-settings-header{padding:12px!important}
+ html[data-erp-theme] #erp-settings .erp-settings-body{padding:2px 11px 16px!important}
+}
+html[data-erp-effects="false"] :is(#historico,#winAuditoria,#erp-settings) *,
+html[data-erp-effects="false"] :is(#historico,#winAuditoria,#erp-settings) *::before,
+html[data-erp-effects="false"] :is(#historico,#winAuditoria,#erp-settings) *::after{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) *,html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) *::before,html[data-erp-theme] :is(#historico,#winAuditoria,#erp-settings) *::after{animation:none!important;transition:none!important}}
+
+
+/* ==== MOTION REVISION PRE-QA 02: auditoria + historico ==== */
+/* Fase 03.1: centralizar com o MESMO sistema de coordenadas do transform. */
+html[data-erp-theme] body.history-open #historico{
+  display:flex!important;flex-direction:column!important;position:fixed!important;
+  top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;
+  height:min(810px,calc(100dvh - 32px))!important;
+  max-height:calc(100dvh - 32px)!important;
+  overflow:hidden!important;box-sizing:border-box!important;
+}
+html[data-erp-theme] body.history-open #historico>.panel-head{padding:14px 18px!important;gap:10px!important}
+html[data-erp-theme] body.history-open #historico .table-tools{padding:10px!important;gap:8px!important;margin:2px 0 0!important}
+html[data-erp-theme] #historico .table-tools .field{gap:4px!important}
+html[data-erp-theme] #historico :is(.table-tools,.filters) .field>label{font-size:8.5px!important;line-height:1.3!important}
+html[data-erp-theme] #historico :is(.table-tools,.filters) .control{min-height:36px!important;padding:7px 9px!important}
+html[data-erp-theme] #historico .cr-history-filter-slot{padding:8px 18px 10px!important}
+html[data-erp-theme] #historico .cr-filter-title{margin:0 0 6px!important;font-size:9px!important;line-height:1.3!important}
+html[data-erp-theme] #historico .cr-filter-title::before{width:21px!important;height:21px!important;margin-right:7px!important;font-size:16px!important}
+html[data-erp-theme] #historico .cr-history-filter-slot .filters{gap:8px!important}
+html[data-erp-theme] #historico .cr-history-filter-slot .filters>.field{padding:8px 9px!important;gap:5px!important}
+html[data-erp-theme] #historico .filters>.history-smart-field{padding:8px 10px!important}
+html[data-erp-theme] #historico .filters>.history-smart-field .control{min-height:36px!important;padding-left:32px!important}
+html[data-erp-theme] #historico .filters>.history-smart-field::after{left:21px!important;bottom:11px!important;font-size:18px!important}
+html[data-erp-theme] body.history-open #historico>.table-wrap{flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow:auto!important;margin:0 10px!important}
+html[data-erp-theme] #historico .table th,html[data-erp-theme] #historico .table td{padding:10px 10px!important}
+html[data-erp-theme] body.history-open #historico .pagination{padding:8px 14px!important}
+html[data-erp-theme] #historico .pagination .btn{min-height:33px!important}
+
+html[data-erp-theme] #winAuditoria .win-body{padding:12px!important;overflow:auto!important}
+html[data-erp-theme] #winAuditoria .table{width:100%!important;min-width:0!important;table-layout:auto!important;border-spacing:0 8px!important}
+html[data-erp-theme] #winAuditoria .table th:nth-child(1){width:27%!important}
+html[data-erp-theme] #winAuditoria .table th:nth-child(2){width:16%!important}
+html[data-erp-theme] #winAuditoria .table th:nth-child(3){width:15%!important}
+html[data-erp-theme] #winAuditoria .table th:nth-child(4){width:42%!important}
+html[data-erp-theme] #winAuditoria .table tbody td{padding:10px 12px!important;white-space:normal!important;word-break:break-word!important;overflow-wrap:anywhere!important;vertical-align:top!important}
+html[data-erp-theme] #winAuditoria .table tbody td:first-child{white-space:normal!important;overflow-wrap:anywhere!important}
+html[data-erp-theme] #winAuditoria .table tbody td:nth-child(2){white-space:nowrap!important}
+html[data-erp-theme] #winAuditoria .table .badge{display:inline-flex!important;align-items:center!important;max-width:100%!important;white-space:nowrap!important}
+html[data-erp-theme] #winAuditoria .audit-datetime,html[data-erp-theme] #winAuditoria .audit-details{display:block!important;white-space:normal!important;overflow-wrap:anywhere!important}
+html[data-erp-theme] #winAuditoria .audit-details{color:var(--cw-muted)!important}
+
+@media (max-width:900px){
+ html[data-erp-theme] body.history-open #historico{top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;height:calc(100dvh - 20px)!important;max-height:calc(100dvh - 20px)!important}
+ html[data-erp-theme] #historico .cr-history-filter-slot{padding:8px 14px 9px!important;max-height:30dvh!important}
+ html[data-erp-theme] body.history-open #historico>.table-wrap{min-height:0!important;margin:0 8px!important}
+ html[data-erp-theme] #winAuditoria .table tbody td:nth-child(2){white-space:normal!important}
+}
+
+
+/* Fase 03.1 — Auditoria: colunas fixas sem vazamento dos registros ao rolar.
+   O cabeçalho forma UMA superficie opaca e nao compartilha espacamento de linhas. */
+html[data-erp-theme] #winAuditoria{
+  --cw-audit-header-solid:color-mix(in srgb,var(--cw-accent) 6%,var(--cr-bg,#ffffff));
+}
+@media (min-width:641px){
+  html[data-erp-theme] #winAuditoria .win-body{
+    padding:0 12px 12px!important;overflow:auto!important;
+    overscroll-behavior:contain;
+  }
+  html[data-erp-theme] #winAuditoria .win-body .table{
+    width:100%!important;border-collapse:separate!important;border-spacing:0!important;
+    margin:0!important;
+  }
+  html[data-erp-theme] #winAuditoria .win-body .table thead{
+    position:sticky!important;top:0!important;z-index:20!important;
+    background:var(--cw-audit-header-solid)!important;
+    box-shadow:0 2px 0 var(--cw-line),0 5px 12px rgba(8,12,24,.10)!important;
+  }
+  html[data-erp-theme] #winAuditoria .win-body .table thead th{
+    position:static!important;top:auto!important;z-index:auto!important;
+    background:var(--cw-audit-header-solid)!important;
+    background-clip:border-box!important;
+    border-bottom:1px solid var(--cw-line)!important;
+    white-space:normal!important;vertical-align:middle!important;
+    padding:12px 10px!important;
+  }
+  html[data-erp-theme] #winAuditoria .win-body .table tbody td{
+    border-top:0!important;border-bottom:1px solid var(--cw-line)!important;
+    padding:12px!important;
+  }
+  html[data-erp-theme] #winAuditoria .win-body .table tbody tr:first-child td{border-top:0!important}
+}
+
+
+/* Motion — QA-CW-031-001 | Glass desktop, janela de Auditoria.
+   O tema Glass não garantia a regra estrutural de .floating-window;
+   o controlador original atribui top/left/display, mas não position.
+   Propositalmente NÃO usar !important em top, left, width ou height:
+   inline styles do controlador e resize do usuário permanecem operantes.
+   O breakpoint móvel (<=640px), já aprovado pelo QA, fica intocado. */
+@media (min-width: 641px) {
+  html[data-erp-theme="glassy-crm"] #winAuditoria {
+    position: fixed !important;
+    z-index: 190 !important;
+    top: 14%;
+    left: 30%;
+    box-sizing: border-box;
+    width: min(740px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    min-width: min(340px, calc(100vw - 24px));
+    height: min(500px, calc(100dvh - 24px));
+    max-height: calc(100dvh - 24px);
+    min-height: 260px;
+    flex-direction: column;
+    resize: both;
+    overflow: hidden;
+  }
+  html[data-erp-theme="glassy-crm"] #winAuditoria .win-body {
+    min-height: 0 !important;
+    overflow: auto !important;
+  }
+}

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" role="img" aria-labelledby="title description">
+  <title id="title">MIRA, guardiã do cristal líquido</title>
+  <desc id="description">Pequeno axolote cristalino com guelras de vidro, cauda fluida e joia luminosa no peito, sem fundo.</desc>
+  <defs>
+    <linearGradient id="liquid" x1=".12" y1=".05" x2=".9" y2=".95" gradientUnits="objectBoundingBox">
+      <stop stop-color="#ffffff" stop-opacity=".96"/>
+      <stop offset=".23" stop-color="#e2f8ff" stop-opacity=".95"/>
+      <stop offset=".54" stop-color="#a6cbea" stop-opacity=".93"/>
+      <stop offset=".78" stop-color="#ada5dc" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#728abf" stop-opacity=".94"/>
+    </linearGradient>
+    <linearGradient id="gill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f9fdff"/><stop offset=".45" stop-color="#b9e8f1"/><stop offset="1" stop-color="#a58fd8"/>
+    </linearGradient>
+    <linearGradient id="tail" x1=".18" y1="0" x2="1" y2="1">
+      <stop stop-color="#ecfdff" stop-opacity=".99"/><stop offset=".54" stop-color="#a1daf1" stop-opacity=".83"/><stop offset="1" stop-color="#b1a6ed" stop-opacity=".86"/>
+    </linearGradient>
+    <linearGradient id="aura" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9fff9"/><stop offset=".51" stop-color="#b0d8ff"/><stop offset="1" stop-color="#c7a9ff"/></linearGradient>
+    <radialGradient id="core"><stop stop-color="#fff"/><stop offset=".36" stop-color="#e0ffff"/><stop offset=".75" stop-color="#8dd0ef"/><stop offset="1" stop-color="#a59dde"/></radialGradient>
+    <filter id="soft" x="-.4" y="-.4" width="1.8" height="1.8"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <!-- A hand-painted liquid tail, not a background plate. -->
+  <path d="M176 164c22-21 48-9 47 9-1 16-15 16-23 10-6-5-5-13 1-17-15 0-20 13-13 29 12 28-10 39-31 23l-17-17Z" fill="url(#tail)" stroke="#7399c5" stroke-width="3.4" stroke-linejoin="round"/>
+  <path d="M185 178c14-10 22-3 21 4M173 211c9 5 18 5 24-4" fill="none" stroke="#fff" stroke-opacity=".68" stroke-width="3" stroke-linecap="round"/>
+  <!-- Six softly translucent glass gill petals -->
+  <g stroke="#87a9d0" stroke-width="3.5" stroke-linejoin="round">
+    <path d="M66 91C45 75 34 56 43 45c10-10 28 8 40 29Z" fill="url(#gill)"/>
+    <path d="M59 108C35 104 18 93 24 81c6-12 28-9 45 6Z" fill="url(#tail)"/>
+    <path d="M67 124C42 135 25 133 28 119c3-12 21-19 41-14Z" fill="url(#gill)"/>
+    <path d="M173 91c21-16 32-35 23-46-10-10-28 8-40 29Z" fill="url(#gill)"/>
+    <path d="M180 108c24-4 41-15 35-27-6-12-28-9-45 6Z" fill="url(#tail)"/>
+    <path d="M173 124c25 11 42 9 39-5-3-12-21-19-41-14Z" fill="url(#gill)"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round">
+    <path d="M48 53l22 25M31 89l28 12M35 121l27-9M192 53l-22 25M208 89l-28 12M204 121l-27-9"/>
+  </g>
+  <!-- Fluid pearlescent paws behind the body -->
+  <path d="M78 179c-19-5-26 11-19 22 7 11 25 9 32 0M160 179c18-6 25 10 19 22-8 12-26 10-33 0" fill="url(#liquid)" stroke="#8aafd0" stroke-width="3.4" stroke-linejoin="round"/>
+  <path d="M92 205c-13 10-12 24-1 29 12 6 25-4 26-12M145 205c12 10 11 24 0 29-12 6-25-4-26-12" fill="url(#liquid)" stroke="#8cafd1" stroke-width="3.4" stroke-linejoin="round"/>
+  <!-- Full-body silhouette -->
+  <path d="M120 142c-42-5-65 14-60 48 5 33 29 46 60 46 30 0 56-14 60-45 5-35-20-54-60-49Z" fill="url(#liquid)" stroke="#7296bd" stroke-width="3.6"/>
+  <path d="M120 166c-22 0-37 11-35 31 2 17 15 27 35 27 20 0 34-11 35-28 1-19-14-30-35-30Z" fill="#f0fbff" fill-opacity=".67"/>
+  <path d="M88 170c-8 11-9 21-6 29" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".68"/>
+  <!-- Rounded head has refraction detail and a visible side-light -->
+  <path d="M120 47c-45 0-75 26-75 62 0 37 29 59 75 59 45 0 75-24 75-59 0-37-31-62-75-62Z" fill="url(#liquid)" stroke="#7198bd" stroke-width="4"/>
+  <path d="M66 87c8-21 25-32 48-33 26-1 52 13 60 32" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".72"/>
+  <path d="M57 117c12 35 40 43 67 43" fill="none" stroke="#6a99c2" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+  <path d="M178 101c9 18 7 34-8 47" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".51"/>
+  <!-- Gentle glossy expression -->
+  <ellipse cx="94" cy="113" rx="9" ry="12.5" fill="#344b70"/>
+  <ellipse cx="146" cy="113" rx="9" ry="12.5" fill="#344b70"/>
+  <circle cx="97" cy="108" r="3.7" fill="#fff"/>
+  <circle cx="149" cy="108" r="3.7" fill="#fff"/>
+  <path d="M110 132c6 8 14 8 20 0" fill="none" stroke="#52688a" stroke-width="3.5" stroke-linecap="round"/>
+  <ellipse cx="73" cy="129" rx="13" ry="7" fill="#f5b8d2" opacity=".63"/>
+  <ellipse cx="168" cy="129" rx="13" ry="7" fill="#f5b8d2" opacity=".63"/>
+  <!-- Signature living-heart crystal -->
+  <path d="M120 174 136 186l-5 20-11 10-11-10-5-20Z" fill="url(#core)" stroke="#6ba9cf" stroke-width="2.6"/>
+  <path d="M120 176v36m-14-25h28" stroke="#fff" stroke-opacity=".82" stroke-width="2.3"/>
+  <circle cx="120" cy="189" r="5" fill="#fff" opacity=".88" filter="url(#soft)"/>
+  <g fill="url(#aura)">
+    <path d="m120 27 3.6 9.2 9.4 3.5-9.4 3.4-3.6 9.4-3.5-9.4-9.4-3.4 9.4-3.5Z"/>
+    <path d="m31 165 2.7 6.9 7.1 2.6-7.1 2.7-2.7 7-2.6-7-7.1-2.7 7.1-2.6Z"/>
+    <circle cx="198" cy="145" r="4.5"/><circle cx="57" cy="42" r="2.8"/><circle cx="207" cy="63" r="2.4"/>
+  </g>
+</svg>

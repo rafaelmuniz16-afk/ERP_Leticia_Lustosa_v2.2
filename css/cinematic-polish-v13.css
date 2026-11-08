@@ -1,0 +1,77 @@
+/* ERP v13 — Correções pontuais com a v11 como base estável.
+   Nenhum novo overlay, pseudo-elemento sobre controles ou alteração de layout. */
+
+/* Glow discreto: apenas bordas e sombras. Não interfere em hit-testing. */
+html[data-erp-theme="original"] { --v13-neon:rgba(210,116,210,.33); --v13-glow:rgba(211,145,229,.14) }
+html[data-erp-theme="claro"] { --v13-neon:rgba(95,137,242,.34); --v13-glow:rgba(105,157,246,.15) }
+html[data-erp-theme="escuro"] { --v13-neon:rgba(86,174,255,.35); --v13-glow:rgba(74,134,245,.17) }
+html[data-erp-theme="natal"] { --v13-neon:rgba(39,150,101,.34); --v13-glow:rgba(196,38,67,.11) }
+html[data-erp-theme="ano-novo"] { --v13-neon:rgba(246,210,119,.35); --v13-glow:rgba(124,189,245,.15) }
+html[data-erp-theme="halloween"] { --v13-neon:rgba(255,134,72,.28); --v13-glow:rgba(255,127,53,.11) }
+
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="escuro"],[data-erp-theme="natal"],[data-erp-theme="ano-novo"],[data-erp-theme="halloween"])
+:is(.main .panel,.main .status,.main .kpi,.sidebar .nav,.sidebar .side-card,#cr-mascot-house) {
+  border-color:var(--v13-neon)!important;
+  box-shadow:0 0 0 1px var(--v13-neon),0 0 16px var(--v13-glow),var(--cr-shadow)!important;
+}
+
+/* Ano Novo: remover a esfera decorativa à esquerda que invade o título.
+   O fogo de artifício no canto direito permanece. */
+html[data-erp-theme="ano-novo"] .analytics-section>.panel:first-child::after {
+  content:none!important;
+  display:none!important;
+}
+
+/* Animações do gráfico Evolução diária: apenas cenográficas,
+   não capturam cliques nem bloqueiam o gráfico ou as dicas de dados. */
+html[data-erp-theme="original"] .analytics-section>.panel:first-child .chart-wrap::after {
+  content:"";
+  position:absolute;
+  top:43%;left:-72px;right:auto;bottom:auto;
+  width:63px;height:65px;
+  background:url('../assets/rebirth/unicorn-mascot.svg') center/contain no-repeat;
+  pointer-events:none;
+  z-index:3;
+  opacity:0;
+  filter:drop-shadow(0 7px 10px rgba(154,113,205,.19));
+  animation:v13-chart-walk 17s ease-in-out infinite;
+}
+html[data-erp-theme="natal"] .analytics-section>.panel:first-child .chart-wrap::after {
+  content:"";
+  position:absolute;
+  top:40%;left:-88px;right:auto;bottom:auto;
+  width:78px;height:54px;
+  background:url('../assets/rebirth/reindeer-cinematic.svg') center/contain no-repeat;
+  pointer-events:none;
+  z-index:3;
+  opacity:0;
+  filter:drop-shadow(0 8px 12px rgba(101,59,35,.18));
+  animation:v13-chart-walk 16s ease-in-out infinite;
+}
+@keyframes v13-chart-walk {
+  0%,4% {left:-72px;transform:translateY(12px) rotate(-2deg);opacity:0}
+  12% {opacity:.95}
+  25% {transform:translateY(-6px) rotate(2deg)}
+  45% {transform:translateY(13px) rotate(-2deg)}
+  65% {transform:translateY(-7px) rotate(1deg)}
+  84% {opacity:.93;transform:translateY(9px) rotate(-1deg)}
+  96%,100% {left:calc(100% - 78px);opacity:0;transform:translateY(-4px) rotate(1deg)}
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-erp-theme="original"] .analytics-section>.panel:first-child .chart-wrap::after,
+  html[data-erp-theme="natal"] .analytics-section>.panel:first-child .chart-wrap::after {animation:none!important;opacity:0!important}
+}
+html[data-erp-effects="false"][data-erp-theme="original"] .analytics-section>.panel:first-child .chart-wrap::after,
+html[data-erp-effects="false"][data-erp-theme="natal"] .analytics-section>.panel:first-child .chart-wrap::after {animation:none!important;opacity:0!important}
+
+/* Ano Novo: legenda fixa em formato de contagem regressiva sob o mascote. */
+html[data-erp-theme="ano-novo"] #cr-mascot-house .cr-mascot-caption{
+  color:#d8e8ff!important;
+  font-size:9px!important;
+  line-height:1.24!important;
+  letter-spacing:.01em!important;
+  font-variant-numeric:tabular-nums;
+  white-space:normal!important;
+  max-width:112px;
+  margin:2px auto 0!important;
+}
