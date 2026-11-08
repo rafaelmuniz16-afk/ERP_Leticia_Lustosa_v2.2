@@ -123,7 +123,7 @@
     if (topbar && !$('cr-theme-picker')) {
       const picker = document.createElement('label');
       picker.id = 'cr-theme-picker';
-      picker.innerHTML = '<select id="cr-theme-choice" aria-label="Escolher tema da ERP"><option value="original">🦄 Unicórnio</option><option value="claro">☀️ Luminous</option><option value="escuro">🌙 Midnight</option><option value="natal">🎄 Natal</option><option value="ano-novo">✨ Celestial</option><option value="pascoa">🥚 Páscoa</option><option value="halloween">🎃 Halloween</option><option value="festa-junina">🌽 Arraiá</option><option value="terror">◉ Nocturne</option><option value="cyberpunk">⚡️Cyberpunk</option><option value="glassy-crm">◈ Glass</option></select>';
+      picker.innerHTML = '<select id="cr-theme-choice" aria-label="Escolher tema da ERP"><option value="original">🦄 Unicórnio</option><option value="claro">☀️ Luminous</option><option value="escuro">🌙 Midnight</option><option value="natal">🎄 Natal</option><option value="ano-novo">✨ Celestial</option><option value="pascoa">🥚 Páscoa</option><option value="halloween">🎃 Halloween</option><option value="festa-junina">🌽 Arraiá</option><option value="terror"> ◉ Nocturne</option><option value="cyberpunk">⚡️Cyberpunk</option><option value="glassy-crm"> ◈ Glass</option></select>';
       topbar.appendChild(picker);
       $('cr-theme-choice').addEventListener('change', (event) => {
         const next = event.currentTarget.value;
