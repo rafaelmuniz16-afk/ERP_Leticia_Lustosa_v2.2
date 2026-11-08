@@ -200,22 +200,23 @@ html[data-erp-theme="cyberpunk"] #cr-mascot-house{
 }
 
 
-/* ERP v2.2 | 08/11/2026 | Ajuste pontual Cyberpunk: rolagem lateral.
- * Preserva mascote, navegacao e card de conexao. Somente desktop lateral.
- * O conteudo excedente acompanha a rolagem da pagina, sem segunda barra interna.
+/* ERP v2.2 | 08/11/2026 | Cyberpunk: restaura o menu lateral fixo.
+ * O painel principal rola normalmente. Em janelas baixas, a lateral ainda pode
+ * ser rolada por mouse, toque ou teclado para acessar seus itens inferiores,
+ * sem exibir uma segunda barra de rolagem. Apenas no layout lateral desktop.
  */
 @media (min-width: 931px) {
-  html[data-erp-theme="cyberpunk"] .sidebar {
-    height: auto !important;
-    min-height: calc(100dvh - 59px) !important;
-    overflow-y: visible !important;
-    overflow-x: clip !important;
+  html[data-erp-theme="cyberpunk"]:not([data-erp-layout="top"]) .app > .sidebar {
+    position: sticky !important;
+    top: 59px !important;
+    align-self: start !important;
+    height: calc(100dvh - 59px) !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none !important;
   }
-}
-/* Altura reduzida: evita que a posicao sticky retenha itens abaixo da janela. */
-@media (min-width: 931px) and (max-height: 800px) {
-  html[data-erp-theme="cyberpunk"] .sidebar {
-    position: relative !important;
-    top: auto !important;
+  html[data-erp-theme="cyberpunk"]:not([data-erp-layout="top"]) .app > .sidebar::-webkit-scrollbar {
+    display: none !important;
   }
 }
