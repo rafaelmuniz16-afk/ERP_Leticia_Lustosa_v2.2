@@ -86,6 +86,47 @@
   let touchInitialized = false;
   const addedOrnaments = [];
 
+  // Cinematic Sound Identity: somente o seletor manual dispara trilhas de entrada.
+  // Um único Audio é criado sob demanda; nenhum MP3 é carregado no boot.
+  const transitionTracks = Object.freeze({
+    original: 'T-Unicornio.mp3',
+    claro: 'T-Claro.mp3',
+    escuro: 'T-Escuro.mp3',
+    natal: 'T-Natal.mp3',
+    'ano-novo': 'T-Celestial.mp3',
+    pascoa: 'T-Pascoa.mp3',
+    'festa-junina': 'T-Arraia.mp3',
+    halloween: 'T-Halloween.mp3',
+    terror: 'T-Terror_corrigido_fade.mp3',
+    cyberpunk: 'T-Cyberpunk.mp3',
+    'glassy-crm': 'T-Glass.mp3'
+  });
+  let requestedTransitionSound = null;
+  let transitionAudio = null;
+  function stopTransitionSound() {
+    if (!transitionAudio) return;
+    transitionAudio.pause();
+    try { transitionAudio.currentTime = 0; } catch (_) {}
+  }
+  function startTransitionSound(nextTheme) {
+    const track = transitionTracks[nextTheme];
+    if (!track || !allowMotion() || document.hidden) return;
+    try {
+      if (!transitionAudio) {
+        transitionAudio = new Audio();
+        transitionAudio.preload = 'none';
+        transitionAudio.loop = false;
+      }
+      // Trocar o src no mesmo elemento cancela o áudio anterior, mesmo sob trocas rápidas.
+      transitionAudio.src = 'assets/audio/' + track;
+      transitionAudio.currentTime = 0;
+      const playback = transitionAudio.play();
+      playback?.catch?.(() => {}); // Sem bloquear animação nem abrir alertas.
+    } catch (_) {
+      // O navegador pode bloquear áudio: a transição visual segue normalmente.
+    }
+  }
+
   function createChrome() {
     if ($('cr-chrome')) return;
     const chrome = document.createElement('header');
@@ -129,7 +170,11 @@
         const next = event.currentTarget.value;
         // Todos os 11 temas são selecionados aqui, inclusive Glass.
         // THEMES identifica somente os dez universos Cinematic e não limita o registro.
-        if (window.ERPTheme?.themes[next]) window.ERPTheme.apply({...window.ERPTheme.state, theme:next});
+        if (window.ERPTheme?.themes[next]) {
+          requestedTransitionSound = next !== theme() ? next : null;
+          try { window.ERPTheme.apply({...window.ERPTheme.state, theme:next}); }
+          finally { requestedTransitionSound = null; }
+        }
       });
     }
     if (!$('cr-portal')) {
@@ -922,11 +967,14 @@ function drawNewYearTransition(ctx,W,H,p,opacity) {
 
   function playTransition(nextTheme) {
     stopPortal?.();
+    stopTransitionSound();
     if (!THEMES.has(nextTheme) || !allowMotion()) return;
     const portal=$('cr-portal');const shaderCanvas=portal?.querySelector('.cr-gpu-cloud');const motionCanvas=portal?.querySelector('.cr-motion-layer');
     if(!portal||!shaderCanvas||!motionCanvas)return;
     portal.classList.remove('theme-original','theme-halloween','theme-claro','theme-escuro','theme-natal','theme-ano-novo','theme-pascoa','theme-festa-junina','theme-terror','theme-cyberpunk','theme-glassy-crm');
     portal.classList.add('is-playing','theme-'+nextTheme);
+    // Mesmo ponto de início do portal; somente a seleção manual habilita o som.
+    if (requestedTransitionSound === nextTheme) startTransitionSound(nextTheme);
     const logo=portal.querySelector('.cr-portal-logo');
     const meta = getThemeMeta(nextTheme);
     const dark=isDarkTheme(nextTheme);
@@ -985,7 +1033,7 @@ function drawNewYearTransition(ctx,W,H,p,opacity) {
       }
       if(p<1)frame=requestAnimationFrame(render);else close();
     }
-    function close(){if(stopped)return;stopped=true;cancelAnimationFrame(frame);gsapTl?.kill();gpu?.dispose();portal.classList.remove('is-playing','theme-original','theme-halloween','theme-claro','theme-escuro','theme-natal','theme-ano-novo','theme-pascoa','theme-festa-junina','theme-terror','theme-cyberpunk','theme-glassy-crm');logo.style.opacity='';logo.style.transform='';shaderCanvas.width=0;shaderCanvas.height=0;motionCanvas.width=0;motionCanvas.height=0;stopPortal=null;}
+    function close(){if(stopped)return;stopped=true;cancelAnimationFrame(frame);gsapTl?.kill();gpu?.dispose();stopTransitionSound();portal.classList.remove('is-playing','theme-original','theme-halloween','theme-claro','theme-escuro','theme-natal','theme-ano-novo','theme-pascoa','theme-festa-junina','theme-terror','theme-cyberpunk','theme-glassy-crm');logo.style.opacity='';logo.style.transform='';shaderCanvas.width=0;shaderCanvas.height=0;motionCanvas.width=0;motionCanvas.height=0;stopPortal=null;}
     stopPortal=close;
     frame=requestAnimationFrame(render);
   }
@@ -1018,10 +1066,18 @@ function drawNewYearTransition(ctx,W,H,p,opacity) {
     document.addEventListener('erp:appearance-change', e => {
       const next=e.detail?.theme||theme();
       const changed=next!==previousTheme;
+      if (!allowMotion()) stopTransitionSound();
       syncTheme(next,changed);
       previousTheme=next;
     });
-    if(!touchInitialized){touchInitialized=true;document.addEventListener('visibilitychange',()=>{if(document.hidden)stopPortal?.();},{passive:true});}
+    if(!touchInitialized){
+      touchInitialized=true;
+      document.addEventListener('visibilitychange',()=>{
+        if(document.hidden){stopPortal?.();stopTransitionSound();}
+      },{passive:true});
+      window.addEventListener('pagehide',stopTransitionSound,{passive:true});
+      mediaReduce?.addEventListener?.('change',()=>{if(mediaReduce.matches)stopTransitionSound();});
+    }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
