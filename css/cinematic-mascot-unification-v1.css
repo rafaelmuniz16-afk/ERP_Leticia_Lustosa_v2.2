@@ -61,6 +61,15 @@ html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="es
   transform-origin:50% 55%!important;
 }
 
+/* ERP v2.2 | Motion: remover apenas o blur retangular herdado dos
+   botoes antigos de Unicorno e Natal. SVGs, sombras do desenho,
+   posicao, tamanhos e animacoes permanecem inalterados. */
+html[data-erp-theme="original"] #cr-mascot-house .unicorn-mascot,
+html[data-erp-theme="natal"] #cr-mascot-house .santa-mascot{
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+
 html[data-erp-theme="original"] #cr-mascot-house .unicorn-mascot{
   width:126px!important;height:142px!important;
   background:transparent url('../assets/rebirth/unicorn-mascot.svg') center/contain no-repeat!important;
