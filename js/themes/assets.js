@@ -7,7 +7,7 @@
     escuro: {photo: 'DarkTheme.png', audio: 'musica.mp3'},
     original: {photo: 'foto.jpg', audio: 'musica.mp3'},
     halloween: {photo: 'Halloween.png', audio: 'Halloween.mp3'},
-    terror: {video: 'JumpScare.mp4'},
+    terror: {video: 'JumpScare.mp4', audio: 'T-Terror-Epilogo.mp3'},
     claro: {photo: 'LigthTheme.jpg', audio: 'musica.mp3'},
     natal: {photo: 'Natal.png', audio: 'Natal.mp3'},
     pascoa: {photo: 'Pascoa.png', audio: 'Pascoa.mp3'},
