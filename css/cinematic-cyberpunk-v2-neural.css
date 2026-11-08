@@ -198,3 +198,24 @@ html[data-erp-theme="cyberpunk"] #cr-mascot-house{
     bottom:auto!important;
   }
 }
+
+
+/* ERP v2.2 | 08/11/2026 | Ajuste pontual Cyberpunk: rolagem lateral.
+ * Preserva mascote, navegacao e card de conexao. Somente desktop lateral.
+ * O conteudo excedente acompanha a rolagem da pagina, sem segunda barra interna.
+ */
+@media (min-width: 931px) {
+  html[data-erp-theme="cyberpunk"] .sidebar {
+    height: auto !important;
+    min-height: calc(100dvh - 59px) !important;
+    overflow-y: visible !important;
+    overflow-x: clip !important;
+  }
+}
+/* Altura reduzida: evita que a posicao sticky retenha itens abaixo da janela. */
+@media (min-width: 931px) and (max-height: 800px) {
+  html[data-erp-theme="cyberpunk"] .sidebar {
+    position: relative !important;
+    top: auto !important;
+  }
+}
