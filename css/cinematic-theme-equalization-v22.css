@@ -1,0 +1,287 @@
+/* ============================================================================
+   ERP v2.2 — Motion | Equalização dos universos Cinematic Rebirth (08/11/2026)
+   Decorativo APENAS: sem script, RAF, filtros em movimento ou interatividade.
+   Ornamentos anteriores e animações do projeto permanecem intactos.
+   O Halloween não recebe alterações, pois já é a referência aprovada.
+   ============================================================================ */
+
+/* Adornos montados somente em regiões já existentes no dashboard.
+   ARIA oculto, pointer-events:none; sem shift no fluxo dos gráficos e indicadores. */
+html[data-erp-theme] .cr-parity {
+  display:none;
+  position:absolute;
+  pointer-events:none!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  z-index:0;
+}
+html[data-erp-theme]:not([data-erp-theme="halloween"]) .cr-parity {display:block}
+
+/* A camada da produção fica atrás das métricas, nunca sobre labels ou botões. */
+html[data-erp-theme]:not([data-erp-theme="halloween"]) #cadastro > .panel:first-child {position:relative}
+html[data-erp-theme] #cadastro > .panel:first-child > .cr-parity-production {
+  left:13px;
+  right:13px;
+  bottom:9px;
+  width:auto;
+  height:94px;
+  background-image:var(--parity-prod);
+  background-size:var(--parity-prod-size,210px 68px);
+  background-position:var(--parity-prod-position,14px bottom);
+  opacity:var(--parity-prod-opacity,.13);
+}
+/* Preserve all existing charts, clicks and controls over the backdrop. */
+html[data-erp-theme]:not([data-erp-theme="halloween"]) #cadastro > .panel:first-child > .panel-body {position:relative;z-index:1}
+
+/* Pequeno símbolo com escala ajustável, próximo ao gráfico de evolução. */
+html[data-erp-theme] .analytics-section > .panel:first-child .chart-wrap > .cr-parity-evolution {
+  left:var(--parity-evol-x,59%);
+  top:var(--parity-evol-y,35%);
+  width:var(--parity-evol-width,65px);
+  height:var(--parity-evol-height,62px);
+  background-image:var(--parity-evol);
+  background-size:contain;
+  opacity:var(--parity-evol-opacity,.25);
+  z-index:2;
+}
+
+/* Marca de universo no painel de meta, à direita, sob os indicadores. */
+html[data-erp-theme]:not([data-erp-theme="halloween"]) .analytics-section > .panel:last-child {position:relative}
+html[data-erp-theme] .analytics-section > .panel:last-child > .cr-parity-goal {
+  right:11px;
+  bottom:9px;
+  width:var(--parity-goal-width,106px);
+  height:var(--parity-goal-height,83px);
+  background-image:var(--parity-goal);
+  background-position:bottom right;
+  opacity:var(--parity-goal-opacity,.15);
+}
+html[data-erp-theme]:not([data-erp-theme="halloween"]) .analytics-section > .panel:last-child > .panel-body {position:relative;z-index:1}
+
+/* Marca d'água pequena nos KPIs, sem substituir ícones oficiais. */
+html[data-erp-theme] .kpi > .cr-parity-kpi {
+  width:32px;
+  height:32px;
+  bottom:8px;
+  right:9px;
+  background-image:var(--parity-kpi);
+  opacity:var(--parity-kpi-opacity,.18);
+}
+
+/* UNICÓRNIO — constelação rosada, arco leve e pequenos pontos de magia. */
+html[data-erp-theme="original"]{
+  --parity-prod:radial-gradient(circle at 12% 73%,#ffb5d3 0 2px,transparent 3px),radial-gradient(circle at 22% 44%,#c2a6f4 0 2px,transparent 3px),radial-gradient(circle at 33% 66%,#ffe1a0 0 1.5px,transparent 3px),radial-gradient(circle at 44% 40%,#a7dff4 0 2px,transparent 3px),radial-gradient(circle at 56% 72%,#e7b5fa 0 1.5px,transparent 3px);
+  --parity-prod-size:100% 100%;
+  --parity-evol:url('../assets/rebirth/rainbow.svg');
+  --parity-evol-width:85px;
+  --parity-evol-height:52px;
+  --parity-evol-x:51%;
+  --parity-evol-opacity:.35;
+  --parity-goal:url('../assets/rebirth/unicorn-mascot.svg');
+  --parity-goal-width:77px;
+  --parity-goal-opacity:.16;
+  --parity-kpi:url('../assets/rebirth/rainbow.svg');
+  --parity-kpi-opacity:.24;
+}
+
+/* LUMINOUS — facetas de luz diáfanas; poucos símbolos e muito espaço vazio. */
+html[data-erp-theme="claro"]{
+  --parity-prod:linear-gradient(123deg,transparent 20%,rgba(146,197,255,.20) 36%,transparent 40%),linear-gradient(140deg,transparent 27%,rgba(255,226,165,.30) 39%,transparent 43%),linear-gradient(154deg,transparent 39%,rgba(206,178,250,.20) 49%,transparent 53%);
+  --parity-prod-size:100% 100%;
+  --parity-evol:url('../assets/rebirth/light-mascot.svg');
+  --parity-evol-width:61px;
+  --parity-evol-height:59px;
+  --parity-evol-x:61%;
+  --parity-evol-opacity:.22;
+  --parity-goal:radial-gradient(circle at 50% 45%,rgba(255,235,166,.65) 0 11%,rgba(145,206,255,.23) 12% 21%,transparent 37%);
+  --parity-goal-opacity:.65;
+  --parity-kpi:url('../assets/rebirth/light-mascot.svg');
+  --parity-kpi-opacity:.17;
+}
+
+/* MIDNIGHT — estrelas calmas, símbolo lunar e brilho azul-celeste contido. */
+html[data-erp-theme="escuro"]{
+  --parity-prod:radial-gradient(circle at 11% 65%,#9bc5ff 0 1px,transparent 2.5px),radial-gradient(circle at 28% 26%,#d4ceff 0 1.4px,transparent 3px),radial-gradient(circle at 48% 73%,#bdddfc 0 1px,transparent 3px),radial-gradient(circle at 71% 35%,#94b9ff 0 1.3px,transparent 3px);
+  --parity-prod-size:100% 100%;
+  --parity-evol:url('../assets/rebirth/dark-mascot.svg');
+  --parity-evol-width:60px;
+  --parity-evol-height:60px;
+  --parity-evol-opacity:.23;
+  --parity-goal:radial-gradient(circle at 52% 42%,rgba(131,179,252,.26) 0 18%,transparent 43%),radial-gradient(circle at 43% 45%,rgba(209,234,255,.40) 0 10%,transparent 12%);
+  --parity-goal-opacity:.50;
+  --parity-kpi:url('../assets/rebirth/dark-mascot.svg');
+  --parity-kpi-opacity:.20;
+}
+
+/* NATAL — pequenas estrelas/flocos, pinheiro e silhueta de rena. */
+html[data-erp-theme="natal"]{
+  --parity-prod:radial-gradient(circle at 8% 48%,#e5cfa0 0 1.8px,transparent 3px),radial-gradient(circle at 27% 69%,#c2e1df 0 2px,transparent 3px),radial-gradient(circle at 51% 47%,#f1d0d9 0 1.4px,transparent 2.5px),radial-gradient(circle at 79% 72%,#dfc68e 0 1.8px,transparent 3px);
+  --parity-prod-size:100% 100%;
+  --parity-evol:url('../assets/rebirth/christmas-tree.svg');
+  --parity-evol-width:49px;
+  --parity-evol-height:69px;
+  --parity-evol-x:63%;
+  --parity-evol-opacity:.28;
+  --parity-goal:url('../assets/rebirth/reindeer.svg');
+  --parity-goal-width:86px;
+  --parity-goal-opacity:.19;
+  --parity-kpi:url('../assets/rebirth/christmas-hat.svg');
+  --parity-kpi-opacity:.23;
+}
+
+/* CELESTIAL — confetes de ano novo e faíscas astronômicas. */
+html[data-erp-theme="ano-novo"]{
+  --parity-prod:radial-gradient(circle at 12% 50%,#dfeaff 0 2px,transparent 3px),radial-gradient(circle at 37% 31%,#fce2a7 0 2px,transparent 3px),radial-gradient(circle at 56% 72%,#e5d2fa 0 1.6px,transparent 3px),radial-gradient(circle at 82% 43%,#a8dcf8 0 2px,transparent 3px);
+  --parity-prod-size:100% 100%;
+  --parity-evol:url('../assets/rebirth/newyear-mascot-v3.svg');
+  --parity-evol-width:52px;
+  --parity-evol-height:66px;
+  --parity-evol-opacity:.24;
+  --parity-goal:url('../assets/rebirth/newyear-mascot-v2.svg');
+  --parity-goal-width:75px;
+  --parity-goal-opacity:.17;
+  --parity-kpi:url('../assets/rebirth/newyear-mascot.svg');
+  --parity-kpi-opacity:.19;
+}
+
+/* PÁSCOA — primavera florindo, cascas coloridas e cesta encantada. */
+html[data-erp-theme="pascoa"]{
+  --parity-prod:url('../assets/rebirth/easter-blossom.svg');
+  --parity-prod-size:64px 64px;
+  --parity-prod-position:20px bottom;
+  --parity-prod-opacity:.16;
+  --parity-evol:url('../assets/rebirth/easter-egg-ornament.svg');
+  --parity-evol-width:55px;
+  --parity-evol-height:61px;
+  --parity-evol-opacity:.26;
+  --parity-goal:url('../assets/rebirth/easter-basket-ornament.svg');
+  --parity-goal-width:97px;
+  --parity-goal-opacity:.20;
+  --parity-kpi:url('../assets/rebirth/easter-blossom.svg');
+  --parity-kpi-opacity:.18;
+}
+
+/* ARRAIÁ — bandeirolas, sanfona, lampião e fogueira. */
+html[data-erp-theme="festa-junina"]{
+  --parity-prod:url('../assets/rebirth/junina-bunting.svg');
+  --parity-prod-size:230px 70px;
+  --parity-prod-position:14px bottom;
+  --parity-prod-opacity:.22;
+  --parity-evol:url('../assets/rebirth/junina-accordion.svg');
+  --parity-evol-width:70px;
+  --parity-evol-height:57px;
+  --parity-evol-opacity:.25;
+  --parity-goal:url('../assets/rebirth/junina-lantern.svg');
+  --parity-goal-width:72px;
+  --parity-goal-opacity:.24;
+  --parity-kpi:url('../assets/rebirth/junina-bonfire.svg');
+  --parity-kpi-opacity:.23;
+}
+
+/* NOCTURNE — inscrições de pedra, ampulheta e selo de mistério, sem jumpscare. */
+html[data-erp-theme="terror"]{
+  --parity-prod:url('../assets/rebirth/terror-runes.svg');
+  --parity-prod-size:194px 79px;
+  --parity-prod-position:14px bottom;
+  --parity-prod-opacity:.16;
+  --parity-evol:url('../assets/rebirth/terror-hourglass.svg');
+  --parity-evol-width:54px;
+  --parity-evol-height:63px;
+  --parity-evol-opacity:.17;
+  --parity-goal:url('../assets/rebirth/terror-sigil.svg');
+  --parity-goal-width:92px;
+  --parity-goal-opacity:.17;
+  --parity-kpi:url('../assets/rebirth/terror-watcher.svg');
+  --parity-kpi-opacity:.12;
+}
+
+/* CYBERPUNK — trilhas de placa, chip e holograma neural. */
+html[data-erp-theme="cyberpunk"]{
+  --parity-prod:url('../assets/rebirth/cyberpunk-circuit.svg');
+  --parity-prod-size:192px 65px;
+  --parity-prod-position:17px bottom;
+  --parity-prod-opacity:.23;
+  --parity-evol:url('../assets/rebirth/cyberpunk-chip.svg');
+  --parity-evol-width:54px;
+  --parity-evol-height:56px;
+  --parity-evol-opacity:.27;
+  --parity-goal:url('../assets/rebirth/cyberpunk-holo-diamond.svg');
+  --parity-goal-width:85px;
+  --parity-goal-opacity:.24;
+  --parity-kpi:url('../assets/rebirth/cyberpunk-chip.svg');
+  --parity-kpi-opacity:.18;
+}
+
+/* GLASS — lapidação líquida e reflexos de prisma, tratamento quase invisível. */
+html[data-erp-theme="glassy-crm"]{
+  --parity-prod:linear-gradient(127deg,transparent 9%,rgba(188,224,255,.19) 28%,transparent 35%),linear-gradient(153deg,transparent 34%,rgba(213,203,250,.14) 50%,transparent 58%);
+  --parity-prod-size:100% 100%;
+  --parity-prod-opacity:.50;
+  --parity-evol:url('../assets/images/glassy/facets.svg');
+  --parity-evol-width:77px;
+  --parity-evol-height:72px;
+  --parity-evol-opacity:.17;
+  --parity-goal:url('../assets/images/glassy/facets.svg');
+  --parity-goal-width:88px;
+  --parity-goal-opacity:.14;
+  --parity-kpi:url('../assets/images/glassy/facets.svg');
+  --parity-kpi-opacity:.13;
+}
+html[data-erp-theme="glassy-crm"][data-glass-light="obsidian"]{
+  --parity-evol-opacity:.20;
+  --parity-goal-opacity:.17;
+}
+
+/* HALLOWEEN — intocado: preserva o nível de arte que serviu de referência. */
+
+/* Redução deliberada de densidade em telas pequenas. Nada flutua sobre inputs. */
+@media (max-width:700px) {
+  html[data-erp-theme] #cadastro > .panel:first-child > .cr-parity-production {height:58px;opacity:.10}
+  html[data-erp-theme] .analytics-section > .panel:first-child .chart-wrap > .cr-parity-evolution {width:42px;height:46px;left:65%;opacity:.14}
+  html[data-erp-theme] .analytics-section > .panel:last-child > .cr-parity-goal {width:61px;height:59px;opacity:.11}
+  html[data-erp-theme] .kpi > .cr-parity-kpi {width:24px;height:24px;opacity:.12}
+}
+@media (prefers-contrast:more) {
+  html[data-erp-theme] .cr-parity {opacity:0!important}
+}
+
+
+/* ============================================================================
+   Motion | Equalização v2.2 — correções pontuais de 08/11/2026
+   Somente os detalhes destacados pela direção. Não modifica os elementos
+   originais do Halloween, demais ornamentos, cards, dados ou interações.
+   ============================================================================ */
+
+/* Luminous: remover apenas a esfera inferior da meta.
+   Midnight: remover apenas o anel inferior novo da meta.
+   Cyberpunk: remover apenas o diamante novo inferior da meta.
+   Arraiá: remover o balão/lanterna novo que se sobrepõe à fogueira ORIGINAL,
+   mantendo intacta .cr-jn-fire e suas animações. */
+html:is([data-erp-theme="claro"],
+        [data-erp-theme="escuro"],
+        [data-erp-theme="cyberpunk"],
+        [data-erp-theme="festa-junina"])
+  .analytics-section > .panel:last-child > .cr-parity-goal {
+  display:none!important;
+}
+
+/* Nocturne: ampulheta ORIGINAL deslocada ao topo direito do painel Meta.
+   Preserva o SVG, opacidade, dimensões e animação já aprovados. */
+html[data-erp-theme="terror"]
+  .analytics-section > .panel:last-child > .cr-tr-hourglass {
+  top:9px!important;
+  right:11px!important;
+  bottom:auto!important;
+}
+
+/* Glass: o asset facets.svg original tem fundo retangular quase preto,
+   impróprio para ser aplicado como ornamento sobre painéis translúcidos.
+   Remover apenas as três instâncias criadas pela equalização, mantendo os
+   efeitos Pearl/Obsidian e as decorações nativas do Liquid Glass. */
+html[data-erp-theme="glassy-crm"]
+  :is(.cr-parity-kpi,.cr-parity-evolution,.cr-parity-goal) {
+  display:none!important;
+}
