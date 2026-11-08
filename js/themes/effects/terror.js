@@ -178,9 +178,29 @@ window.ERPThemeEffects['terror'] = function(scope) {
     }, 2800);
   }
 
+  // A risada usa o gerenciador de mídia do escopo do tema. Assim, a troca
+  // de tema, pagehide e visibilitychange interrompem a reprodução existente.
+  // Criar o player apenas quando a mensagem final for exibida.
+  let epilogueAudio = null;
+  let epilogueIssued = false;
+  function stopEpilogueAudio() {
+    if (!epilogueAudio) return;
+    epilogueAudio.pause();
+    try { epilogueAudio.currentTime = 0; } catch (_) {}
+  }
+  scope.listen(window, 'blur', stopEpilogueAudio);
+
   function showAftershock() {
-    const old = document.querySelector('.terror-epilogue-toast');
-    if (old) old.remove();
+    // Durante o descarte do tema, Swal pode concluir seu fechamento depois
+    // de a troca de tema já ter começado. Nessa situação não há epílogo.
+    if (scope.stats?.().disposed || document.hidden ||
+        window.ERPTheme?.state?.theme !== 'terror') return;
+    // Uma emissão por fechamento legítimo (não por mensagem ainda visível).
+    if (epilogueIssued) return;
+    epilogueIssued = true;
+    // A sessão anterior pode permanecer na tela por até 2,9 s. Nesse caso,
+    // substituí-la antes do novo epílogo, sem disparar áudio duplicado.
+    document.querySelectorAll('.terror-epilogue-toast').forEach(oldToast => oldToast.remove());
     const toast = document.createElement('div');
     toast.className = 'terror-epilogue-toast';
     toast.setAttribute('aria-hidden', 'true');
@@ -191,6 +211,16 @@ window.ERPThemeEffects['terror'] = function(scope) {
         <div class="terror-epilogue-laugh">HAHAHAHA!</div>
       </div>`;
     document.body.appendChild(toast);
+    // Reproduzir imediatamente após inserir o HAHAHAHA! no DOM, sem mudar
+    // os cronômetros (2050/2900 ms) nem a animação CSS já aprovada.
+    try {
+      if (!epilogueAudio) epilogueAudio = new scope.Audio();
+      stopEpilogueAudio();
+      const playback = epilogueAudio.play();
+      playback?.catch?.(() => {}); // autoplay negado: mensagem permanece.
+    } catch (_) {
+      // A mensagem deve continuar mesmo em navegadores sem áudio.
+    }
     setTimeout(() => toast.classList.add('is-leaving'), 2050);
     setTimeout(() => toast.remove(), 2900);
   }
@@ -206,6 +236,9 @@ window.ERPThemeEffects['terror'] = function(scope) {
     }
     if (touches >= 10) {
       touches = 0;
+      // Nova sessão do Easter Egg: cancelar qualquer risada do epílogo anterior.
+      stopEpilogueAudio();
+      epilogueIssued = false;
       bubbleMessage('O segredo do Abismo foi revelado.');
       Swal.fire({
         title: '◉ O PACTO DO ABISMO',
