@@ -1,0 +1,120 @@
+/* Cronos — ERP v2.2 Incendio · feitiço do título, sob demanda.
+   Não altera regras de negócio, paleta dos 11 temas, DOM de formulários ou dados.
+   A cena é temporária e não recebe eventos do ponteiro. */
+#cr-chrome .cronos-incendio-trigger {
+  appearance:none; -webkit-appearance:none;
+  display:inline; position:relative; border:0; padding:0 1px; margin:0;
+  background:transparent; color:inherit; font:inherit; line-height:inherit;
+  font-weight:900; letter-spacing:inherit; white-space:nowrap; cursor:pointer;
+  text-align:inherit; vertical-align:baseline; isolation:isolate;
+  transition:color .20s ease, text-shadow .2s ease;
+  touch-action:manipulation;
+}
+#cr-chrome .cronos-incendio-trigger:hover {
+  color:#d98120; text-shadow:0 0 9px rgba(244,149,37,.36);
+}
+#cr-chrome .cronos-incendio-trigger:focus-visible {
+  outline:2px solid #e5a23e; outline-offset:4px; border-radius:3px;
+}
+#cr-chrome .cronos-incendio-trigger.cronos-incendio-active {
+  color:#fff0b8 !important;
+  text-shadow:0 0 3px #fff8da,0 0 10px #ffbb4b,0 0 20px #ff681b,0 0 34px rgba(255,79,18,.85) !important;
+  animation:cronos-incendio-title-ignition 3.8s ease-out both;
+}
+#cr-chrome .cronos-incendio-trigger.cronos-incendio-active::after {
+  content:""; position:absolute; bottom:-4px; left:0; right:0; height:2px;
+  border-radius:10px; pointer-events:none;
+  background:linear-gradient(90deg,transparent,#fff7c2 24%,#ff972d 70%,transparent);
+  box-shadow:0 0 12px #ff8b24,0 0 22px rgba(254,81,18,.6);
+  transform-origin:left center;
+  animation:cronos-incendio-underline 3.8s ease-out both;
+}
+@keyframes cronos-incendio-title-ignition {
+  0%,100% {filter:brightness(1)} 8%{filter:brightness(1.12)}
+  14%{filter:brightness(1.7)} 22%{filter:brightness(1.25)}
+  32%,62%{filter:brightness(1.75)} 78%{filter:brightness(1.12)}
+}
+@keyframes cronos-incendio-underline {
+  0%{transform:scaleX(0);opacity:0}
+  21%{transform:scaleX(.9);opacity:1}
+  35%,73%{transform:scaleX(1);opacity:1}
+  100%{transform:scaleX(1);opacity:0}
+}
+.cronos-incendio-stage {
+  position:fixed; inset:0; z-index:2147483000; pointer-events:none;
+  overflow:hidden; isolation:isolate; contain:layout style;
+  user-select:none; -webkit-user-select:none;
+}
+.cronos-incendio-haze {
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 58% 38% at 52% 23%,rgba(255,169,51,.17),transparent 75%),
+             radial-gradient(ellipse 64% 39% at 65% 76%,rgba(243,80,18,.13),transparent 79%);
+  opacity:0; animation:cronos-incendio-haze 3.8s ease-in-out both;
+}
+@keyframes cronos-incendio-haze {
+  0%,100%{opacity:0} 22%,58%{opacity:1} 82%{opacity:.38}
+}
+.cronos-incendio-beams {position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+.cronos-incendio-beam {
+  fill:none;stroke:rgba(255,169,47,.81);stroke-width:1.7;stroke-linecap:round;
+  filter:drop-shadow(0 0 4px rgba(255,117,26,.9));
+  stroke-dasharray:var(--ci-path-length);stroke-dashoffset:var(--ci-path-length);
+  opacity:0; animation:cronos-incendio-beam 2.2s ease-in-out var(--ci-delay) both;
+}
+@keyframes cronos-incendio-beam {
+  0%{stroke-dashoffset:var(--ci-path-length);opacity:0}
+  15%{opacity:.92} 58%{stroke-dashoffset:0;opacity:.8}
+  100%{stroke-dashoffset:calc(-1 * var(--ci-path-length));opacity:0}
+}
+.cronos-incendio-sigil {
+  position:absolute;left:0;top:0;width:var(--ci-size);height:var(--ci-size);
+  transform:translate(-50%,-50%) scale(.6);opacity:0;
+  animation:cronos-incendio-sigil-arrive 3.75s ease-in-out var(--ci-delay) both;
+}
+.cronos-incendio-sigil svg {width:100%;height:100%;overflow:visible;display:block;
+  fill:none;stroke:#ffcb69;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 4px #ff832b) drop-shadow(0 0 9px rgba(253,75,21,.48));
+}
+.cronos-incendio-sigil .ci-ring-outer {transform-origin:60px 60px;
+  stroke-dasharray:4 7;animation:cronos-incendio-spin 8s linear infinite;
+}
+.cronos-incendio-sigil .ci-ring-inner {transform-origin:60px 60px;
+  stroke:#ffe5a4;stroke-dasharray:23 6 5 9;animation:cronos-incendio-spin 6s linear infinite reverse;
+}
+.cronos-incendio-sigil .ci-rune-flame {fill:rgba(254,124,30,.11);stroke:#ffe6a2;stroke-width:2;}
+.cronos-incendio-sigil .ci-rune-spark{stroke:#ffcc76;stroke-width:1.6;}
+@keyframes cronos-incendio-spin {to{transform:rotate(360deg)}}
+@keyframes cronos-incendio-sigil-arrive {
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(-22deg)}
+  14%{opacity:.96;transform:translate(-50%,-50%) scale(1.06) rotate(5deg)}
+  28%,57%{opacity:.78;transform:translate(-50%,-50%) scale(1) rotate(0)}
+  78%{opacity:.46;transform:translate(-50%,-50%) scale(1.1) rotate(5deg)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.24) rotate(14deg)}
+}
+.cronos-incendio-ember {
+  position:absolute;left:var(--ci-x);top:var(--ci-y);width:var(--ci-ember-size);height:var(--ci-ember-size);
+  border-radius:50%;opacity:0;transform:translate(-50%,-50%) scale(.1);
+  background:radial-gradient(circle at 40% 35%,#fffbe0 0%,#ffe69a 26%,#ff9b33 58%,#ec4f10 80%,transparent 100%);
+  box-shadow:0 0 5px rgba(255,144,47,.8),0 0 12px rgba(251,77,17,.45);
+  animation:cronos-incendio-ember var(--ci-life) cubic-bezier(.15,.48,.31,1) var(--ci-delay) both;
+}
+@keyframes cronos-incendio-ember {
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.1) rotate(0deg)}
+  14%{opacity:.92;transform:translate(-50%,-50%) scale(1.05) rotate(22deg)}
+  52%{opacity:.82} 100%{opacity:0;transform:translate(calc(-50% + var(--ci-dx)),calc(-50% + var(--ci-dy))) scale(.1) rotate(160deg)}
+}
+/* A tinta dos sigilos fica mais contrastante nos temas de fundo claro. */
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil svg {
+  stroke:#c45b1b;
+  filter:drop-shadow(0 0 3px #ffc471) drop-shadow(0 0 8px rgba(244,90,18,.52));
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-flame {
+  stroke:#d45c16;
+}
+@media (prefers-reduced-motion:reduce) {
+  #cr-chrome .cronos-incendio-trigger {transition:none!important;}
+  #cr-chrome .cronos-incendio-trigger.cronos-incendio-active{animation:none!important;
+    color:#d37e22!important;text-shadow:0 0 4px rgba(244,148,40,.45)!important;}
+  #cr-chrome .cronos-incendio-trigger.cronos-incendio-active::after,
+  .cronos-incendio-stage{display:none!important}
+}
