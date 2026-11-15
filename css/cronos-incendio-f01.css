@@ -56,40 +56,85 @@
 }
 .cronos-incendio-beams {position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
 .cronos-incendio-beam {
-  fill:none;stroke:rgba(255,169,47,.81);stroke-width:1.7;stroke-linecap:round;
-  filter:drop-shadow(0 0 4px rgba(255,117,26,.9));
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
   stroke-dasharray:var(--ci-path-length);stroke-dashoffset:var(--ci-path-length);
-  opacity:0; animation:cronos-incendio-beam 2.2s ease-in-out var(--ci-delay) both;
+  opacity:0; animation:cronos-incendio-beam 2.1s cubic-bezier(.18,.72,.22,1) var(--ci-delay) both;
+}
+.cronos-incendio-beam-glow {
+  stroke:rgba(255,122,31,.55);stroke-width:6.4;
+  filter:drop-shadow(0 0 8px rgba(255,124,34,.95)) drop-shadow(0 0 18px rgba(255,71,19,.72));
+}
+.cronos-incendio-beam-core {
+  stroke:rgba(255,232,171,.98);stroke-width:1.95;
+  filter:drop-shadow(0 0 4px rgba(255,245,210,.72));
 }
 @keyframes cronos-incendio-beam {
   0%{stroke-dashoffset:var(--ci-path-length);opacity:0}
-  15%{opacity:.92} 58%{stroke-dashoffset:0;opacity:.8}
+  12%{opacity:.98}
+  52%{stroke-dashoffset:0;opacity:.92}
   100%{stroke-dashoffset:calc(-1 * var(--ci-path-length));opacity:0}
 }
 .cronos-incendio-sigil {
   position:absolute;left:0;top:0;width:var(--ci-size);height:var(--ci-size);
-  transform:translate(-50%,-50%) scale(.6);opacity:0;
-  animation:cronos-incendio-sigil-arrive 3.75s ease-in-out var(--ci-delay) both;
+  transform:translate(-50%,-50%) scale(.56);opacity:0;
+  animation:cronos-incendio-sigil-arrive 3.75s cubic-bezier(.16,.74,.24,1) var(--ci-delay) both;
 }
 .cronos-incendio-sigil svg {width:100%;height:100%;overflow:visible;display:block;
   fill:none;stroke:#ffcb69;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;
-  filter:drop-shadow(0 0 4px #ff832b) drop-shadow(0 0 9px rgba(253,75,21,.48));
+  filter:drop-shadow(0 0 5px #ff832b) drop-shadow(0 0 14px rgba(253,75,21,.48));
 }
-.cronos-incendio-sigil .ci-ring-outer {transform-origin:60px 60px;
-  stroke-dasharray:4 7;animation:cronos-incendio-spin 8s linear infinite;
+.cronos-incendio-sigil .ci-impact {
+  position:absolute;left:50%;top:50%;width:28%;height:28%;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.05);opacity:0;
+  background:radial-gradient(circle,#fffef7 0%,#ffeab0 18%,rgba(255,168,44,.95) 44%,rgba(255,89,18,.65) 65%,rgba(255,89,18,0) 100%);
+  box-shadow:0 0 24px rgba(255,163,56,.86),0 0 46px rgba(255,93,26,.44);
+  animation:cronos-incendio-impact 1.45s ease-out var(--ci-impact-delay) both;
 }
-.cronos-incendio-sigil .ci-ring-inner {transform-origin:60px 60px;
-  stroke:#ffe5a4;stroke-dasharray:23 6 5 9;animation:cronos-incendio-spin 6s linear infinite reverse;
+.cronos-incendio-sigil .ci-draw {
+  stroke-dasharray:100;stroke-dashoffset:100;
+  animation:cronos-incendio-draw 2.35s ease-out var(--ci-draw-delay) both;
 }
-.cronos-incendio-sigil .ci-rune-flame {fill:rgba(254,124,30,.11);stroke:#ffe6a2;stroke-width:2;}
-.cronos-incendio-sigil .ci-rune-spark{stroke:#ffcc76;stroke-width:1.6;}
+.cronos-incendio-sigil .ci-ring-outer {transform-origin:60px 60px;stroke-dasharray:8 8;animation:cronos-incendio-spin 8s linear infinite,cronos-incendio-draw 2.35s ease-out var(--ci-draw-delay) both;}
+.cronos-incendio-sigil .ci-ring-inner {transform-origin:60px 60px;stroke:#ffe5a4;stroke-dasharray:18 7 5 9;animation:cronos-incendio-spin 6.2s linear infinite reverse,cronos-incendio-draw 2.1s ease-out var(--ci-draw-delay) both;}
+.cronos-incendio-sigil .ci-hallows{stroke:#ffe7b8;stroke-width:1.95;}
+.cronos-incendio-sigil .ci-hallows-circle{stroke-width:1.7;opacity:.98;}
+.cronos-incendio-sigil .ci-hallows-wand{stroke-width:2.15;}
+.cronos-incendio-sigil .ci-rune-detail{stroke:#ffc870;stroke-width:1.5;}
+.cronos-incendio-sigil .ci-rune-flame{fill:rgba(254,124,30,.12);stroke:#ffe9bb;stroke-width:1.9;}
+.cronos-incendio-sigil .ci-rune-flame-inner{fill:none;stroke:#ffd67d;stroke-width:1.5;}
+.cronos-incendio-sigil .ci-rune-spark{stroke:#ffcc76;stroke-width:1.45;}
+.cronos-incendio-sigil .ci-rune-platform{stroke:#ffe5b1;stroke-width:1.85;}
+.cronos-incendio-sigil .ci-rune-platform-inner{stroke-width:1.15;opacity:.82;}
+.cronos-incendio-sigil .ci-rune-platform-text{fill:#fff4cf;stroke:none;font:700 19px/1 Georgia,serif;letter-spacing:.15px;filter:drop-shadow(0 0 6px rgba(255,183,77,.78));opacity:0;animation:cronos-incendio-text-fade 2s ease-out var(--ci-draw-delay) both;}
+.cronos-incendio-sigil .ci-rune-glasses{stroke:#ffedc9;stroke-width:1.8;}
+.cronos-incendio-sigil .ci-rune-scar{stroke:#ffd16b;stroke-width:1.95;}
+.cronos-incendio-sigil[data-sigil="platform"] .ci-ring-outer,
+.cronos-incendio-sigil[data-sigil="glasses"] .ci-ring-outer{stroke-dasharray:5 9;}
+.cronos-incendio-sigil[data-sigil="hallows"] .ci-ring-inner{stroke-dasharray:0;opacity:.5;}
+.cronos-incendio-sigil[data-sigil="glasses"] .ci-ring-inner{stroke-dasharray:10 8;opacity:.72;}
 @keyframes cronos-incendio-spin {to{transform:rotate(360deg)}}
+@keyframes cronos-incendio-draw {
+  0%{stroke-dashoffset:100;opacity:0}
+  20%{opacity:.96}
+  58%,100%{stroke-dashoffset:0;opacity:1}
+}
+@keyframes cronos-incendio-text-fade {
+  0%{opacity:0;transform:scale(.6)}
+  28%{opacity:1;transform:scale(1.04)}
+  100%{opacity:1;transform:scale(1)}
+}
+@keyframes cronos-incendio-impact {
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.05)}
+  24%{opacity:1;transform:translate(-50%,-50%) scale(1.9)}
+  58%{opacity:.45;transform:translate(-50%,-50%) scale(2.9)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(3.5)}
+}
 @keyframes cronos-incendio-sigil-arrive {
-  0%{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(-22deg)}
-  14%{opacity:.96;transform:translate(-50%,-50%) scale(1.06) rotate(5deg)}
-  28%,57%{opacity:.78;transform:translate(-50%,-50%) scale(1) rotate(0)}
-  78%{opacity:.46;transform:translate(-50%,-50%) scale(1.1) rotate(5deg)}
-  100%{opacity:0;transform:translate(-50%,-50%) scale(1.24) rotate(14deg)}
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.24) rotate(-20deg)}
+  18%{opacity:1;transform:translate(-50%,-50%) scale(1.08) rotate(3deg)}
+  30%,60%{opacity:.9;transform:translate(-50%,-50%) scale(1) rotate(0)}
+  78%{opacity:.56;transform:translate(-50%,-50%) scale(1.08) rotate(4deg)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.23) rotate(10deg)}
 }
 .cronos-incendio-ember {
   position:absolute;left:var(--ci-x);top:var(--ci-y);width:var(--ci-ember-size);height:var(--ci-ember-size);
@@ -108,8 +153,21 @@ html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="gl
   stroke:#c45b1b;
   filter:drop-shadow(0 0 3px #ffc471) drop-shadow(0 0 8px rgba(244,90,18,.52));
 }
-html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-flame {
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-flame,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-hallows,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-detail,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-platform,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-glasses,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-scar,
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-platform-inner {
   stroke:#d45c16;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-flame-inner {
+  stroke:#c7631c;
+}
+html:is([data-erp-theme="original"],[data-erp-theme="claro"],[data-erp-theme="glassy-crm"]) .cronos-incendio-sigil .ci-rune-platform-text {
+  fill:#d45c16;
+  filter:drop-shadow(0 0 3px rgba(255,206,122,.72));
 }
 @media (prefers-reduced-motion:reduce) {
   #cr-chrome .cronos-incendio-trigger {transition:none!important;}
