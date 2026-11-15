@@ -127,23 +127,46 @@
     box.style.left=`${point.x}px`;box.style.top=`${point.y}px`;
     box.style.setProperty('--ci-size',`${point.size}px`);
     box.style.setProperty('--ci-delay',`${index*125}ms`);
+    box.style.setProperty('--ci-impact-delay',`${180+index*125}ms`);
+    box.style.setProperty('--ci-draw-delay',`${340+index*125}ms`);
+    const impact=document.createElement('span');impact.className='ci-impact';box.appendChild(impact);
     const svg=el('svg',{viewBox:'0 0 120 120','aria-hidden':'true',focusable:'false'},box);
-    el('circle',{cx:60,cy:60,r:48,class:'ci-ring-outer'},svg);
-    el('circle',{cx:60,cy:60,r:39,class:'ci-ring-inner'},svg);
-    el('circle',{cx:60,cy:60,r:29,opacity:'.54'},svg);
-    for(let j=0;j<8;j++){
-      const a=(j/8)*Math.PI*2;
-      el('path',{d:`M ${60+35*Math.cos(a)} ${60+35*Math.sin(a)} L ${60+39*Math.cos(a+.11)} ${60+39*Math.sin(a+.11)}`,class:'ci-rune-spark'},svg);
-    }
-    if(index===1||index===4){
-      // Chama alquímica: cinco movimentos do mesmo traço para evocar combustão.
-      el('path',{d:'M60 30 C47 47 49 51 43 57 C33 73 43 90 60 93 C77 89 88 75 78 57 C76 68 69 68 70 58 C72 48 63 40 60 30 Z M59 58 C62 68 49 74 56 84 C64 88 69 79 65 71 C61 67 59 64 59 58 Z',class:'ci-rune-flame'},svg);
+    const sigilKinds=['flame-a','flame-b','platform','hallows','glasses'];
+    box.dataset.sigil=sigilKinds[index%sigilKinds.length];
+    const create=(tag,attrs)=>el(tag,attrs,svg);
+    const p100=(attrs)=>Object.assign({pathLength:'100'},attrs);
+
+    create('circle',p100({cx:60,cy:60,r:48,class:'ci-ring-outer ci-draw'}));
+    create('circle',p100({cx:60,cy:60,r:37,class:'ci-ring-inner ci-draw'}));
+
+    if(index===0){
+      create('path',p100({d:'M60 14 C52 25 45 34 46 46 C38 52 34 64 38 75 C43 90 53 100 60 103 C67 100 77 91 82 77 C86 66 83 54 74 47 C75 35 69 25 60 14 Z',class:'ci-rune-flame ci-draw'}));
+      create('path',p100({d:'M60 35 C55 44 53 51 55 58 C49 63 49 72 54 78 C58 83 63 83 67 78 C72 72 71 63 65 58 C67 51 65 44 60 35 Z',class:'ci-rune-flame-inner ci-draw'}));
+      create('path',p100({d:'M47 92 Q60 88 73 92',class:'ci-rune-detail ci-draw'}));
+      create('path',p100({d:'M42 79 Q60 71 78 79',class:'ci-rune-detail ci-draw'}));
+    }else if(index===1){
+      create('path',p100({d:'M60 18 C64 30 74 35 77 47 C80 58 76 67 68 74 C76 81 78 92 71 100 C64 107 54 105 49 97 C43 88 46 79 54 73 C46 67 41 58 43 47 C45 35 56 29 60 18 Z',class:'ci-rune-flame ci-draw'}));
+      create('path',p100({d:'M59 33 C62 42 68 46 67 54 C66 60 63 64 60 67 C56 64 53 60 52 54 C51 46 57 42 59 33 Z',class:'ci-rune-flame-inner ci-draw'}));
+      create('path',p100({d:'M39 84 Q49 78 60 85 Q71 78 81 84',class:'ci-rune-detail ci-draw'}));
+      create('path',p100({d:'M47 95 Q60 89 73 95',class:'ci-rune-detail ci-draw'}));
     }else if(index===2){
-      // Sigilo geométrico das brasas, diferente dos sete símbolos da Revelio.
-      el('path',{d:'M60 32 L82 75 L38 75 Z M60 39 L60 84 M43 63 L77 63 M51 84 Q60 91 69 84',class:'ci-rune-spark'},svg);
+      create('circle',p100({cx:60,cy:58,r:24,class:'ci-rune-platform ci-draw'}));
+      create('circle',p100({cx:60,cy:58,r:18,class:'ci-rune-platform ci-draw ci-rune-platform-inner'}));
+      create('path',p100({d:'M60 82 V95 M49 95 H71',class:'ci-rune-platform ci-draw'}));
+      create('text',{x:60,y:64,'text-anchor':'middle',class:'ci-rune-platform-text ci-draw'},svg).textContent='9¾';
+      create('path',p100({d:'M45 29 Q60 21 75 29',class:'ci-rune-detail ci-draw'}));
+    }else if(index===3){
+      create('path',p100({d:'M60 22 L84 89 H36 Z',class:'ci-hallows ci-draw'}));
+      create('circle',p100({cx:60,cy:63,r:15.4,class:'ci-hallows ci-draw ci-hallows-circle'}));
+      create('path',p100({d:'M60 22 L60 89',class:'ci-hallows ci-draw ci-hallows-wand'}));
     }else{
-      // Varinha geométrica e estrela solar.
-      el('path',{d:'M41 80 L72 49 M68 45 L76 53 M77 27 L79 36 L88 39 L79 42 L77 51 L74 42 L65 39 L74 36 Z M36 43 L42 47 M41 34 L47 39 M81 77 L87 73',class:'ci-rune-spark'},svg);
+      create('circle',p100({cx:44,cy:62,r:15,class:'ci-rune-glasses ci-draw'}));
+      create('circle',p100({cx:76,cy:62,r:15,class:'ci-rune-glasses ci-draw'}));
+      create('path',p100({d:'M59 62 H61',class:'ci-rune-glasses ci-draw'}));
+      create('path',p100({d:'M29 60 Q35 52 42 53',class:'ci-rune-glasses ci-draw'}));
+      create('path',p100({d:'M91 60 Q85 52 78 53',class:'ci-rune-glasses ci-draw'}));
+      create('path',p100({d:'M57 28 L51 40 L58 38 L53 51',class:'ci-rune-scar ci-draw'}));
+      create('path',p100({d:'M36 47 Q60 36 84 47',class:'ci-rune-detail ci-draw'}));
     }
     stage.appendChild(box);
   }
@@ -159,9 +182,12 @@
       const sign=i%2?-1:1;
       const bendX=(centerX+p.x)/2+sign*number(w*.06,22,65);
       const bendY=(centerY+p.y)/2-number(h*.07,20,70);
-      const path=el('path',{d:`M${centerX.toFixed(1)},${centerY.toFixed(1)} Q${bendX.toFixed(1)},${bendY.toFixed(1)} ${p.x.toFixed(1)},${p.y.toFixed(1)}`,class:'cronos-incendio-beam'},rays);
-      path.style.setProperty('--ci-path-length',String(Math.ceil(path.getTotalLength()+2)));
-      path.style.setProperty('--ci-delay',`${i*125}ms`);
+      const glow=el('path',{d:`M${centerX.toFixed(1)},${centerY.toFixed(1)} Q${bendX.toFixed(1)},${bendY.toFixed(1)} ${p.x.toFixed(1)},${p.y.toFixed(1)}`,class:'cronos-incendio-beam cronos-incendio-beam-glow'},rays);
+      const core=el('path',{d:`M${centerX.toFixed(1)},${centerY.toFixed(1)} Q${bendX.toFixed(1)},${bendY.toFixed(1)} ${p.x.toFixed(1)},${p.y.toFixed(1)}`,class:'cronos-incendio-beam cronos-incendio-beam-core'},rays);
+      [glow,core].forEach(path=>{
+        path.style.setProperty('--ci-path-length',String(Math.ceil(path.getTotalLength()+2)));
+        path.style.setProperty('--ci-delay',`${i*125}ms`);
+      });
       makeSigil(stage,p,i);
     });
     const rnd=randomGenerator(Math.round(centerX*113+centerY*79+DURATION)>>>0);
