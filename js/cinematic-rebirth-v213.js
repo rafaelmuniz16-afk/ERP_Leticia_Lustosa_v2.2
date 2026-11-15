@@ -132,7 +132,7 @@
     const chrome = document.createElement('header');
     chrome.id = 'cr-chrome';
     chrome.innerHTML = `
-      <div class="cr-logo" aria-label="ERP Letícia Lustosa v2.2 - Cinematic Rebirth"><span class="cr-logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="cr-logo-text"><span class="cr-logo-main">ERP Letícia Lustosa</span> <span class="cr-logo-version">v2.2 - Cinematic Rebirth</span></span></div>
+      <div class="cr-logo"><span class="cr-logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="cr-logo-text"><span class="cr-logo-main">ERP Leticia Lustosa</span> <span class="cr-logo-version">- <button class="cronos-incendio-trigger" type="button" aria-label="Lançar feitiço Incendio" title="Incendio · clique para lançar o feitiço">Incendio</button></span></span></div>
       <button class="cr-top-search" type="button" id="cr-search" aria-label="Pesquisar processos e casos">${icons.search}<span>Pesquisar no seu universo...</span></button>
       <div class="cr-chrome-spacer"></div>
       <div class="cr-nav-actions">
