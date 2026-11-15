@@ -1,13 +1,67 @@
 /* CRONOS | ERP v2.2 — Incendio F01
    A cena é estritamente visual; montada somente após clique, desmontada em 3,8 s.
-   Nenhuma chamada à rede, armazenamento, áudio ou acesso ao modelo de dados.
+   Nenhuma chamada a backend, armazenamento ou acesso ao modelo de dados.
+   Som exclusivo no clique (MP3 local), com parada no encerramento/cancelamento.
    Referência arquitetural: Revelio F08 (isolamento e limpeza da cena), desenho original. */
 (()=>{
   'use strict';
   const SELECTOR='#cr-chrome .cronos-incendio-trigger';
   const NS='http://www.w3.org/2000/svg';
   const DURATION=3800;
-  const state={started:0,finished:0,cancelled:0,active:false,lastFinish:null,sceneCount:0};
+  const AUDIO_PATH='assets/audio/Incendio.mp3';
+  const state={started:0,finished:0,cancelled:0,active:false,lastFinish:null,sceneCount:0,
+    audioPlayRequests:0,audioStatus:'idle',lastAudioError:null};
+  let spellAudio=null;
+  function primeSpellAudio(){
+    if(spellAudio)return spellAudio;
+    try{
+      const audio=new Audio();
+      audio.preload='auto'; // Pequeno SFX local, pré-carregado sem tocar no carregamento da ERP.
+      audio.loop=false;
+      audio.src=AUDIO_PATH;
+      spellAudio=audio;
+      return audio;
+    }catch(err){
+      state.lastAudioError=String(err?.message||err);
+      state.audioStatus='unavailable';
+      return null;
+    }
+  }
+  function stopSpellAudio(current){
+    const audio=current.audio;
+    current.audio=null;
+    if(!audio)return;
+    try{audio.pause();audio.currentTime=0;}catch(_){}
+    state.audioStatus='stopped';
+  }
+  function startSpellAudio(current){
+    const audio=primeSpellAudio();
+    if(!audio||session!==current)return;
+    try{
+      audio.pause();
+      audio.currentTime=0;
+      current.audio=audio;
+      state.audioStatus='requested';
+      state.lastAudioError=null;
+      state.audioPlayRequests++;
+      // Chamado sincronamente dentro do clique real; bloqueio do navegador não impede a cena.
+      const play=audio.play();
+      play?.then?.(()=>{
+        if(session===current)state.audioStatus='playing';
+      })?.catch?.(err=>{
+        if(session===current){
+          state.audioStatus='blocked';
+          state.lastAudioError=String(err?.name||err);
+        }
+      });
+    }catch(err){
+      if(session===current){
+        state.audioStatus='error';
+        state.lastAudioError=String(err?.message||err);
+      }
+      stopSpellAudio(current);
+    }
+  }
   Object.defineProperty(window,'ERPIncendioSpellState',{value:state,configurable:true});
   let session=null;
   const el=(tag,attrs,parent)=>{
@@ -23,6 +77,7 @@
     const prev=session;session=null;
     prev.abort.abort();
     window.clearTimeout(prev.timer);
+    stopSpellAudio(prev);
     prev.stage?.remove();
     prev.button.classList.remove('cronos-incendio-active');
     prev.button.removeAttribute('aria-busy');
@@ -129,7 +184,7 @@
   }
   function start(button){
     if(session||document.hidden||!button.isConnected)return;
-    const current={button,abort:new AbortController(),timer:null,stage:null};
+    const current={button,abort:new AbortController(),timer:null,stage:null,audio:null};
     session=current;state.started++;state.active=true;state.lastFinish=null;
     button.classList.add('cronos-incendio-active');button.setAttribute('aria-busy','true');
     installSafeguards(current);
@@ -137,12 +192,16 @@
       const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
       if(!reduced)current.stage=makeScene(button);
       state.sceneCount=current.stage?1:0;
+      // Início imediatamente após a montagem visual. Sem som no modo de movimento reduzido.
+      if(!reduced)startSpellAudio(current);
       current.timer=window.setTimeout(()=>{if(session===current)teardown('complete')},reduced?450:DURATION);
     }catch(err){
       state.lastError=String(err?.message||err);
       teardown('scene-error');
     }
   }
+  // Pré-buffer silencioso para reduzir atraso entre o clique e o primeiro estalo de fogo.
+  primeSpellAudio();
   document.addEventListener('click',event=>{
     const button=event.target.closest?.(SELECTOR);
     if(!button)return;
